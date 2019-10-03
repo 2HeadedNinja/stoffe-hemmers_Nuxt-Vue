@@ -18,4 +18,8 @@ $ npm run start
 # generate static project
 $ npm run generate
 ```
+## CSS Post Processing
 
+``` bash
+$ gulp
+```
