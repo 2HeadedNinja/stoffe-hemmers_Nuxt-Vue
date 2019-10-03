@@ -1,0 +1,40 @@
+@media all {
+  [class*='app__button'] {
+    display                       : flex;
+    align-items                   : center;
+    justify-content               : center;
+
+    border                        : none;
+    border-radius                 : 0;
+    background-color              : transparent;
+    
+    width                         : 100%;
+    min-height                    : 50px;
+
+    font-family                   : 'Montserrat', sans-serif;
+    font-weight                   : 500;
+    font-size                     : 16px;
+    text-transform                : uppercase;
+
+    margin                        : 0;
+    padding                       : 0;
+
+    cursor                        : pointer;
+
+    svg {
+      width                       : 20px;
+      height                      : 20px;
+      fill                        : tint(dark,3);
+    }
+
+    &[class*='-slim'] {
+      color                       : tint(dark,2);
+      border                      : 1px solid tint(light,3);
+    }
+
+    &[class*='-small'] {
+      min-height                  : 36px;
+      font-size                   : 14px;
+    }
+  }
+}

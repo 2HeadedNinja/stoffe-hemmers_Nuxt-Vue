@@ -1,0 +1,21 @@
+@media all {
+  .grid {
+    display                             : grid;
+
+    &[style*="--grid-template"] {
+      grid-template                     : var(--grid-template);
+    }
+
+    &[style*="--grid-gap"] {
+      grid-gap                          : var(--grid-gap);
+    }
+
+    [style*="--grid-column"] {
+      grid-column                       : var(--grid-column);
+    }
+
+    [style*="--grid-area"] {
+      grid-area                         : var(--grid-area);
+    }
+  }
+}

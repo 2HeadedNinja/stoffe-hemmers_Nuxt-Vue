@@ -1,0 +1,17 @@
+@media all {
+  [style*="--padding-top"] {
+    padding-top                         : var(--padding-top);
+  }
+
+  [style*="--padding-left"] {
+    padding-left                        : var(--padding-left);
+  }
+
+  [style*="--padding-right"] {
+    padding-right                       : var(--padding-right);
+  }
+
+  [style*="--padding-bottom"] {
+    padding-bottom                      : var(--padding-bottom);
+  }
+}

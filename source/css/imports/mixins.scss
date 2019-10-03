@@ -1,0 +1,22 @@
+@mixin animate($property: null, $duration: null, $timing: null, $delay: null) {
+  @if($property == null) {
+    $property: all;
+  }
+
+  @if($duration == null) {
+    $duration: .5s;
+  }
+
+  @if($timing == null) {
+    $timing: ease-in-out;
+  }
+
+  @if($delay == null) {
+    $delay: 0s;
+  }
+
+  transition-delay                  : $delay;
+  transition-duration               : $duration;
+  transition-property               : $property;
+  transition-timing-function        : $timing;
+}

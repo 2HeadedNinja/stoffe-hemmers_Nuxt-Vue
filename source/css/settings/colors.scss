@@ -1,0 +1,118 @@
+
+
+/* Colors Woman love: Purple, Green, Blue; */
+$area                             : default;
+
+$black                            : #4c515f;
+$white                            : #ffffff;
+
+$body                             : #f9fbfc;
+
+$brand                            : #ec4d7b;
+$blue                             : #2194d2;
+$yellow                           : #f7bf49;
+$dark                             : #353739;
+$light                            : #8a9dad;
+$accent                           : #ff7950;
+$skelleton                        : #e8edf3;
+
+$themes : (
+  brand       : $brand,
+  blue        : $blue,
+  yellow      : $yellow,
+  accent      : $accent,
+  dark        : $dark,
+  light       : $light
+);
+
+@function tint($theme: null, $variant: null) {
+  @if($theme == null) {
+    $theme: brand
+  }
+
+  $primary      : map-get($themes,$theme);
+  
+  $themeColors  : (
+    tint-01     : lighten($primary,13%),
+    tint-02     : lighten($primary,10%),
+    tint-03     : lighten($primary,5%),
+    tint-04     : darken($primary,5%),
+    tint-05     : darken($primary,10%),
+    tint-06     : darken($primary,15%)
+  );
+
+  @if($theme == light) {
+    $themeColors  : (
+      tint-01     : lighten($primary,32%),
+      tint-02     : lighten($primary,28%),
+      tint-03     : lighten($primary,10%),
+      tint-04     : darken($primary,10%),
+      tint-05     : darken($primary,15%),
+      tint-06     : darken($primary,20%)
+    );
+  }
+
+  @if($theme == dark) {
+    $themeColors  : (
+      tint-01     : lighten($primary,24%),
+      tint-02     : lighten($primary,18%),
+      tint-03     : lighten($primary,8%),
+      tint-04     : darken($primary,0%),
+      tint-05     : darken($primary,10%),
+      tint-06     : darken($primary,20%)
+    );
+  }
+
+  @if($theme == yellow) {
+    $themeColors  : (
+      tint-01     : lighten($primary,20%),
+      tint-02     : lighten($primary,12%),
+      tint-03     : lighten($primary,3%),
+      tint-04     : darken($primary,5%),
+      tint-05     : darken($primary,12%),
+      tint-06     : darken($primary,20%)
+    );
+  }
+
+  @if($variant == null) {
+    @return $primary;
+  }
+  @else {
+    @return map-get($themeColors,tint-0#{$variant});
+  }
+}
+
+$headline                         : tint(dark,6);
+
+$text                             : tint(dark);
+
+$border                           : tint(light);
+$border-dark                      : tint(dark,2);
+$border-light                     : tint(light,4);
+$border-solid-light               : tint(light,3);
+
+$background-light                 : tint(light,1);
+
+$error                            : #c52515;
+$error-background                 : lighten($error,30%);
+$success                          : #26702e;
+$success-background               : #d6f2d6;
+$notice                           : darken(#4c6bb1,25%);
+$notice-background                : lighten(#4c6bb1,43%);
+
+$sale                             : $error;
+
+$emoji                            : #ffcc21;
+
+$facebook                         : #3b5998;
+$instagram                        : #cd486b;
+$whatsapp                         : #25d366;
+$amazon-light                     : #ffe8ab;
+$amazon-dark                      : #f5c646;
+
+$password : (
+  password-01                     : $error,
+  password-02                     : tint(accent),
+  password-03                     : lighten($success,20%),
+  password-04                     : $success
+);

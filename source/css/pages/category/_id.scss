@@ -1,0 +1,13 @@
+@media all {
+  .product__listing {
+    display                             : grid;
+    min-height                          : 100vh;
+
+    grid-template                       : auto / repeat(3,1fr); 
+    grid-gap                            : 40px;
+
+    h1 {
+      grid-column                       : span 3;
+    }
+  }
+}

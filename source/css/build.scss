@@ -1,0 +1,110 @@
+@import 'fonts/montserrat';
+
+@import 'settings/colors';
+
+@import 'imports/mixins';
+
+@import 'layouts/sidebar';
+
+@import 'pages/category/_id';
+
+@import 'modules/grid';
+@import 'modules/margin';
+@import 'modules/buttons';
+@import 'modules/product';
+@import 'modules/padding';
+
+@media all {
+  *,
+  *:after,
+  *:before {
+    box-sizing                          : border-box;
+  }
+  
+  html,
+  body {
+    margin                              : 0;
+    padding                             : 0;
+  }
+
+  html {
+    /*margin-left                         : calc(100vw - 100%);*/
+    
+    div#app {
+    }
+  }
+
+  body {
+    font-family                         : 'Montserrat', sans-serif;
+    font-weight                         : 400;
+    font-size                           : 16px;
+    line-height                         : 160%;
+  }
+
+  h1 {
+    font-weight                         : 300;
+    text-transform                      : uppercase;
+
+  }
+
+  .content {
+    margin                              : 0 auto;
+
+    width                               : 100%;
+    max-width                           : 1600px;
+  }
+  
+  .fade-enter-active, 
+  .fade-leave-active {
+    transition                          : opacity .25s;
+  }
+  .fade-enter, 
+  .fade-leave-to {
+    opacity                             : 0;
+  }
+
+  header,
+  footer {
+    background-color                    : #ff00ff;
+  }
+
+  header {    
+    position                            : fixed;
+    top                                 : 0;
+    z-index                             : 0;
+
+    min-height                          : 200px;
+    width                               : 100%;
+  }
+
+  aside {
+    background-color                    : #ffff00;
+  }
+
+  main {
+  }
+}
+
+@media (min-width: 1599px) and (max-width: 1920px) {
+
+}
+
+@media (min-width: 1280px) and (max-width: 1600px) {
+
+}
+
+@media (min-width: 901px) and (max-width: 1279px) {
+
+}
+
+@media (min-width: 680px) and (max-width: 900px) {
+
+}
+
+@media (max-width: 679px) {
+
+}
+
+@media all and (-ms-high-contrast:none) {
+
+}

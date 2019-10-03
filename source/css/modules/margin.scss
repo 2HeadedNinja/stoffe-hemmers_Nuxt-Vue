@@ -1,0 +1,17 @@
+@media all {
+  [style*="--margin-top"] {
+    margin-top                          : var(--margin-top);
+  }
+
+  [style*="--margin-left"] {
+    margin-left                         : var(--margin-left);
+  }
+
+  [style*="--margin-right"] {
+    margin-right                        : var(--margin-right);
+  }
+
+  [style*="--margin-bottom"] {
+    margin-bottom                       : var(--margin-bottom);
+  }
+}
