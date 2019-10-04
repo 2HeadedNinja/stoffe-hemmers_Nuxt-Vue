@@ -5,12 +5,7 @@
     </AppHeader>
     <transition name="fade">
       <div v-show="show" class="layout__sidebar-scrollcontent">
-        <div class="grid content" style="--padding-top: 40px; --padding-bottom: 40px;">
-          <aside>
-            Sidebar
-          </aside>
-          <nuxt />
-        </div>
+        <nuxt />
         <AppFooter></AppFooter>
       </div>
     </transition>

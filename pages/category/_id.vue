@@ -1,10 +1,17 @@
 <template>
-  <main class="product__listing">
-    <h1>{{ id }}</h1>
-    <ProductCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ProductCard>
-    <!-- Show Skelletons as long as no Products are loaded yet //-->
-    <ProductSkelleton v-if="!products" v-for="n in productsPerPage" v-bind:key="n"></ProductSkelleton>
-  </main>
+  <div class="grid content" style="--padding-top: 40px; --padding-bottom: 40px;">
+    <aside>
+      <nav>
+
+      </nav>
+    </aside>
+    <main class="product__listing">
+      <h1>{{ id }}</h1>
+      <ProductCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ProductCard>
+      <!-- Show Skelletons as long as no Products are loaded yet //-->
+      <ProductSkelleton v-if="!products" v-for="n in productsPerPage" v-bind:key="n"></ProductSkelleton>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -63,15 +70,17 @@
       },
 
       getProductData() {
-        this.$axios.$get('http://localhost/ajax/products.ajax.php')
-          .then(response => {
-            if(response.error === false) {
-              this.$data.products = response.products;
-            }
-          })
-          .catch(error => {
-            console.log(error);
-          });
+        setTimeout(() => {
+          this.$axios.$get('http://localhost/ajax/products.ajax.php')
+            .then(response => {
+              if(response.error === false) {
+                this.$data.products = response.products;
+              }
+            })
+            .catch(error => {
+              console.log(error);
+            });
+        },2000);
 
         /*if(__response.error === false) {
         }*/
