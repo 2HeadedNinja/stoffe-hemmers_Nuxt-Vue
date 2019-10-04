@@ -1,7 +1,7 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="css">
-    <svg v-if="icon" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-      <use :xlink:href="svg"></use>
+    <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+      <use xlink:href="~/assets/svg/sprite.svg#amazon"></use>
     </svg>
     <slot></slot>
   </button>
@@ -23,18 +23,16 @@
 
     computed : {
       svg : function() {
-        return './assets/svg/sprite.svg#'+this.icon;
+        return '~/assets/svg/sprite.svg#amazon';
       }
     },
 
+    created() {
+      this.$emit('AppButtonCreated');
+    },
+
     mounted() {
-      /*const __observer = lozad(this.$el,{
-        loaded : el => {
-          el.classList.add('loaded');
-        }
-      });
-      
-      __observer.observe();*/
+      this.$emit('AppButtonMounted');
     }
     // -> https://markus.oberlehner.net/blog/lazy-loading-responsive-images-with-vue/
   }

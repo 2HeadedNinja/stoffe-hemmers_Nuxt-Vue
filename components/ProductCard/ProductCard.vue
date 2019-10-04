@@ -1,11 +1,11 @@
 <template>
-  <div v-if="!productData.hasData" class="product__card-skelleton" style="--grid-column: span 1;">
+  <div v-if="!productData.hasData" class="product__card-skelleton">
     <div class="product__card-skelleton__image"></div>
     <div class="product__card-skelleton__button"></div>
     <div class="product__card-skelleton__flags"></div>
     <div class="product__card-skelleton__other"></div>
   </div>
-	<div v-else-if="productData.hasData" class="product__card-cardwrap" style="--grid-column: span 1;">
+	<div v-else-if="productData.hasData" class="product__card-cardwrap">
     <div class="product__card-cardwrap__top">
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href">
         <ProductCardImage :alt="productData.name" :images="productData.image"></ProductCardImage>

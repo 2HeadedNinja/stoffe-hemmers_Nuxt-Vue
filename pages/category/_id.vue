@@ -56,7 +56,7 @@
               }
             },
             offset    : function() {
-              return Math.round((document.body.getBoundingClientRect().height*.8) * -1);
+              return Math.round((document.body.getBoundingClientRect().height*.6) * -1);
             }
           });
         }
