@@ -23,3 +23,7 @@ $ npm run generate
 ``` bash
 $ gulp
 ```
+
+## Ajax
+
+Im Ajax-Order liegen Dateien die statische Testdate zurückgeben
