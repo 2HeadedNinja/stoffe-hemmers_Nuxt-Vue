@@ -43,26 +43,7 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    ['nuxt-i18n',{
-    locales: [
-      {
-        name  : 'Deutsch',
-        code  : 'de',
-        iso   : 'de-DE',
-        file  : 'de-DE.js'
-      },
-      {
-        name  : 'Nederland',
-        code  : 'nl',
-        iso   : 'nl-NL',
-        file  : 'nl-NL.js'
-      }
-    ],
-    langDir       : 'lang/',
-    defaultLocale : 'de'
-  }]
-
+    '@nuxtjs/axios'
   ],
   /*
    ** Axios module configuration
