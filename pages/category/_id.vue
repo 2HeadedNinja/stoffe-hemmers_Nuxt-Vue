@@ -1,10 +1,9 @@
 <template>
   <div class="grid content" style="--padding-top: 40px; --padding-bottom: 40px;">
     <aside>
-      <nav>
-
-      </nav>
+      <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
+    <div class="grid__column__line"></div>
     <main class="product__listing">
       <h1>{{ id }}</h1>
       <ProductCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ProductCard>
@@ -17,12 +16,14 @@
 <script>
   import ProductCard from '~/components/ProductCard/ProductCard';
   import ProductSkelleton  from '~/components/ProductSkelleton';
+  import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar';
 
   export default {
     layout          : 'sidebar',
     components      : {
       ProductCard,
-      ProductSkelleton
+      ProductSkelleton,
+      PagesCategorySidebar
     },
 
     data() {
@@ -70,20 +71,15 @@
       },
 
       getProductData() {
-        setTimeout(() => {
-          this.$axios.$get('http://localhost/ajax/products.ajax.php')
-            .then(response => {
-              if(response.error === false) {
-                this.$data.products = response.products;
-              }
-            })
-            .catch(error => {
-              console.log(error);
-            });
-        },2000);
-
-        /*if(__response.error === false) {
-        }*/
+        this.$axios.$get('http://localhost/ajax/products.ajax.php')
+          .then(response => {
+            if(response.error === false) {
+              this.$data.products = response.products;
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
       }
     },
 

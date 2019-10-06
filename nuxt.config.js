@@ -43,8 +43,16 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
+    '@nuxtjs/style-resources',
     '@nuxtjs/axios'
   ],
+
+  styleResources: {
+   scss: [
+    './assets/css/imports/*.scss',
+    './assets/css/vars/*.scss'
+   ]
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options

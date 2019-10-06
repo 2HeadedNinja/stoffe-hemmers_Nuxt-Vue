@@ -1,17 +1,13 @@
 @import 'fonts/montserrat';
 
-@import 'settings/colors';
-
-@import 'imports/mixins';
-
-@import 'layouts/sidebar';
+@import '../../assets/css/vars/colors';
+@import '../../assets/css/imports/mixins';
 
 @import 'pages/category/_id';
 
 @import 'modules/grid';
 @import 'modules/margin';
 @import 'modules/buttons';
-@import 'modules/product';
 @import 'modules/padding';
 
 @media all {
@@ -75,10 +71,6 @@
 
     min-height                          : 200px;
     width                               : 100%;
-  }
-
-  aside {
-    background-color                    : #ffff00;
   }
 
   main {

@@ -32,11 +32,5 @@
       this.$emit('AppButtonMounted');
     }
     // -> https://markus.oberlehner.net/blog/lazy-loading-responsive-images-with-vue/
-  
-    /*
-
-    
-
-    */
   }
 </script>
