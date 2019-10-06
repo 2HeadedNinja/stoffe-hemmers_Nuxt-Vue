@@ -116,6 +116,12 @@
 				border-radius 					: 12px;
 			}
 
+			&[class*="__back"] {
+				&:before {
+					width 								: 30%;
+				}
+			}
+
 			&[class*="__back"],
 			&[class*="__current"] {
 				margin-bottom 					: 20px;
