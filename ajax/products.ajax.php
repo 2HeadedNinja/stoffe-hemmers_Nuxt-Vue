@@ -3,13 +3,12 @@
 
   
   $body = trim(file_get_contents("php://input"));
-  $json = json_decode($body);
+  $post = json_decode($body);
 
   $return           = (object) array();
   $return->error    = false;
-  $return->post     = $json;
 
-  /*$return->products = array();
+  $return->products = array();
 
   for($i = 0; $i < 10; $i++) {
     $tmp = (object) array();
@@ -97,6 +96,10 @@
     unset($return->products);
   } else {
     shuffle($return->products);
-  }*/
+
+    if(count($return->products) > $post->quantity) {
+      $return->products = array_slice($return->products,0,$post->quantity);
+    }
+  }
 
   echo json_encode($return);
