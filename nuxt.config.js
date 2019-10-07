@@ -44,8 +44,18 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/style-resources',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
+
+  proxy: {
+    '/api': {
+      target: 'http://localhost/ajax',
+      pathRewrite: {
+        '^/api' : '/'
+        }
+      }
+  },
 
   styleResources: {
    scss: [
@@ -53,11 +63,13 @@ export default {
     './assets/css/vars/*.scss'
    ]
   },
+
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
+  axios: {
+  },
   /*
    ** Build configuration
    */

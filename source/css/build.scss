@@ -3,6 +3,8 @@
 @import '../../assets/css/vars/colors';
 @import '../../assets/css/imports/mixins';
 
+@import 'components/ProductCard/ProductCard';
+
 @import 'pages/category/_id';
 
 @import 'modules/grid';
@@ -61,7 +63,7 @@
 
   header,
   footer {
-    background-color                    : #ff00ff;
+    background-color                    : $white;
   }
 
   header {    
