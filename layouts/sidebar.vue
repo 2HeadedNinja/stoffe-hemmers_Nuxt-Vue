@@ -74,7 +74,7 @@
       z-index                           : 1;
 
       background-color                  : #ffffff;
-      box-shadow                        : 0px 0px 10px 0px rgba(0,0,0,0.25);
+      box-shadow                        : 0px 0px 25px 0px rgba(0,0,0,0.1);
 
       .content {
         display                         : grid;

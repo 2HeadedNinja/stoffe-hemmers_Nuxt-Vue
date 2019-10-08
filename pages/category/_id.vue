@@ -34,7 +34,7 @@
 
         skelletons      : true,
         route           : this.$route.params.id,
-        state           : 'stoffe.html'
+        default         : 'stoffe.html'
       }
     },
 
@@ -86,7 +86,11 @@
 
     computed : {
       id : function() {
-        return this.$data.state.split('.html').join('');
+        if(this.$data.route !== undefined) {
+          return this.$data.route.split('.html').join('');
+        } else {
+          return this.$data.default.split('.html').join('');
+        }
       }
     },
     
@@ -102,7 +106,6 @@
     },
     
     mounted() {
-
     },
 
     updated() {

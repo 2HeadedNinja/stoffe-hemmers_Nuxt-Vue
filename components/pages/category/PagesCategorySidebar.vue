@@ -1,5 +1,5 @@
 <template>
-	<nav v-if="!hasData" class="category__sidebar-skelleton">
+	<nav v-if="!navigation" class="category__sidebar-skelleton">
 		<span class="category__sidebar-skelleton__back"></span>
 		<span class="category__sidebar-skelleton__current"></span>
 		<span class="category__sidebar-skelleton__link"></span>
@@ -17,63 +17,36 @@
 		<span class="category__sidebar-skelleton__link"></span>
 		<span class="category__sidebar-skelleton__link"></span>
 	</nav>
-	<nav v-else-if="hasData" class="category__sidebar">
+	<nav v-else-if="navigation" class="category__sidebar">
     <ul>
-      <li class="back">
-        <a href="#">
-          <svg role="img" class="icon" title="Zurück" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-            <use xlink:href="/library/distributed/svg/sprite.svg#arrow-left-thick"></use>
-          </svg>    
-          Zurück        
+      <li v-if="navigation.back" class="category__sidebar__back">
+        <a :href="navigation.back.link">
+        	{{ navigation.back.label }}
         </a>
       </li>
-      <li class="current back" data-id="60">
-        <a href="#">Dekostoffe</a>
+      <li v-if="navigation.current" class="category__sidebar__current">
+        <a :href="navigation.current.link">{{ navigation.current.label }}</a>
       </li>
-      <li>
-        <a href="#">Bettwäschestoffe</a>
-      </li>
-      <li>
-        <a href="#">Dekostoffe Digitaldruck</a>
-      </li>
-      <li>
-        <a href="#">Extrabreite &amp; Raumhohe Dekostoffe</a>
-      </li>
-      <li>
-        <a href="#">Gardinen &amp; Vorhänge</a>
-      </li>
-      <li>
-        <a href="#">Kissen- &amp; Deckenstoffe</a>
-      </li>
-      <li>
-        <a href="#">Landhausstoffe</a>
-      </li>
-      <li>
-        <a href="#">Markisenstoffe</a>
-      </li>
-      <li>
-        <a href="#">Möbelstoffe</a>
-      </li>
-      <li>
-        <a href="#">Outdoorstoffe</a>
-      </li>
-      <li>
-        <a href="#">Tischdeckenstoffe</a>
-      </li>
-      <li>
-        <a href="#">Kinder Dekostoffe</a>
-      </li>
+      <PagesCategorySidebarItem v-if="navigation.links" v-for="(link, index) in navigation.links" v-bind:key="index" :link="link.link">
+      	{{ link.label }}
+      </PagesCategorySidebarItem>
     </ul>
   </nav>
 </template>
 
 <script>
+  import PagesCategorySidebarItem from '~/components/pages/category/PagesCategorySidebarItem';
+
 	export default {
-		name : 'PagesCategorySidebar',
+		name 				: 'PagesCategorySidebar',
+
+		components  : {
+      PagesCategorySidebarItem
+    },
 
 		data() {
 			return {
-				hasData 								: false
+				navigation : false
 			}
 		},
 
@@ -82,22 +55,27 @@
 		},
 
 		mounted() {
+      this.$axios.$post('/api/navigation.ajax.php',{
+          route     : this.id
+        })
+        .then(response => {
+        	if(response.error === false) {
+        		this.$data.navigation = response.navigation;
+        	}
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+		},
+
+		updated() {
 			const __rect = this.$el.getBoundingClientRect();
 			const __h 	 = Math.ceil(Math.max(document.documentElement.clientHeight, window.innerHeight || 0) * .8);
 
 			if(__rect.height <= __h) {
 				this.$el.classList.add('sticky');
 			}
-
-      this.$axios.$post('/api/navigation.ajax.php',{
-          route     : this.id
-        })
-        .then(response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        });
 		}
 	}
 </script>
@@ -159,12 +137,49 @@
 		ul {
 			li {
 				list-style-type 				: none;
+				line-height 						: 135%;
+
+				margin 									: 0 0 1px 0;
 
 				svg {
 					width 								: 20px;
 					height 								: 20px;
 
 					background-color 			: #ff00ff;
+				}
+
+				a {
+					@include animate(color,.25s);
+
+					display 							: block;
+
+					text-decoration 			: none;
+					color 								: tint(dark,3);
+					font-weight 					: 500;
+
+					padding 							: 7px 0 7px 0;
+
+					&:hover {
+						color 							: tint(brand);
+					}
+				}
+
+				&[class*="__back"],
+				&[class*="__current"] {
+					border-bottom 				: 1px dotted $border-light;
+				}
+
+				&[class*="__back"] {
+					a {
+						padding 						: 0 0 14px 0;
+						font-size 					: 14px;
+					}
+				}
+
+				&[class*="__current"] {
+					a {
+						padding 						: 14px 0 14px 0;
+					}
 				}
 			}
 		}

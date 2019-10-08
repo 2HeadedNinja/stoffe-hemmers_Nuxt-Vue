@@ -10,58 +10,58 @@
 
   $return->navigation           = (object) array();
   $return->navigation->back     = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Zurück'
   );
 
   $return->navigation->current  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/dekostoffe.html',
     'label' => 'Dekostoffe'
   );
 
   $return->navigation->links    = array();
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/bettwaeschestoffe.html',
     'label' => 'Bettwäschestoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/dekostoffe-digitaldruck.html',
     'label' => 'Dekostoffe Digitaldruck'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/extrabreite-und-raumhohe-dekostoffe.html',
     'label' => 'Extrabreite & Raumhohe Dekostoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/gardinen-und-vorhaenge.html',
     'label' => 'Gardinen & Vorhänge'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Kissen & Deckenstoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Landhausstil'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Markisenstoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Möbelstoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Outdoorstoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Tischdeckenstoffe'
   );
   $return->navigation->links[]  = (object) array(
-    'link'  => '#',
+    'link'  => '/category/#',
     'label' => 'Kinder Dekostoffe'
   );
 
