@@ -10,7 +10,7 @@
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href">
         <ProductCardImage :alt="productData.name" :images="productData.image"></ProductCardImage>
       </a>
-      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'30c-schonwsche'">Schnellansicht</AppButton>
+      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'30c-schonwsche'">Schnellansicht  | {{ getKey }}</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
       <ProductCardFlagList :flags="productData.flags"></ProductCardFlagList>
@@ -52,6 +52,12 @@
     data() {
       return {
 
+      }
+    },
+
+    computed : {
+      getKey : function() {
+        return this.$vnode.key;
       }
     },
 

@@ -8,7 +8,7 @@
       <h1>{{ id }}</h1>
       <ProductCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ProductCard>
       <!-- Show Skelletons as long as no Products are loaded yet //-->
-      <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="n"></ProductSkelleton>
+      <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)"></ProductSkelleton>
     </main>
   </div>
 </template>
@@ -29,6 +29,7 @@
     data() {
       return {
         products        : null,
+        productCount    : null,
         productsPerPage : 15,
 
         skelletons      : true,
@@ -39,36 +40,18 @@
 
     methods         : {
       infiniteLoad() {
-        /*if(typeof Waypoint === 'function') {
-          const __axios = this.$axios; 
-          const __data  = this.$data;
-          
-          this.$data.waypoint = new Waypoint({
-            element   : document.body,
-            handler   : function(direction) {
-              if(direction === 'down') {             
-                this.disable();
+        window.addEventListener('scroll',this.handleScrollEvent);
+      },
 
-                __axios.$get('http://localhost/ajax/products.ajax.php')
-                  .then(response => {
-                    if(response.error === false) {
-                      __data.products = __data.products.concat(response.products);
+      handleScrollEvent() {
+        if(this.$data.skelletons === false) {
+          const __scrollPosition = Math.round(100 * window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
 
-                      if(__data.products.length >= 120) {
-                        __data.waypoint.destroy();
-                      } 
-                    }
-                  })
-                  .catch(error => {
-                    console.log(error);
-                  });
-              }
-            },
-            offset    : function() {
-              return Math.round((document.body.getBoundingClientRect().height*.6) * -1);
-            }
-          });
-        }*/
+          if(__scrollPosition >= 80) {
+            this.$data.skelletons = true;
+            this.getProductData();
+          }
+        }
       },
 
       getProductData() {
@@ -78,8 +61,21 @@
         })
         .then(response => {
           if(response.error === false) {
-            this.$data.products   = response.products;
+            if(this.$data.products === null) {
+              this.$data.products = response.products;
+            } else {
+              this.$data.products = this.$data.products.concat(response.products);
+            }
+
             this.$data.skelletons = false;
+
+            if(this.$data.productCount === null && response.productcount) {
+              this.$data.productCount = response.productcount;
+            } else {
+              if(this.$data.products.length >= this.$data.productCount) {
+                window.removeEventListener('scroll',this.handleScrollEvent);
+              }
+            }
           }
         })
         .catch(error => {
@@ -88,7 +84,7 @@
       }
     },
 
-    computed        : {
+    computed : {
       id : function() {
         return this.$data.state.split('.html').join('');
       }
@@ -101,7 +97,7 @@
 
       this.$root.$on('LayoutReady',() => {
         this.getProductData();
-        //this.infiniteLoad();
+        this.infiniteLoad();
       });
     },
     
@@ -110,13 +106,13 @@
     },
 
     updated() {
-      if(this.$data.waypoint !== null) {
+      /*if(this.$data.waypoint !== null) {
         this.$data.waypoint.context.refresh();
 
         setTimeout(() => {
           this.$data.waypoint.enable();
         },100);
-      }
+      }*/
     }
   }
 </script>

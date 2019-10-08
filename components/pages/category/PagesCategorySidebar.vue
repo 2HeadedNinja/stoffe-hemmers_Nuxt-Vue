@@ -88,6 +88,16 @@
 			if(__rect.height <= __h) {
 				this.$el.classList.add('sticky');
 			}
+
+      this.$axios.$post('/api/navigation.ajax.php',{
+          route     : this.id
+        })
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
 		}
 	}
 </script>

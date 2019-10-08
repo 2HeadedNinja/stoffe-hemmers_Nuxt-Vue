@@ -5,8 +5,8 @@
   $body = trim(file_get_contents("php://input"));
   $post = json_decode($body);
 
-  $return           = (object) array();
-  $return->error    = false;
+  $return               = (object) array();
+  $return->error        = false;
 
   $return->products = array();
 
@@ -100,6 +100,8 @@
     if(count($return->products) > $post->quantity) {
       $return->products = array_slice($return->products,0,$post->quantity);
     }
+
+    $return->productcount = 210;
   }
 
   echo json_encode($return);
