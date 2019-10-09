@@ -31,8 +31,11 @@
       const __video = this.$el.querySelector('video');
 
       if(__video !== null) {
-        __video.addEventListener('progress',event => {
-          console.log(__video.buffered);
+        __video.addEventListener('canplay',() => {
+          setTimeout(() => {
+            __video.classList.add('canplay');
+            __video.setAttribute('autoplay','autoplay');
+          },250);
         });
       }
 

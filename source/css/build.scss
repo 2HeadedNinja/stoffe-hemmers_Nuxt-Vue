@@ -102,12 +102,20 @@
     z-index                             : 0;
 
     video.layout__herocontent__video-background {
+      @include animate(opacity,1s);
+
       position                          : absolute;
       bottom                            : 0;
       left                              : 50%;
       z-index                           : 0;
 
       transform                         : translateX(-50%);
+
+      opacity                           : 0;
+
+      &.canplay {
+        opacity                         : 1;
+      }
     }
   }
 }
