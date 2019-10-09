@@ -62,7 +62,6 @@
         	if(response.error === false) {
         		this.$data.navigation = response.navigation;
         	}
-          console.log(response);
         })
         .catch(error => {
           console.log(error);

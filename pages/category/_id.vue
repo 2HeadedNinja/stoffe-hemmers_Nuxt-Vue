@@ -1,5 +1,5 @@
 <template>
-  <div class="grid content" style="--padding-top: 40px; --padding-bottom: 40px;">
+  <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>

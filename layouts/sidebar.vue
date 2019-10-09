@@ -1,8 +1,6 @@
 <template>
   <div class="layout__sidebar">
-    <AppHeader>
-      AppHeader
-    </AppHeader>
+    <AppHeader></AppHeader>
     <transition name="fade">
       <div v-show="show" class="layout__sidebar-scrollcontent">
         <nuxt />
@@ -60,6 +58,20 @@
     },
 
     mounted() {
+      const __body  = document.body;
+      let __timer   = null;
+
+      window.addEventListener('scroll', () => {
+        clearTimeout(__timer);
+        
+        if(!__body.classList.contains('disable__hover')) {
+          __body.classList.add('disable__hover')
+        }
+
+        __timer = setTimeout(() => {
+          __body.classList.remove('disable__hover')
+        },500);
+      });
     }
   }
 </script>
