@@ -10,7 +10,7 @@
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href">
         <ProductCardImage :alt="productData.name" :images="productData.image"></ProductCardImage>
       </a>
-      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'">Schnellansicht  | {{ getKey }}</AppButton>
+      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'">Schnellansicht</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
       <ProductCardFlagList :flags="productData.flags"></ProductCardFlagList>

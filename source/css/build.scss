@@ -89,11 +89,21 @@
         width                           : 100%;
         min-height                      : 150px;
 
-        svg {
-          width                         : 100px;
-          height                        : 100px;
+        .app__header__content-top {
+          display                       : flex;
+          align-items                   : center;
 
-          fill                          : tint(brand);
+          .app__header__content-top__logo {
+            display                     : flex;
+            align-items                 : center;
+
+            height                      : 80px;
+
+            svg {
+              width                     : auto;
+              height                    : 48%;
+            }
+          }
         }
       }
     }

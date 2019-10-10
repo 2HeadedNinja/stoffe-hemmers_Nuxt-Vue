@@ -22,12 +22,12 @@
     cursor                        : pointer;
 
     svg {
-      width                       : 20px;
-      height                      : 20px;
-      fill                        : tint(dark,3);
+      width                       : auto;
+      height                      : 30px;
+      fill                        : tint(dark,1);
 
-      background-color            : #ff00ff;
-      margin-right                : 10px;
+      margin-right                : 7px;
+      transform                   : translateY(-1px);
     }
 
     &[class*='-slim'] {

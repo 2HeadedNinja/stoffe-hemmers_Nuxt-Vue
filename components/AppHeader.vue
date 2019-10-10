@@ -2,10 +2,12 @@
   <div class="app__top">
     <header>
       <div class="app__header__content">
-        <div class="app__header__content-top">
-          <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-            <use xlink:href="~/assets/svg/sprite.svg#eye-show-line"></use>
-          </svg>
+        <div class="app__header__content-top content">
+          <a class="app__header__content-top__logo" href="/">
+            <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
+              <use xlink:href="~/assets/svg/sprite.svg#logo-wide-de_DE"></use>
+            </svg>
+          </a>
         </div>
         <nav class="app__header__content-bottom main__navigation" role="navigation">
           <ul>
