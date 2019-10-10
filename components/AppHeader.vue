@@ -2,7 +2,33 @@
   <div class="app__top">
     <header>
       <div class="app__header__content">
-        <slot></slot>
+        <div class="app__header__content-top">
+          <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <use xlink:href="~/assets/svg/sprite.svg#eye-show-line"></use>
+          </svg>
+        </div>
+        <nav class="app__header__content-bottom main__navigation" role="navigation">
+          <ul>
+            <li>
+              <a href="#">Stoffe</a>
+            </li>
+            <li>
+              <a href="#">Nähzubehör</a>
+            </li>
+            <li>
+              <a href="#">Schnittmuster</a>
+            </li>
+            <li>
+              <a href="#">Inspiration</a>
+            </li>
+            <li >
+              <a href="#">Neuheiten</a>
+            </li>
+            <li>
+              <a href="#">Sale</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
     <HeroContent :content="hero" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
@@ -43,7 +69,6 @@
     },
 
     mounted() {
-
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
           if(response.error === false) {

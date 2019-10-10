@@ -1,7 +1,7 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="css">
-    <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-      <use xlink:href="~/assets/svg/sprite.svg#avatar-line"></use>
+    <svg v-if="icon" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+      <use xlink:href="~/assets/svg/sprite.svg#eye-show-line"></use>
     </svg>
     <slot></slot>
   </button>
@@ -22,6 +22,9 @@
     },
 
     computed : {
+      iconPath() {
+        return '~/assets/svg/sprite.svg#'+this.icon;
+      }
     },
 
     created() {

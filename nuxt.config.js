@@ -30,7 +30,8 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { ssr: false, src: '~/plugins/noframework.waypoints.js'}
+    { src: '~/plugins/noframework.waypoints.js', ssr: false},
+    { src: '~/plugins/svg4everybody.js', ssr: false }
   ],
   /*
    ** Nuxt.js dev-modules

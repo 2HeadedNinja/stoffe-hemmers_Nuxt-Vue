@@ -85,9 +85,8 @@
       position                          : relative;
       z-index                           : 1;
 
-      background-color                  : #ffffff;
-      box-shadow                        : 0px 0px 25px 0px rgba(0,0,0,0.1);
-
+      background-color                  : $white;
+      
       .content {
         display                         : grid;
 

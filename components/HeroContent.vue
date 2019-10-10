@@ -28,6 +28,10 @@
     },
 
     mounted() {
+      setTimeout(() => {
+        this.$el.classList.add('mounted');
+      },250);
+
       const __video = this.$el.querySelector('video');
 
       if(__video !== null) {
