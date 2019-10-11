@@ -11,6 +11,9 @@
 </template>
 
 <script>
+  // https://simpleparallax.com/#examples
+  // import simpleParallax from 'simple-parallax-js';
+
   import AppHeader from '~/components/AppHeader'
   import AppFooter from '~/components/AppFooter'
 

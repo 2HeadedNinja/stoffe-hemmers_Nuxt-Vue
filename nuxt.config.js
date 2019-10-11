@@ -31,7 +31,9 @@ export default {
    */
   plugins: [
     { src: '~/plugins/noframework.waypoints.js', ssr: false},
-    { src: '~/plugins/svg4everybody.js', ssr: false }
+    { src: '~/plugins/simpleParallax.min.js', ssr: false },
+    { src: '~/plugins/svg4everybody.js', ssr: false },
+    { src: '~/plugins/rellax.min.js', ssr: false },
   ],
   /*
    ** Nuxt.js dev-modules

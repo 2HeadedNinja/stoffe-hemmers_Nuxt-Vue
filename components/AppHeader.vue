@@ -1,6 +1,6 @@
 <template>
   <div class="app__top">
-    <header>
+    <header data-rellax-speed="3">
       <div class="app__header__content">
         <div class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
@@ -8,6 +8,33 @@
               <use xlink:href="~/assets/svg/sprite.svg#logo-wide-de_DE"></use>
             </svg>
           </a>
+          { SUCHE }
+          <ul class="secondary__navigation">
+            <li>
+              <a href="#" role="button" class="modal flex align-left-center">
+                <svg class="account" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                  <use xlink:href="~/assets/svg/sprite.svg#avatar-line"></use>
+                </svg>
+                Anmelden
+              </a>
+            </li>
+            <li class="flex align-left-center">
+              <a href="#" class="flex align-left-center">
+                <svg class="wishlist" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                  <use xlink:href="~/assets/svg/sprite.svg#heart-line"></use>
+                </svg>
+                Mein Wunschzettel
+              </a>
+            </li>
+            <li>
+              <a href="/cart" class="flex align-left-center">
+                <svg class="cart" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                  <use xlink:href="~/assets/svg/sprite.svg#shopping-bag-line"></use>
+                </svg>
+                Mein Warenkorb
+              </a>
+            </li>
+          </ul>
         </div>
         <nav class="app__header__content-bottom main__navigation" role="navigation">
           <ul>
@@ -71,6 +98,25 @@
     },
 
     mounted() {
+      const __header = this.$el.querySelector('header');
+
+      console.log(typeof Rellax);
+
+      var rellax = new Rellax(__header,{
+        callback: function(positions) {
+          // callback every position change
+          console.log(positions);
+        }
+      });
+
+      /*if(__header !== null && typeof simpleParallax === 'function') {
+        const __instance = new simpleParallax(__header,{
+          overflow: true
+        });
+
+        console.log(__instance);
+      }*/
+
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
           if(response.error === false) {

@@ -91,17 +91,75 @@
 
         .app__header__content-top {
           display                       : flex;
+          justify-content               : space-between;
           align-items                   : center;
 
           .app__header__content-top__logo {
             display                     : flex;
             align-items                 : center;
 
-            height                      : 80px;
+            height                      : 100px;
 
             svg {
               width                     : auto;
-              height                    : 48%;
+              height                    : 42%;
+            }
+          }
+
+          ul.secondary__navigation,
+          ul.secondary__navigation li {
+            margin                      : 0;
+            padding                     : 0;
+          }
+
+          ul.secondary__navigation {
+            display                     : flex;
+
+            li {
+              list-style-type           : none;
+              margin                    : 0 30px 0 0;
+
+              &:last-of-type {
+                margin                  : 0;
+              }
+
+              a {
+                @include animate(color,.25s);
+
+                display                 : flex;
+                align-items             : center;
+
+                text-transform          : uppercase;
+                text-decoration         : none;
+
+                font-size               : 12px;
+                font-weight             : 500;
+
+                color                   : tint(dark,3);
+
+                svg {
+                  @include animate(fill,.25s);
+
+                  width                 : 25px;
+                  height                : 25px;
+
+                  margin                : -2px 10px 0 0;
+
+                  fill                  : tint(light,4);
+
+                  &.cart {
+                    margin-top          : -7px;
+                  }
+                }
+
+                &:hover {
+                  color                 : tint(brand);
+                  
+                  svg {
+                    fill                : tint(brand);
+                  }
+                }
+              }
             }
           }
         }
@@ -113,56 +171,61 @@
     height                              : var(--height);
   }
 
-  .layout__herocontent {
-    @include animate(opacity,.25s);
-
-    opacity                             : 0;
-    overflow                            : hidden;
-
-    position                            : relative;
-    z-index                             : 0;
-
-    &.mounted {
-      opacity                           : 1;
+  p {
+    strong {
+      font-weight                       : 600;
+      color                             : tint(dark,5);
     }
 
-    video.layout__herocontent__video-background {
-      @include animate(opacity,1s);
+    em {
+      color                             : tint(dark,1);
+    }
+  }
 
-      position                          : absolute;
-      bottom                            : 0;
-      left                              : 50%;
-      z-index                           : 0;
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size                           : 24px;
+    font-weight                         : 500;
 
-      transform                         : translateX(-50%);
+    color                               : tint(dark,3);
+    text-transform                      : uppercase;
+  }
 
-      opacity                           : 0;
+  span.breakpoint {
+    position                            : fixed;
+    bottom                              : 0;
+    left                                : 0;
 
-      &.canplay {
-        opacity                         : 1;
-      }
+    z-index                             : 1000000;
+
+    background-color                    : $success-background;
+    color                               : $success;
+
+    line-height                         : 100%;
+    padding                             : 10px;
+
+    &:before {
+      content                           : 'default';
     }
   }
 }
 
-@media (min-width: 1599px) and (max-width: 1920px) {
-
-}
-
-@media (min-width: 1280px) and (max-width: 1600px) {
-
-}
-
-@media (min-width: 901px) and (max-width: 1279px) {
-
-}
-
-@media (min-width: 680px) and (max-width: 900px) {
-
+@media (min-width: 680px) and (max-width: 1300px) {
+  span.breakpoint {
+    &:before {
+      content                           : 'medium';
+    }
+  }
 }
 
 @media (max-width: 679px) {
-
+  span.breakpoint {
+    &:before {
+      content                           : 'tiny';
+    }
+  }
 }
 
 @media all and (-ms-high-contrast:none) {

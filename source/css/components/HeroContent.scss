@@ -1,6 +1,107 @@
 @media all {
   .layout__herocontent {
-    width                       : 100%;
-    background-color            : tint(light,2);
+    @include animate(opacity,.25s);
+
+    opacity                             : 0;
+    overflow                            : hidden;
+
+    position                            : relative;
+    z-index                             : 0;
+
+    width                               : 100%;
+    background-color                    : tint(light,2);
+
+    .layout__herocontent__text {
+      @include animate(all,.5s);
+
+      transition-property               : opacity,transform;
+      transition-delay                  : 1s;
+
+      width                             : 750px;
+      padding                           : 30px 30px 30px 50px;
+
+      position                          : absolute;
+      top                               : 50%;
+      left                              : 50%;
+      z-index                           : 1;
+
+      background-color                  : $white;
+
+      transform                         : translate(-50%,-40%);
+      opacity                           : 0;
+
+      h3,
+      h4,
+      h5,
+      h6,
+      p {
+        margin                          : 0 0 20px 0;
+        padding                         : 0;
+
+        text-align                      : justify;
+      }
+
+      &:after,
+      &:before {
+        content                         : '';
+        display                         : block;
+
+        position                        : absolute;
+
+        transform                       : translate(20px,-20px);
+      }
+
+      &:before {
+        top                             : -14px;
+        left                            : -14px;
+        right                           : -14px;
+        bottom                          : -14px;
+
+        z-index                         : 0;
+        background-color                : $white;
+        opacity                         : .4;
+      }
+
+      &:after {
+        top                             : 0;
+        left                            : 0;
+        right                           : 0;
+        bottom                          : 0;
+
+        z-index                         : 1;
+        border                          : 4px solid tint(dark,4);
+      }
+
+      > div {
+        position                        : relative;
+        z-index                         : 2;
+      }
+    }
+
+    &.mounted {
+      opacity                           : 1;
+
+      .layout__herocontent__text {
+        transform                       : translate(-50%,-50%);
+        opacity                         : 1;
+      }
+    }
+
+    video.layout__herocontent__video-background {
+      @include animate(opacity,1s);
+
+      position                          : absolute;
+      bottom                            : 0;
+      left                              : 50%;
+      z-index                           : 0;
+
+      transform                         : translateX(-50%);
+
+      opacity                           : 0;
+
+      &.canplay {
+        opacity                         : 1;
+      }
+    }
   }
 }

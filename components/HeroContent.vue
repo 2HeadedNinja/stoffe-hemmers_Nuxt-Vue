@@ -1,5 +1,16 @@
 <template>
   <div v-show="content" class="layout__herocontent">
+    <div class="layout__herocontent__text">
+      <div>
+        <h3>Design für deine Heimtextilien</h3>
+        <p>
+          <strong>Dekoration</strong> ist pure Leidenschaft und verlangt ein Gespür für die schönen Dinge im Leben. Individuelle Akzente im Wohnraum setzen, kreative Farbspiele in den Alltag integrieren und dabei gekonnt den eigenen Stil unterstreichen:
+        </p>
+        <p>
+          <em>Das kannst Du alles mit Hilfe unserer Dekostoffe realisieren.</em>
+        </p>
+      </div>
+    </div>
     <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto"> 
       <source src="https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4" type="video/mp4"> 
     </video>
