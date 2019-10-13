@@ -1,6 +1,6 @@
 <template>
   <div class="app__top">
-    <header data-rellax-speed="6">
+    <header>
       <div class="app__header__content">
         <div class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
@@ -65,6 +65,7 @@
 </template>
 
 <script>
+  import DOMElement from '~/modules/DOMElement.module'
   import HeroContent from '~/components/HeroContent'
   
   export default {
@@ -90,6 +91,26 @@
         }
 
         this.$root.$emit(evt,__event);
+      },
+
+      parallax() {
+        const __header = this.$el.querySelector('header');
+
+        if(typeof lax === 'object' && DOMElement(__header)) {
+          const __rect = __header.getBoundingClientRect();
+
+          if(__rect && typeof __rect.height === 'number') {
+            __header.setAttribute('data-lax-preset','lax__preset__AppHeader');
+
+            lax.addPreset("lax__preset__AppHeader", function() {
+              return { 
+                "data-lax-translate-y" : "0 1, (vh*.8) ("+__rect.height+"*-1)"
+              }
+            })
+
+            lax.addElement(__header);
+          }
+        }
       }
     },
     
@@ -98,26 +119,10 @@
     },
 
     mounted() {
-      const __header = this.$el.querySelector('header');
-
-      var rellax = new Rellax(__header,{
-        callback: function(positions) {
-          
-        }
-      });
-
-      /*if(__header !== null && typeof simpleParallax === 'function') {
-        const __instance = new simpleParallax(__header,{
-          overflow: true
-        });
-
-        console.log(__instance);
-
-        https://github.com/alexfoxy/laxxx
-      }*/
-
+      this.parallax();
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
+
           if(response.error === false) {
             this.$data.hero = response.hero;
 

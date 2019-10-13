@@ -1,5 +1,5 @@
 <template>
-  <div v-show="content" class="layout__herocontent" data-rellax-speed="14">
+  <div v-show="content" class="layout__herocontent">
     <div class="layout__herocontent__text">
       <div>
         <h3>Design für deine Heimtextilien</h3>
@@ -11,7 +11,7 @@
         </p>
       </div>
     </div>
-    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" data-rellax-speed="-5"> 
+    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto"> 
       <source src="https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4" type="video/mp4"> 
     </video>
   </div>
@@ -35,7 +35,6 @@
     },
 
     created() {
-
     },
 
     mounted() {
@@ -57,10 +56,6 @@
 
       this.$root.$on('AppHeaderInitialMount',event => {
         this.$el.setAttribute('style','--height: calc(100vh - '+event.height+'px);');
-
-        const __rellax__container = new Rellax(this.$el);
-        const __rellax__video     = new Rellax(__video);
-
         this.$emit('HeroContentMounted');
       });
     }
