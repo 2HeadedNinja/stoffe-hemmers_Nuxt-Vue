@@ -60,12 +60,11 @@
         </nav>
       </div>
     </header>
-    <HeroContent :content="hero" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
+    <HeroContent v-if="heroContent" :contentData="heroContent" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
   </div>
 </template>
 
 <script>
-  import DOMElement from '~/modules/DOMElement.module'
   import HeroContent from '~/components/HeroContent'
   
   export default {
@@ -77,26 +76,30 @@
 
     data() {
       return {
-        hero : false
+        heroContent   : null,
       }
     },
 
-    methods     : {
-      emitEvent(evt = 'AppHeaderInitialMount') {
+    methods : {
+      getHeight() {
         const __rect  = this.$el.getBoundingClientRect();
-        const __event = { height : null };
 
         if(__rect.height && typeof __rect.height == 'number') {
-          __event.height = Math.round(__rect.height);
+          return Math.round(__rect.height);
         }
 
+        return null;
+      },
+
+      emitEvent(evt = 'AppHeaderInitialMount') {
+        const __event = { height : this.getHeight() };
         this.$root.$emit(evt,__event);
       },
 
       parallax() {
         const __header = this.$el.querySelector('header');
 
-        if(typeof lax === 'object' && DOMElement(__header)) {
+        if(typeof lax === 'object' && DOMElement.is(__header)) {
           const __rect = __header.getBoundingClientRect();
 
           if(__rect && typeof __rect.height === 'number') {
@@ -104,7 +107,7 @@
 
             lax.addPreset("lax__preset__AppHeader", function() {
               return { 
-                "data-lax-translate-y" : "0 1, (vh*.8) ("+__rect.height+"*-1)"
+                "data-lax-translate-y" : "0 0, (vh*.8) ("+Math.round(__rect.height*1.2)+"*-1)"
               }
             })
 
@@ -122,12 +125,11 @@
       this.parallax();
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
-
           if(response.error === false) {
-            this.$data.hero = response.hero;
+            this.$data.heroContent = response;
 
-            if(this.hero === true) {
-              this.emitEvent();
+            if(this.$data.heroContent.hasHeroContent === true) {
+              this.$data.heroContent.elementHeight = this.getHeight();
             } else {
               this.emitEvent('AppHeaderMounted');
             }

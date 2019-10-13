@@ -1,0 +1,112 @@
+<!--<template>
+  <div class="layout__herocontent">
+    afsdfsdf
+    <!--<HeroContentTextContent></HeroContentTextContent>//-->
+    
+    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto"> 
+      <source src="https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4" type="video/mp4"> 
+    </video>
+  </div>
+</template>
+
+<script>
+  import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent';
+
+  export default {
+    name : 'HeroContent',
+
+    components  : {
+      HeroContentTextContent
+    },
+
+    props : {
+      contentData : {
+        type : Object,
+
+        default() {
+          return {
+            hasData : false
+          }
+        }
+      }
+    },
+
+    methods     : {
+      parallax(height = false) {
+        if(height === false) {
+          return false;
+        }
+
+        if(typeof lax === 'object' && typeof height === 'number') {
+          this.$el.setAttribute('data-lax-preset','lax__preset__AppHero');
+
+          lax.addPreset("lax__preset__AppHero", function() {
+            return { 
+              "data-lax-translate-y" : "0 0, vh ("+Math.round(height*2)+"*-1)"
+            }
+          })
+
+          lax.addElement(this.$el);
+        }
+      },
+      video(obj = false) {
+        if(obj === false) {
+          return false;
+        }
+
+        obj.addEventListener('canplay',() => {
+          setTimeout(() => {
+            obj.classList.add('canplay');
+            obj.setAttribute('autoplay','autoplay');
+
+            const __el__height    = this.$el.getBoundingClientRect().height;
+            const __video__height = obj.getBoundingClientRect().height;
+
+            if(__video__height > __el__height) {
+              obj.setAttribute('data-lax-preset','lax__preset__VideoBackground');
+
+              const __diff = Math.floor(__video__height - __el__height);
+
+              lax.addPreset("lax__preset__VideoBackground", function() {
+                return { 
+                  "data-lax-translate-y" : "0 0, (vh*.2) ("+__diff+")"
+                }
+              })
+
+              lax.addElement(obj);
+            }
+          },250);
+        });
+      },
+      text(obj = false) {
+        if(obj === false) {
+          return false;
+        }
+
+        obj.classList.add('parallax');
+        obj.setAttribute('data-lax-preset','lax__preset__AppText');
+
+        const __obj__size = obj.getBoundingClientRect();
+
+        const __offset_y  = Math.round(__obj__size.height * .5);
+        const __offset_x  = Math.round(__obj__size.width * .5);
+
+        lax.addPreset("lax__preset__AppText", function() {
+          return { 
+            "data-lax-translate-x" : "0 ("+__offset_x+"*-1)",
+            "data-lax-translate-y" : "0 ("+__offset_y+"*-1), (vh*1.2) ("+(__offset_y*4)+"*-1)"
+          }
+        })
+      }
+    },
+
+    created() {
+
+    },
+
+    mounted() {
+      this.$emit('HeroContentMounted');
+      /**/
+    }
+  }
+</script>

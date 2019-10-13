@@ -1,12 +1,11 @@
 // -> Import and Initialize svg4everybody
 import svg4everybody from 'svg4everybody';
-svg4everybody();
+svg4everybody()
 // -> Import and Initialize lax.js
 
 
 if(typeof lax === 'object') {
-  console.log('lax setup');
-  lax.setup() // init
+  lax.setup()
 
   const updateLax = () => {
     lax.update(window.scrollY)
@@ -14,4 +13,8 @@ if(typeof lax === 'object') {
   }
 
   window.requestAnimationFrame(updateLax)
+
+  window.addEventListener("resize", function() {
+    lax.updateElements()
+  });
 }

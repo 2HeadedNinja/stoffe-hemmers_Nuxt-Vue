@@ -1,63 +1,92 @@
 <template>
-  <div v-show="content" class="layout__herocontent">
-    <div class="layout__herocontent__text">
-      <div>
-        <h3>Design für deine Heimtextilien</h3>
-        <p>
-          <strong>Dekoration</strong> ist pure Leidenschaft und verlangt ein Gespür für die schönen Dinge im Leben. <strong>Individuelle Akzente</strong> im Wohnraum setzen, <strong>kreative Farbspiele</strong> in den Alltag integrieren und dabei gekonnt den <strong>eigenen Stil</strong> unterstreichen:
-        </p>
-        <p>
-          <em>Das kannst Du alles mit Hilfe unserer Dekostoffe realisieren.</em>
-        </p>
-      </div>
-    </div>
-    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto"> 
+  <div v-if="contentData.hasHeroContent" class="layout__herocontent" id="#layout__herocontent" data-lax-preset="lax__preset__AppHero">
+    <HeroContentTextContent v-if="contentData.promotext" :textContent="contentData.promotext"></HeroContentTextContent>
+    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" data-lax-anchor="#layout__herocontent" data-lax-preset="lax__preset__VideoBackground"> 
       <source src="https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4" type="video/mp4"> 
     </video>
   </div>
 </template>
 
 <script>
+  import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent'
+
   export default {
     name : 'HeroContent',
 
+    components  : {
+      HeroContentTextContent
+    },
+
     props : {
-      content : {
-        type : Boolean,
+      contentData : {
+        type : Object,
 
         default() {
-          return false;
+          return {
+            hasHeroContent : false,
+            elementHeight  : null,
+            promotext      : null
+          }
         }
       }
     },
 
-    methods     : {
+    methods : {
+      parallax(height = false) {
+        if(height === false) {
+          return false;
+        }
+
+        if(typeof lax === 'object' && typeof height === 'number') {
+          lax.addPreset("lax__preset__AppHero", function() {
+            return { 
+              "data-lax-translate-y" : "0 0, ("+Math.ceil(height*2)+") ("+( Math.ceil(height*2)*-1)+")"
+            }
+          })
+
+          lax.addElement(this.$el);
+          lax.updateElements();
+        }
+      },
+
+      video(obj = false) {
+        if(obj === false) {
+          return false;
+        }
+
+        obj.addEventListener('canplay',() => {
+          setTimeout(() => {
+            obj.classList.add('canplay');
+            obj.setAttribute('autoplay','autoplay');
+          },250);
+        });
+      }
     },
 
     created() {
     },
 
     mounted() {
-      setTimeout(() => {
-        this.$el.classList.add('mounted');
-      },250);
+      if(this.contentData.elementHeight !== null) {
+        const __background = this.$el.querySelector('[class*="-background"]');
 
-      const __text  = this.$el.querySelector('layout__herocontent__text');
-      const __video = this.$el.querySelector('video');
+        if(DOMElement.is(__background)) {
+          if(DOMElement.type(__background) == 'video') {
+            this.video(__background);
+          }
+        }
 
-      if(__video !== null) {
-        __video.addEventListener('canplay',() => {
-          setTimeout(() => {
-            __video.classList.add('canplay');
-            __video.setAttribute('autoplay','autoplay');
-          },250);
-        });
-      }
+        setTimeout(() => {
+          this.$el.classList.add('mounted');
+        },250);      
 
-      this.$root.$on('AppHeaderInitialMount',event => {
-        this.$el.setAttribute('style','--height: calc(100vh - '+event.height+'px);');
+        this.parallax(this.contentData.elementHeight);
+        this.$el.setAttribute('style','--height: calc(100vh - '+this.contentData.elementHeight+'px);');
+
         this.$emit('HeroContentMounted');
-      });
+      } else {
+        this.$emit('HeroContentMounted');
+      }
     }
   }
 </script>
