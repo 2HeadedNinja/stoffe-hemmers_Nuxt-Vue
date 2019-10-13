@@ -1,10 +1,10 @@
 <template>
   <div class="app__top">
-    <header data-rellax-speed="3">
+    <header data-rellax-speed="6">
       <div class="app__header__content">
         <div class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
-            <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
+            <svg role="img" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
               <use xlink:href="~/assets/svg/sprite.svg#logo-wide-de_DE"></use>
             </svg>
           </a>
@@ -12,7 +12,7 @@
           <ul class="secondary__navigation">
             <li>
               <a href="#" role="button" class="modal flex align-left-center">
-                <svg class="account" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                <svg class="account" role="presentation" alt="Anmelden" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="~/assets/svg/sprite.svg#avatar-line"></use>
                 </svg>
                 Anmelden
@@ -20,7 +20,7 @@
             </li>
             <li class="flex align-left-center">
               <a href="#" class="flex align-left-center">
-                <svg class="wishlist" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                <svg class="wishlist" role="presentation" alt="Mein Wunschzettel" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="~/assets/svg/sprite.svg#heart-line"></use>
                 </svg>
                 Mein Wunschzettel
@@ -28,7 +28,7 @@
             </li>
             <li>
               <a href="/cart" class="flex align-left-center">
-                <svg class="cart" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                <svg class="cart" role="presentation" alt="Mein Warenkorb" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="~/assets/svg/sprite.svg#shopping-bag-line"></use>
                 </svg>
                 Mein Warenkorb
@@ -100,12 +100,9 @@
     mounted() {
       const __header = this.$el.querySelector('header');
 
-      console.log(typeof Rellax);
-
       var rellax = new Rellax(__header,{
         callback: function(positions) {
-          // callback every position change
-          console.log(positions);
+          
         }
       });
 
@@ -115,6 +112,8 @@
         });
 
         console.log(__instance);
+
+        https://github.com/alexfoxy/laxxx
       }*/
 
       this.$axios.$post('/api/herocontent.ajax.php')

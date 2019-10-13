@@ -10,7 +10,7 @@
   import lozad from 'lozad';
 
   export default {
-    name  : 'ProductCardImage',
+    name  : 'ListCardImage',
     props : {
       alt     : null,
 

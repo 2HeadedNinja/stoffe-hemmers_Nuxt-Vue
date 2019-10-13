@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name  : 'ProductCardFlag',
+    name  : 'ListCardFlag',
     props : {
       flagType  : {
         type    : String,

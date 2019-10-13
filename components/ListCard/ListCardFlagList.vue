@@ -7,12 +7,12 @@
 </template>
 
 <script>
-  import ProductCardFlag from '~/components/ProductCard/ProductCardFlag';
+  import ListCardFlag from '~/components/ListCard/ListCardFlag';
 
   export default {
-    name  : 'ProductCardFlagList',
+    name  : 'ListCardFlagList',
     components  : {
-      ProductCardFlag
+      ListCardFlag
     },
     props : {
       flags  : {

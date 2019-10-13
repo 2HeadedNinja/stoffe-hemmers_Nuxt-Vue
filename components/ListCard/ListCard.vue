@@ -5,35 +5,38 @@
     <div class="product__card-skelleton__flags"></div>
     <div class="product__card-skelleton__other"></div>
   </div>
-	<div v-else-if="productData.hasData" class="product__card-cardwrap">
+	<div v-else-if="productData.type == 'product'" class="product__card-cardwrap">
     <div class="product__card-cardwrap__top">
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href">
-        <ProductCardImage :alt="productData.name" :images="productData.image"></ProductCardImage>
+        <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
-      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'">Schnellansicht</AppButton>
+      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
-      <ProductCardFlagList :flags="productData.flags"></ProductCardFlagList>
+      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
       <span class="product__card-cardwrap__details__productname">{{ productData.name }}</span>
-      <ProductCardPrice :price="productData.price"></ProductCardPrice>
+      <ListCardPrice :price="productData.price"></ListCardPrice>
     </a>
+  </div>
+  <div v-else-if="productData.type == 'promotion'" class="promotion__card">
+    Promotion Card
   </div>
 </template>
 
 <script>
-  import AppButton           from '~/components/AppButton';
-  import ProductCardImage    from '~/components/ProductCard/ProductCardImage';
-  import ProductCardPrice    from '~/components/ProductCard/ProductCardPrice';
-  import ProductCardFlagList from '~/components/ProductCard/ProductCardFlagList';
+  import AppButton        from '~/components/AppButton';
+  import ListCardImage    from '~/components/ListCard/ListCardImage';
+  import ListCardPrice    from '~/components/ListCard/ListCardPrice';
+  import ListCardFlagList from '~/components/ListCard/ListCardFlagList';
 
   export default {
-    name        : 'ProductCard',
+    name        : 'ListCard',
     
     components  : {
       AppButton,
-      ProductCardImage,
-      ProductCardPrice,
-      ProductCardFlagList
+      ListCardImage,
+      ListCardPrice,
+      ListCardFlagList
     },
 
   	props : {
