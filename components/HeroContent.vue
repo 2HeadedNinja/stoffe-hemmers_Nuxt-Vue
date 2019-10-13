@@ -1,7 +1,7 @@
 <template>
-  <div v-if="contentData.hasHeroContent" class="layout__herocontent" id="#layout__herocontent" data-lax-preset="lax__preset__AppHero">
+  <div v-if="contentData.hasHeroContent" class="layout__herocontent" data-lax-preset="lax__preset__AppHero">
     <HeroContentTextContent v-if="contentData.promotext" :textContent="contentData.promotext"></HeroContentTextContent>
-    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" data-lax-anchor="#layout__herocontent" data-lax-preset="lax__preset__VideoBackground"> 
+    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" > 
       <source src="https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4" type="video/mp4"> 
     </video>
   </div>
@@ -40,7 +40,7 @@
         if(typeof lax === 'object' && typeof height === 'number') {
           lax.addPreset("lax__preset__AppHero", function() {
             return { 
-              "data-lax-translate-y" : "0 0, ("+Math.ceil(height*2)+") ("+( Math.ceil(height*2)*-1)+")"
+              "data-lax-translate-y" : "0 0, 2000 -2000"
             }
           })
 
@@ -80,8 +80,8 @@
           this.$el.classList.add('mounted');
         },250);      
 
-        this.parallax(this.contentData.elementHeight);
         this.$el.setAttribute('style','--height: calc(100vh - '+this.contentData.elementHeight+'px);');
+        this.parallax(this.contentData.elementHeight);
 
         this.$emit('HeroContentMounted');
       } else {

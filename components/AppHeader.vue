@@ -112,6 +112,7 @@
             })
 
             lax.addElement(__header);
+            lax.updateElements();
           }
         }
       }
