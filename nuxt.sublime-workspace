@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"Hero",
+				"HeroContentTextContent"
+			],
+			[
+				"data-lax",
+				"data-lax-translate-y"
+			],
+			[
+				"lax",
+				"lax__preset__AppText"
+			],
+			[
+				"get",
+				"getBoundingClientRect"
+			],
+			[
+				"ge",
+				"getBoundingClientRect"
+			],
+			[
 				"c",
 				"category__sidebar"
 			],
@@ -34,10 +54,6 @@
 			[
 				"savings",
 				"savingsElement"
-			],
-			[
-				"get",
-				"getData"
 			],
 			[
 				"has",
@@ -303,16 +319,52 @@
 			"file": "components/AppHeader.vue",
 			"settings":
 			{
-				"buffer_size": 4145,
+				"buffer_size": 4475,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "",
+			"file": "components/HeroContent.vue",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 2395,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "components/HeroContent/HeroContentTextContent.vue",
+			"settings":
+			{
+				"buffer_size": 427,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "plugins/Startup.plugin.js",
+			"settings":
+			{
+				"buffer_size": 415,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "misc/HeroContent.txt",
+			"settings":
+			{
+				"buffer_size": 3539,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/F/xampp/htdocs/ajax/herocontent.ajax.php",
+			"settings":
+			{
+				"buffer_size": 674,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		}
@@ -362,35 +414,45 @@
 	"expanded_folders":
 	[
 		"/F/StoffeHemmers_Git",
-		"/F/StoffeHemmers_Git/components",
-		"/F/StoffeHemmers_Git/source",
-		"/F/StoffeHemmers_Git/source/css",
-		"/F/StoffeHemmers_Git/source/css/components",
-		"/F/StoffeHemmers_Git/source/css/pages",
-		"/F/StoffeHemmers_Git/source/css/pages/category"
+		"/F/StoffeHemmers_Git/misc"
 	],
 	"file_history":
 	[
+		"/F/StoffeHemmers_Git/components/ListCard/ListCard.vue",
+		"/F/StoffeHemmers_Git/components/AppHeader.vue",
+		"/F/StoffeHemmers_Git/source/css/components/HeroContent.scss",
+		"/F/StoffeHemmers_Git/plugins/DOMElement.plugin.js",
+		"/F/StoffeHemmers_Git/node_modules/lax.js/lib/lax.js",
+		"/F/StoffeHemmers_Git/node_modules/waypoints/src/waypoint.js",
+		"/F/StoffeHemmers_Git/assets/css/vars/colors.scss",
 		"/F/StoffeHemmers_Git/source/css/build.scss",
+		"/F/StoffeHemmers_Git/nuxt.config.js",
+		"/F/StoffeHemmers_Git/plugins/Startup.plugin.js",
+		"/F/StoffeHemmers_Git/modules/text.module.js",
+		"/F/StoffeHemmers_Git/modules/DOMElement.module.js",
+		"/F/StoffeHemmers_Git/plugins/lax.min.js",
+		"/F/StoffeHemmers_Git/components/ListCard/ListCardFlagList.vue",
+		"/F/StoffeHemmers_Git/plugins/lax.js",
+		"/F/StoffeHemmers_Git/ajax/products.ajax.php",
+		"/F/xampp/htdocs/ajax/products.ajax.php",
+		"/F/StoffeHemmers_Git/components/ListCard/ListCardPrice.vue",
+		"/F/StoffeHemmers_Git/components/ListCard/ListCardImage.vue",
+		"/F/StoffeHemmers_Git/components/ListCard/ListCardFlag.vue",
+		"/F/StoffeHemmers_Git/pages/category/_id.vue",
 		"/F/StoffeHemmers_Git/source/css/fonts/lemonade.scss",
 		"/F/StoffeHemmers_Git/source/css/fonts/montserrat.scss",
 		"/F/StoffeHemmers_Git/components/AppButton.vue",
-		"/F/StoffeHemmers_Git/source/css/components/HeroContent.scss",
 		"/F/StoffeHemmers_Git/components/HeroContent.vue",
 		"/F/StoffeHemmers_Git/source/css/modules/buttons.scss",
 		"/F/StoffeHemmers_Git/source/css/navigation.scss",
-		"/F/StoffeHemmers_Git/components/AppHeader.vue",
 		"/F/StoffeHemmers_Git/components/ProductCard/ProductCard.vue",
-		"/F/StoffeHemmers_Git/pages/category/_id.vue",
 		"/F/StoffeHemmers_Git/layouts/sidebar.vue",
 		"/F/StoffeHemmers_Git/components/pages/category/PagesCategorySidebar.vue",
 		"/F/StoffeHemmers_Git/components/pages/category/PagesCategorySidebarItem.vue",
 		"/F/xampp/htdocs/ajax/navigation.ajax.php",
 		"/F/StoffeHemmers_Git/ajax/navigation.ajax.php",
-		"/F/StoffeHemmers_Git/nuxt.config.js",
 		"/F/StoffeHemmers_Git/assets/css/imports/mixins.scss",
 		"/F/StoffeHemmers_Git/package.json",
-		"/F/StoffeHemmers_Git/assets/css/vars/colors.scss",
 		"/F/StoffeHemmers_Git/source/css/layouts/sidebar.scss",
 		"/F/StoffeHemmers_Git/source/css/modules/product.scss",
 		"/F/StoffeHemmers_Git/app.html",
@@ -483,26 +545,11 @@
 		"/C/xampp/htdocs/mothra.de/mothra.layout/source/js/footer/lazy/modules/Login.class.js",
 		"/C/xampp/htdocs/mothra.de/mothra.layout/source/js/footer/lazy/modules/Cart.class.js",
 		"/C/xampp/htdocs/mothra.de/mothra.layout/source/js/footer/lazy/modules/ProductCart.class.js",
-		"/Z/production.stoffe-hemmers.de/library/includes/classes/EmailContent.class.php",
-		"/D/alpha/shop/page.hero.phtml",
-		"/C/xampp/htdocs/mothra.de/mothra.layout/source/templates/modules/tile.image.phtml",
-		"/Z/production.stoffe-hemmers.de/library/distributed/templates/modules/tile.image.phtml",
-		"/Z/production.stoffe-hemmers.de/library/distributed/js/app-distributed.min.js",
-		"/C/xampp/htdocs/mothra.de/mothra.layout/source/js/footer/lazy/modules/Category.class.js",
-		"/Z/production.stoffe-hemmers.de/library/distributed/templates/navigation/footer.service.phtml",
-		"/C/xampp/htdocs/mothra.de/mothra.layout/source/templates/navigation/footer.service.phtml",
-		"/Z/production.stoffe-hemmers.de/fabric-wholesale.php",
-		"/Z/production.stoffe-hemmers.de/stoff-grosshandel.php",
-		"/Z/testshop.stoffe-hemmers.de/library/distributed/svg/sprite.svg",
-		"/C/xampp/htdocs/mothra.de/mothra.layout/source/icons/payment/advancepayment_de_DE.svg",
-		"/Z/testshop.stoffe-hemmers.de/library/includes/ajax/removefromcart.ajax.php",
-		"/C/xampp/htdocs/mothra.de/mothra.layout/source/js/footer/lazy/modules/ShoppingCart.class.js",
-		"/Z/testshop.stoffe-hemmers.de/library/distributed/templates/cart/cart.sidebar.phtml",
-		"/C/xampp/htdocs/mothra.de/mothra.layout/source/css/styles.scss"
+		"/Z/production.stoffe-hemmers.de/library/includes/classes/EmailContent.class.php"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -516,6 +563,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"parallax",
+			"addPreset",
+			".setup",
+			"DOMElement",
+			"DOM",
 			"url('",
 			"app__header__content-top",
 			"logo",
@@ -554,7 +606,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -563,25 +615,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4145,
+						"buffer_size": 4475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3618,
-								3618
+								3595,
+								3596
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
 							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1404.0,
+						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -589,30 +642,147 @@
 				},
 				{
 					"buffer": 1,
+					"file": "components/HeroContent.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2395,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1255,
+								1255
 							]
 						],
 						"settings":
 						{
-							"auto_name": "",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "components/HeroContent/HeroContentTextContent.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								380,
+								380
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "plugins/Startup.plugin.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 415,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								407,
+								387
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "misc/HeroContent.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								80,
+								80
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/F/xampp/htdocs/ajax/herocontent.ajax.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								179,
+								170
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
 					"type": "text"
 				}
 			]
@@ -661,7 +831,7 @@
 	"project": "nuxt.sublime-project",
 	"replace":
 	{
-		"height": 70.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
