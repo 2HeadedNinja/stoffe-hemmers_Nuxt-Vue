@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name  : 'ProductCardPrice',
+    name  : 'ListCardPrice',
     props : {
       price   : {
         type  : Object,

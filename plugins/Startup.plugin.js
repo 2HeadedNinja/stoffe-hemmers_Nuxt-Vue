@@ -1,17 +1,20 @@
-import Vue from 'vue';
+// -> Import and Initialize svg4everybody
+import svg4everybody from 'svg4everybody';
+svg4everybody()
+// -> Import and Initialize lax.js
 
-if(process.browser) {
-  window.Event = new class {
-    constructor() {
-      this.vue = new Vue();
-    }
 
-    broadcast(event, data = null) {
-      this.vue.$emit(event,data);
-    }
+if(typeof lax === 'object') {
+  lax.setup()
 
-    listen(event, callback) {
-      this.vue.$on(event,callback);
-    }
+  const updateLax = () => {
+    lax.update(window.scrollY)
+    window.requestAnimationFrame(updateLax)
   }
+
+  window.requestAnimationFrame(updateLax)
+
+  window.addEventListener("resize", function() {
+    lax.updateElements()
+  });
 }

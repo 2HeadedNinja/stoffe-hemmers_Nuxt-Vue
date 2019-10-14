@@ -6,7 +6,7 @@
     <div class="grid__column__line"></div>
     <main class="product__listing">
       <h1>{{ id }}</h1>
-      <ProductCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ProductCard>
+      <ListCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ListCard>
       <!-- Show Skelletons as long as no Products are loaded yet //-->
       <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)"></ProductSkelleton>
     </main>
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-  import ProductCard from '~/components/ProductCard/ProductCard';
+  import ListCard from '~/components/ListCard/ListCard';
   import ProductSkelleton  from '~/components/ProductSkelleton';
   import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar';
 
   export default {
     layout          : 'sidebar',
     components      : {
-      ProductCard,
+      ListCard,
       ProductSkelleton,
       PagesCategorySidebar
     },

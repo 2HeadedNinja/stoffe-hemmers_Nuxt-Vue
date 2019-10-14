@@ -1,10 +1,10 @@
 <template>
   <div class="app__top">
-    <header data-rellax-speed="3">
+    <header>
       <div class="app__header__content">
         <div class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
-            <svg role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
+            <svg role="img" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
               <use xlink:href="~/assets/svg/sprite.svg#logo-wide-de_DE"></use>
             </svg>
           </a>
@@ -12,7 +12,7 @@
           <ul class="secondary__navigation">
             <li>
               <a href="#" role="button" class="modal flex align-left-center">
-                <svg class="account" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                <svg class="account" role="presentation" alt="Anmelden" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="~/assets/svg/sprite.svg#avatar-line"></use>
                 </svg>
                 Anmelden
@@ -20,7 +20,7 @@
             </li>
             <li class="flex align-left-center">
               <a href="#" class="flex align-left-center">
-                <svg class="wishlist" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                <svg class="wishlist" role="presentation" alt="Mein Wunschzettel" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="~/assets/svg/sprite.svg#heart-line"></use>
                 </svg>
                 Mein Wunschzettel
@@ -28,7 +28,7 @@
             </li>
             <li>
               <a href="/cart" class="flex align-left-center">
-                <svg class="cart" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+                <svg class="cart" role="presentation" alt="Mein Warenkorb" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="~/assets/svg/sprite.svg#shopping-bag-line"></use>
                 </svg>
                 Mein Warenkorb
@@ -60,7 +60,7 @@
         </nav>
       </div>
     </header>
-    <HeroContent :content="hero" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
+    <HeroContent v-if="heroContent" :contentData="heroContent" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
   </div>
 </template>
 
@@ -76,20 +76,45 @@
 
     data() {
       return {
-        hero : false
+        heroContent   : null,
       }
     },
 
-    methods     : {
-      emitEvent(evt = 'AppHeaderInitialMount') {
+    methods : {
+      getHeight() {
         const __rect  = this.$el.getBoundingClientRect();
-        const __event = { height : null };
 
         if(__rect.height && typeof __rect.height == 'number') {
-          __event.height = Math.round(__rect.height);
+          return Math.round(__rect.height);
         }
 
+        return null;
+      },
+
+      emitEvent(evt = 'AppHeaderInitialMount') {
+        const __event = { height : this.getHeight() };
         this.$root.$emit(evt,__event);
+      },
+
+      parallax() {
+        const __header = this.$el.querySelector('header');
+
+        if(typeof lax === 'object' && DOMElement.is(__header)) {
+          const __rect = __header.getBoundingClientRect();
+
+          if(__rect && typeof __rect.height === 'number') {
+            __header.setAttribute('data-lax-preset','lax__preset__AppHeader');
+
+            lax.addPreset("lax__preset__AppHeader", function() {
+              return { 
+                "data-lax-translate-y" : "0 0, (vh*.8) ("+Math.round(__rect.height*1.2)+"*-1)"
+              }
+            })
+
+            lax.addElement(__header);
+            lax.updateElements();
+          }
+        }
       }
     },
     
@@ -98,32 +123,14 @@
     },
 
     mounted() {
-      const __header = this.$el.querySelector('header');
-
-      console.log(typeof Rellax);
-
-      var rellax = new Rellax(__header,{
-        callback: function(positions) {
-          // callback every position change
-          console.log(positions);
-        }
-      });
-
-      /*if(__header !== null && typeof simpleParallax === 'function') {
-        const __instance = new simpleParallax(__header,{
-          overflow: true
-        });
-
-        console.log(__instance);
-      }*/
-
+      this.parallax();
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
           if(response.error === false) {
-            this.$data.hero = response.hero;
+            this.$data.heroContent = response;
 
-            if(this.hero === true) {
-              this.emitEvent();
+            if(this.$data.heroContent.hasHeroContent === true) {
+              this.$data.heroContent.elementHeight = this.getHeight();
             } else {
               this.emitEvent('AppHeaderMounted');
             }

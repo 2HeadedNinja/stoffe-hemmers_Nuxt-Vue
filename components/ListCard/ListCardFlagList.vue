@@ -1,18 +1,18 @@
 <template>
   <div v-if="flags" class="product__card-cardwrap__flags">
-    <ProductCardFlag v-for="(flag,index) in flags" v-bind:key="index" :flagType="flag.type">
+    <ListCardFlag v-for="(flag,index) in flags" v-bind:key="index" :flagType="flag.type">
       {{ flag.label }}
-    </ProductCardFlag>
+    </ListCardFlag>
   </div>
 </template>
 
 <script>
-  import ProductCardFlag from '~/components/ProductCard/ProductCardFlag';
+  import ListCardFlag from '~/components/ListCard/ListCardFlag';
 
   export default {
-    name  : 'ProductCardFlagList',
+    name  : 'ListCardFlagList',
     components  : {
-      ProductCardFlag
+      ListCardFlag
     },
     props : {
       flags  : {

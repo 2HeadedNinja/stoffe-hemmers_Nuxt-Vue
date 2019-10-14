@@ -1,4 +1,5 @@
 @import 'fonts/montserrat';
+@import 'fonts/lemonade';
 
 @import '../../assets/css/vars/colors';
 @import '../../assets/css/imports/mixins';
@@ -29,7 +30,7 @@
   }
 
   html {
-    /*margin-left                         : calc(100vw - 100%);*/
+    min-height                          : 101vh;
     
     div#app {
     }
@@ -40,6 +41,8 @@
     font-weight                         : 400;
     font-size                           : 16px;
     line-height                         : 160%;
+
+    color                               : tint(dark,2);
 
     &.disable__hover {
       pointer-events                    : none;
@@ -83,6 +86,9 @@
     width                               : 100%;
 
     header {
+      position                          : relative;
+      z-index                           : 1;
+
       .app__header__content {
         margin                          : 0 auto;
 
@@ -173,8 +179,8 @@
 
   p {
     strong {
-      font-weight                       : 600;
-      color                             : tint(dark,5);
+      font-weight                       : 500;
+      color                             : tint(dark,6);
     }
 
     em {
@@ -186,8 +192,8 @@
   h4,
   h5,
   h6 {
-    font-size                           : 24px;
-    font-weight                         : 500;
+    font-size                           : 26px;
+    font-weight                         : 400;
 
     color                               : tint(dark,3);
     text-transform                      : uppercase;
@@ -204,7 +210,7 @@
     color                               : $success;
 
     line-height                         : 100%;
-    padding                             : 10px;
+    padding                             : 12px 14px 10px 10px;
 
     &:before {
       content                           : 'default';

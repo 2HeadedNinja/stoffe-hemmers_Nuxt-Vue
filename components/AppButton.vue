@@ -1,6 +1,6 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="css">
-    <svg v-if="icon" role="img" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+    <svg v-if="icon" role="presentation" :label="label" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
       <use xlink:href="~/assets/svg/sprite.svg#eye-show-line"></use>
     </svg>
     <slot></slot>
@@ -12,6 +12,13 @@
     name  : 'AppButton',
     props : {
       icon    : null,
+      label   : {
+        type  : String,
+
+        default() {
+          return 'Stoffe Hemmers'
+        }
+      },
       css     : {
         type  : String,
 
