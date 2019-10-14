@@ -1,6 +1,6 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="css">
-    <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+    <svg v-if="icon" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
       <use :xlink:href="iconPath"></use>
     </svg>
     <slot></slot>
@@ -8,8 +8,6 @@
 </template>
 
 <script>
-  import svg4everybody from 'svg4everybody'
-
   export default {
     name  : 'AppButton',
     props : {
@@ -32,7 +30,7 @@
 
     computed : {
       iconPath() {
-        return '/_nuxt/assets/svg/sprite.svg#'+this.icon;
+        return require('~assets/svg/sprite.svg#'+this.icon);
       }
     },
 
@@ -41,7 +39,6 @@
     },
 
     mounted() {
-      svg4everybody();
       this.$emit('AppButtonMounted');
     }
     // -> https://markus.oberlehner.net/blog/lazy-loading-responsive-images-with-vue/

@@ -91,3 +91,4 @@ sw.*
 *.swp
 nuxt.sublime-workspace
 *.sublime-workspace
+nuxt.sublime-project
