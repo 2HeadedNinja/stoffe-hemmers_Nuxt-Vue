@@ -1,7 +1,7 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="css">
     <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-      <use xlink:href="~/assets/svg/sprite.svg#arrow-down-thick"></use>
+      <use :xlink:href="iconPath"></use>
     </svg>
     <slot></slot>
   </button>
@@ -32,7 +32,7 @@
 
     computed : {
       iconPath() {
-        return '~/assets/svg/sprite.svg#'+this.icon;
+        return '/_nuxt/assets/svg/sprite.svg#'+this.icon;
       }
     },
 

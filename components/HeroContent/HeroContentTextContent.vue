@@ -2,9 +2,6 @@
 	<div class="layout__herocontent__text">
     <div v-html="textContent"></div>
     <AppButton @AppButtonClick="quickView" :css="'layout__herocontent__text__button'" :icon="'arrow-down-thick'" :label="'Direkt zu den Produkten'">
-      <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-        <use xlink:href="~/assets/svg/sprite.svg#arrow-down-thick"></use>
-      </svg>
       Direkt zu den Produkten
     </AppButton>
   </div>
