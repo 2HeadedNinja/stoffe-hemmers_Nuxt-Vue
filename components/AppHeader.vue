@@ -11,7 +11,7 @@
           { SUCHE }
           <ul class="secondary__navigation">
             <li>
-              <a href="#" role="button" class="modal flex align-left-center">
+              <a href="/category" role="button" class="modal flex align-left-center">
                 <svg class="account" role="presentation" alt="Anmelden" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
                   <use xlink:href="/svg/sprite.svg#avatar-line"></use>
                 </svg>
@@ -39,22 +39,22 @@
         <nav class="app__header__content-bottom main__navigation" role="navigation">
           <ul>
             <li>
-              <a href="#">Stoffe</a>
+              <a href="/category">Stoffe</a>
             </li>
             <li>
-              <a href="#">Nähzubehör</a>
+              <a href="/category">Nähzubehör</a>
             </li>
             <li>
-              <a href="#">Schnittmuster</a>
+              <a href="/category">Schnittmuster</a>
             </li>
             <li>
-              <a href="#">Inspiration</a>
+              <a href="/category">Inspiration</a>
             </li>
             <li >
-              <a href="#">Neuheiten</a>
+              <a href="/category">Neuheiten</a>
             </li>
             <li>
-              <a href="#">Sale</a>
+              <a href="/category">Sale</a>
             </li>
           </ul>
         </nav>
