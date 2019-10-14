@@ -81,6 +81,42 @@
       }
     }
 
+    .layout__herocontent__text__button {
+
+      width                             : 120px;
+      height                            : 60px;
+
+      /*text-indent                       : -10000px;*/
+      overflow                          : hidden;
+
+      border                            : none;
+      border-bottom-left-radius         : 60px;
+      border-bottom-right-radius        : 60px;
+
+      background-color                  : $white;
+
+      position                          : absolute;
+      bottom                            : 0;
+      left                              : 50%;
+      z-index                           : 3;
+
+      transform                         : translateX(-60px) translateY(55px);
+
+      svg {
+        /*position                        : absolute;
+        top                             : 50%;
+        left                            : 50%;*/
+
+        z-index                         : 0;
+        fill                            : tint(dark,1);
+
+        width                           : 60px;
+        height                          : 60px;
+
+        transform                       : translate(-50%,-50%);
+      }
+    }
+
     &.mounted {
       opacity                           : 1;
 

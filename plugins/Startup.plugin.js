@@ -2,8 +2,6 @@
 import svg4everybody from 'svg4everybody';
 svg4everybody()
 // -> Import and Initialize lax.js
-
-
 if(typeof lax === 'object') {
   lax.setup()
 
@@ -14,7 +12,7 @@ if(typeof lax === 'object') {
 
   window.requestAnimationFrame(updateLax)
 
-  window.addEventListener("resize", function() {
+  window.addEventListener('resize', function() {
     lax.updateElements()
   });
 }
