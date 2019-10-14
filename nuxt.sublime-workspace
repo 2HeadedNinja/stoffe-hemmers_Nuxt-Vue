@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"transl",
+				"translate"
+			],
+			[
 				"trans",
 				"translate"
 			],
@@ -316,10 +320,46 @@
 	"buffers":
 	[
 		{
+			"file": "layouts/sidebar.vue",
+			"settings":
+			{
+				"buffer_size": 3305,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "components/AppHeader.vue",
+			"settings":
+			{
+				"buffer_size": 4056,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "plugins/simpleParallax.min.js",
+			"settings":
+			{
+				"buffer_size": 9247,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "nuxt.config.js",
+			"settings":
+			{
+				"buffer_size": 1874,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "source/css/components/HeroContent.scss",
 			"settings":
 			{
-				"buffer_size": 2481,
+				"buffer_size": 2975,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -328,7 +368,7 @@
 			"file": "source/css/build.scss",
 			"settings":
 			{
-				"buffer_size": 4961,
+				"buffer_size": 5486,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -337,7 +377,7 @@
 			"file": "components/HeroContent.vue",
 			"settings":
 			{
-				"buffer_size": 1645,
+				"buffer_size": 1684,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -360,15 +400,6 @@
 			}
 		},
 		{
-			"file": "layouts/sidebar.vue",
-			"settings":
-			{
-				"buffer_size": 3305,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "layouts/default.vue",
 			"settings":
 			{
@@ -381,7 +412,7 @@
 			"file": "app.html",
 			"settings":
 			{
-				"buffer_size": 166,
+				"buffer_size": 203,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -432,16 +463,14 @@
 	"expanded_folders":
 	[
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue",
-		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/components",
-		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/components/pages",
-		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/layouts",
-		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/source",
-		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/source/css"
+		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/plugins"
 	],
 	"file_history":
 	[
-		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/plugins/svg4everybody.js",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/nuxt.config.js",
+		"/Z/old/beta.stoffe-hemmers.de/frontend/source/css/modules/navigation/navigation.main.scss",
+		"/Z/old/beta.stoffe-hemmers.de/frontend/source/css/modules/navigation/navigation.secondary.scss",
+		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/plugins/svg4everybody.js",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/assets/svg/sprite.svg",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/components/ProductCard/ProductCard.vue",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/components/AppButton.vue",
@@ -449,7 +478,6 @@
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/source/css/build.scss",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/source/css/modules/buttons.scss",
 		"/Z/old/beta.stoffe-hemmers.de/frontend/source/css/modules/product/card.default.scss",
-		"/Z/old/beta.stoffe-hemmers.de/frontend/source/css/modules/navigation/navigation.secondary.scss",
 		"/Z/old/beta.stoffe-hemmers.de/resources/views/product/default.blade.php",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/node_modules/svg4everybody/dist/svg4everybody.js",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/node_modules/svg4everybody/lib/svg4everybody.js",
@@ -457,7 +485,6 @@
 		"/Z/old/beta.stoffe-hemmers.de/resources/sass/app.scss",
 		"/Z/old/beta.stoffe-hemmers.de/frontend/source/js/app/modules/content/homepage/Content.homepage.class.js",
 		"/Z/old/beta.stoffe-hemmers.de/frontend/source/js/app/modules/Mutator.class.js",
-		"/Z/old/beta.stoffe-hemmers.de/frontend/source/css/modules/navigation/navigation.main.scss",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/source/css/navigation.scss",
 		"/C/Users/jschroeder/Documents/GitHub/stoffe-hemmers_Nuxt-Vue/ajax/herocontent.ajax.php",
 		"/C/xampp/htdocs/ajax/herocontent.ajax.php",
@@ -571,7 +598,7 @@
 	],
 	"find":
 	{
-		"height": 28.0
+		"height": 40.0
 	},
 	"find_in_files":
 	{
@@ -585,6 +612,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"transform",
+			"transition",
+			"transform",
 			"logo",
 			"hemmers-main-in",
 			"ProductImageLoaded",
@@ -623,86 +653,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "source/css/components/HeroContent.scss",
+					"file": "layouts/sidebar.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2481,
+						"buffer_size": 3305,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								517,
-								517
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "source/css/build.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4961,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4410,
-								4410
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/SCSS/SCSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2812.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "components/HeroContent.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1645,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								105,
-								105
+								370,
+								322
 							]
 						],
 						"settings":
@@ -720,7 +688,193 @@
 					"type": "text"
 				},
 				{
+					"buffer": 1,
+					"file": "components/AppHeader.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4056,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3148,
+								3114
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 342.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "plugins/simpleParallax.min.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
 					"buffer": 3,
+					"file": "nuxt.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								917,
+								917
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "source/css/components/HeroContent.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2975,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1014,
+								1014
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "source/css/build.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5486,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								749,
+								681
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SCSS/SCSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 313.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "components/HeroContent.vue",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1684,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								883,
+								883
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
 					"file": "components/pages/category/PagesCategorySidebar.vue",
 					"semi_transient": false,
 					"settings":
@@ -744,14 +898,14 @@
 							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 285.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 8,
 					"file": "/C/xampp/htdocs/alpha.stoffe-hemmers.de/index.php",
 					"semi_transient": false,
 					"settings":
@@ -778,42 +932,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "layouts/sidebar.vue",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3305,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								370,
-								370
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 9,
 					"file": "layouts/default.vue",
 					"semi_transient": false,
 					"settings":
@@ -840,24 +963,24 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 10,
 					"file": "app.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 166,
+						"buffer_size": 203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								115,
-								115
+								178,
+								178
 							]
 						],
 						"settings":
@@ -871,7 +994,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 9,
 					"type": "text"
 				}
 			]
