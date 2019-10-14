@@ -5,7 +5,7 @@
         <div class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
             <svg role="img" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
-              <use xlink:href="~/assets/svg/sprite.svg#logo-wide-de_DE"></use>
+              <use xlink:href="/svg/sprite.svg#logo-wide-de_DE"></use>
             </svg>
           </a>
           { SUCHE }
@@ -13,7 +13,7 @@
             <li>
               <a href="#" role="button" class="modal flex align-left-center">
                 <svg class="account" role="presentation" alt="Anmelden" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                  <use xlink:href="~/assets/svg/sprite.svg#avatar-line"></use>
+                  <use xlink:href="/svg/sprite.svg#avatar-line"></use>
                 </svg>
                 Anmelden
               </a>
@@ -21,7 +21,7 @@
             <li class="flex align-left-center">
               <a href="#" class="flex align-left-center">
                 <svg class="wishlist" role="presentation" alt="Mein Wunschzettel" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                  <use xlink:href="~/assets/svg/sprite.svg#heart-line"></use>
+                  <use xlink:href="/svg/sprite.svg#heart-line"></use>
                 </svg>
                 Mein Wunschzettel
               </a>
@@ -29,7 +29,7 @@
             <li>
               <a href="/cart" class="flex align-left-center">
                 <svg class="cart" role="presentation" alt="Mein Warenkorb" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                  <use xlink:href="~/assets/svg/sprite.svg#shopping-bag-line"></use>
+                  <use xlink:href="/svg/sprite.svg#shopping-bag-line"></use>
                 </svg>
                 Mein Warenkorb
               </a>

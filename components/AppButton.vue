@@ -1,7 +1,7 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="css">
     <svg v-if="icon" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-      <use :xlink:href="iconPath"></use>
+      <use :xlink:href="iconPath(icon)"></use>
     </svg>
     <slot></slot>
   </button>
@@ -28,9 +28,9 @@
       }
     },
 
-    computed : {
-      iconPath() {
-        return require('~assets/svg/sprite.svg#'+this.icon);
+    methods : {
+      iconPath(name) {
+        return '/svg/sprite.svg#'+this.icon;
       }
     },
 
