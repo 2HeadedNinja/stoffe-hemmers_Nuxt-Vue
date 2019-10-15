@@ -82,15 +82,15 @@
     }
 
     .layout__herocontent__text__button {
-      width                             : 120px;
-      height                            : 60px;
+      width                             : 160px;
+      height                            : 80px;
 
       text-indent                       : -10000px;
       overflow                          : hidden;
 
       border                            : none;
-      border-bottom-left-radius         : 60px;
-      border-bottom-right-radius        : 60px;
+      border-bottom-left-radius         : 80px;
+      border-bottom-right-radius        : 80px;
 
       background-color                  : $white;
 
@@ -99,21 +99,93 @@
       left                              : 50%;
       z-index                           : 3;
 
-      transform                         : translateX(-60px) translateY(55px);
+      transform                         : translateX(-80px) translateY(75px);
 
-      svg {
+      .layout__herocontent__text__button__mouse {
         position                        : absolute;
-        top                             : 50%;
+        top                             : 5px;
         left                            : 50%;
-
         z-index                         : 0;
-        fill                            : tint(dark,3);
+
+        transform                       : translateX(-50%) translateY(0px);
+
+        display                         : block;
 
         width                           : 40px;
-        height                          : 40px;
+        height                          : 60px;
 
-        transform                       : translate(-50%,-50%);
+        border                          : 2px solid tint(dark,3);
+        border-radius                   : 20px;
+
+        animation                       : layout__herocontent__text__button-animation__body 1.5s ease-in infinite;
+
+        &:after,
+        &:before {
+          display                       : block;
+          content                       : '';
+
+          width                         : 6px;
+          border-radius                 : 3px;
+
+          position                      : absolute;
+          top                           : 10px;
+          left                          : 50%;
+
+          transform                     : translateX(-50%);
+        }
+
+        &:before {
+          height                        : 20px;
+
+          background-color              : tint(light,2);
+          z-index                       : 0;
+        }
+
+        &:after {
+          height                        : 6px;
+
+          background-color              : tint(dark,3);
+          z-index                       : 1;
+        }
       }
+
+      /*&:before {
+        display                         : block;
+        content                         : '';
+
+        width                           : 40px;
+        height                          : 55px;
+
+        border                          : 2px solid tint(dark,3);
+
+        position                        : absolute;
+        top                             : 5px;
+        left                            : 50%;
+
+        transform                       : translateX(-50%);
+
+        border-radius                   : 20px;
+      }
+
+      /*&:after {
+        display                         : block;
+        content                         : '';
+
+        width                           : 8px;
+        height                          : 8px;
+
+        border-radius                   : 100%;
+        background-color                : tint(dark,3);
+
+        position                        : absolute;
+        top                             : 10px;
+        left                            : 50%;
+
+        opacity                         : 0;
+        transform                       : translateX(-4px);
+
+        animation                       : layout__herocontent__text__button-animation 2s ease infinite;
+      }*/
     }
 
     &.mounted {
@@ -133,10 +205,20 @@
       z-index                           : 0;
 
       opacity                           : 0;
+      max-width                         : 100%;
 
       &.canplay {
         opacity                         : 1;
       }
     }
+  }
+}
+
+@keyframes layout__herocontent__text__button-animation__body {
+  0% {
+    transform                         : translateX(-50%) translateY(0px);
+  }
+  100% {
+    transform                         : translateX(-50%) translateY(10px);
   }
 }

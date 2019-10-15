@@ -10,6 +10,13 @@
 <script>
   import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent'
 
+  // -> https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4
+  // -> https://lib.shcdn.de/videos/nuxt__cherry_blossom.mp4
+  // -> https://lib.shcdn.de/videos/nuxt__sewing_teaching.mp4
+  // -> https://lib.shcdn.de/videos/nuxt__strawberry-falling.mp4
+  // -> https://images.shcdn.de/resized/original/wpi/nuxt__living-room-modern.jpg
+  // -> https://images.shcdn.de/resized/original/wpi/nuxt__comfortable-room.jpg
+
   export default {
     name : 'HeroContent',
 

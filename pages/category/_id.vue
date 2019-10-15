@@ -1,6 +1,14 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
+      <AppButton :animate="true">
+        Testbutton
+      </AppButton>
+      <br /><br />
+      <AppButton>
+        Testbutton
+      </AppButton>
+      <br /><br />
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
     <div class="grid__column__line"></div>
@@ -14,6 +22,7 @@
 </template>
 
 <script>
+  import AppButton from '~/components/AppButton'
   import ListCard from '~/components/ListCard/ListCard';
   import ProductSkelleton  from '~/components/ProductSkelleton';
   import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar';
@@ -21,6 +30,7 @@
   export default {
     layout          : 'sidebar',
     components      : {
+      AppButton,
       ListCard,
       ProductSkelleton,
       PagesCategorySidebar

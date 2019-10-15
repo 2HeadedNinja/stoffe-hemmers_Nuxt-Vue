@@ -13,7 +13,8 @@
 
     font-family                   : 'Montserrat', sans-serif;
     font-weight                   : 500;
-    font-size                     : 16px;
+    font-size                     : 18px;
+    letter-spacing                : 2px;
     text-transform                : uppercase;
 
     margin                        : 0;
@@ -39,5 +40,36 @@
       min-height                  : 36px;
       font-size                   : 14px;
     }
+
+    &[class*='-default'] {
+      color                       : $white;
+      background-color            : tint(brand);
+      
+      background                  : linear-gradient(-45deg,tint(brand,4),tint(brand));
+      border-bottom               : 5px solid tint(brand,6);
+
+      &[class*="-animate"] {
+        background                : linear-gradient(-45deg,tint(brand),tint(brand,3),tint(accent),tint(accent,3));
+        background-size           : 200% 200%;
+        animation                 : app__button-default__background-animation 10s ease infinite;
+      }
+
+      &:active {
+        transform                 : translateY(5px);
+        border-bottom             : 1px solid;
+      }
+    }
+  }
+}
+
+@keyframes app__button-default__background-animation {
+  0% {
+    background-position           : 0% 50%;
+  }
+  50% {
+    background-position           : 100% 50%;
+  }
+  100% {
+    background-position           : 0% 50%;
   }
 }

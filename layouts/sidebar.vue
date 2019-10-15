@@ -14,6 +14,7 @@
   // https://simpleparallax.com/#examples
   // import simpleParallax from 'simple-parallax-js';
 
+  import AppButton from '~/components/AppButton'
   import AppHeader from '~/components/AppHeader'
   import AppFooter from '~/components/AppFooter'
 
@@ -21,7 +22,8 @@
     name        : 'LayoutSidebar',
     components  : {
       AppHeader,
-      AppFooter
+      AppFooter,
+      AppButton,
     },
 
     methods     : {

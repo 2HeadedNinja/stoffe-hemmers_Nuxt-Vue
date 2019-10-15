@@ -1,8 +1,8 @@
 <template>
 	<div class="layout__herocontent__text">
     <div v-html="textContent"></div>
-    <AppButton @AppButtonClick="quickView" :css="'layout__herocontent__text__button'" :icon="'arrow-down-thick'" :label="'Direkt zu den Produkten'">
-      Direkt zu den Produkten
+    <AppButton @AppButtonClick="quickView" :css="'layout__herocontent__text__button'">
+      <div class="layout__herocontent__text__button__mouse"></div>
     </AppButton>
   </div>
 </template>

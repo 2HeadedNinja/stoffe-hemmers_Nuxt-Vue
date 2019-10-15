@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('AppButtonClick');" :class="css">
+  <button @click="$emit('AppButtonClick');" :class="getCss()">
     <svg v-if="icon" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
       <use :xlink:href="iconPath(icon)"></use>
     </svg>
@@ -12,23 +12,39 @@
     name  : 'AppButton',
     props : {
       icon    : null,
+      animate : {
+        type  : Boolean,
+
+        default() {
+          return false;
+        }
+      },
       label   : {
         type  : String,
 
         default() {
-          return 'Stoffe Hemmers'
+          return 'Stoffe Hemmers';
         }
       },
       css     : {
         type  : String,
 
         default() {
-          return 'app__button'
+          return 'app__button-default';
         }
       }
     },
 
     methods : {
+      getCss() {
+        console.log(this.animate);
+        if(this.animate === false) {
+          return this.css;
+        } else {
+          return this.css+'-animate';
+        }
+      },
+
       iconPath(name) {
         return '/svg/sprite.svg#'+this.icon;
       }
