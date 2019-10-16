@@ -52,8 +52,8 @@
 
       &[class*="-animate"] {
         background                : linear-gradient(-45deg,tint(brand),tint(accent));
-        background-size           : 150% 150%;
-        animation                 : app__button-default__background-animation 10s ease infinite;
+        background-size           : 300% 300%;
+        animation                 : app__button-default__background-animation 15s ease infinite;
       }
 
       &:active {

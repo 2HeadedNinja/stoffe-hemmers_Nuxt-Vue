@@ -83,13 +83,10 @@
 
     .layout__herocontent__text__button {
       display                           : flex;
-      flex-wrap                         : wrap;
-      flex-direction                    : column-reverse;
-
       justify-content                   : center;
 
-      width                             : 180px;
-      height                            : 90px;
+      width                             : 120px;
+      height                            : 60px;
 
       overflow                          : hidden;
 
@@ -105,18 +102,10 @@
       z-index                           : 3;
 
       transform                         : translateX(-60px) translateY(55px);
-
-      * {
-        background-color                : #ffff00;
-      }
-
+      
       svg {
         width                           : 40px;
         height                          : 40px;
-      }
-
-      span {
-        flex                            : 0 0 100%;
       }
 
       /*&:before {
@@ -166,6 +155,7 @@
       }
     }
 
+    div.layout__herocontent__image-background,
     video.layout__herocontent__video-background {
       @include animate(opacity,1s);
 
@@ -176,7 +166,20 @@
 
       opacity                           : 0;
       max-width                         : 100%;
+    }
 
+    div.layout__herocontent__image-background {
+      opacity                           : 1;
+
+      img {
+        display                         : block;
+
+        width                           : 100%;
+        height                          : auto;
+      }
+    }
+
+    video.layout__herocontent__video-background {
       &.canplay {
         opacity                         : 1;
       }

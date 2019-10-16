@@ -1,26 +1,19 @@
 <template>
   <div v-if="contentData.hasHeroContent" class="layout__herocontent" data-lax-preset="lax__preset__AppHero">
     <HeroContentTextContent v-if="contentData.promotext" :textContent="contentData.promotext"></HeroContentTextContent>
-    <video class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" > 
-      <source src="https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4" type="video/mp4"> 
-    </video>
+    <HeroContentBackground v-id="contentData.background" :backgroundData="contentData.background"></HeroContentBackground>
   </div>
 </template>
 
 <script>
+  import HeroContentBackground from '~/components/HeroContent/HeroContentBackground'
   import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent'
-
-  // -> https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4
-  // -> https://lib.shcdn.de/videos/nuxt__cherry_blossom.mp4
-  // -> https://lib.shcdn.de/videos/nuxt__sewing_teaching.mp4
-  // -> https://lib.shcdn.de/videos/nuxt__strawberry-falling.mp4
-  // -> https://images.shcdn.de/resized/original/wpi/nuxt__living-room-modern.jpg
-  // -> https://images.shcdn.de/resized/original/wpi/nuxt__comfortable-room.jpg
 
   export default {
     name : 'HeroContent',
 
     components  : {
+      HeroContentBackground,
       HeroContentTextContent
     },
 
