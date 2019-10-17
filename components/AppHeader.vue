@@ -65,6 +65,7 @@
 </template>
 
 <script>
+  import rallax from 'rallax.js'
   import HeroContent from '~/components/HeroContent'
   
   export default {
@@ -99,20 +100,22 @@
       parallax() {
         const __header = this.$el.querySelector('header');
 
-        if(typeof lax === 'object' && DOMElement.is(__header)) {
+        if(typeof rallax === 'function' && DOMElement.is(__header)) {
           const __rect = __header.getBoundingClientRect();
 
           if(__rect && typeof __rect.height === 'number') {
-            __header.setAttribute('data-lax-preset','lax__preset__AppHeader');
+            const __scrollSpeed = .25;
+            const __threshold   = Math.ceil(__rect.height / __scrollSpeed);
 
-            lax.addPreset("lax__preset__AppHeader", function() {
-              return { 
-                "data-lax-translate-y" : "0 0, (vh*.8) ("+Math.round(__rect.height*1.2)+"*-1)"
-              }
-            })
-
-            lax.addElement(__header);
-            lax.updateElements();
+            const __parallax    = rallax(__header,{speed : (__scrollSpeed * -1)});
+                  __parallax.when(
+                    () => window.scrollY >= __threshold,
+                    () => __parallax.stop()
+                  );
+                  __parallax.when(
+                    () => window.scrollY < __threshold,
+                    () => __parallax.start()
+                  );
           }
         }
       }

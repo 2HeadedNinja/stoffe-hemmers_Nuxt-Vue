@@ -37,7 +37,6 @@
 
     methods : {
       getCss() {
-        console.log(this.animate);
         if(this.animate === false) {
           return this.css;
         } else {

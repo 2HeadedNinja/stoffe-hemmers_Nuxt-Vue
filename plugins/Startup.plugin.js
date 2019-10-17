@@ -2,7 +2,7 @@
 import svg4everybody from 'svg4everybody';
 svg4everybody()
 // -> Import and Initialize lax.js
-if(typeof lax === 'object') {
+/*if(typeof lax === 'object') {
   lax.setup()
 
   const updateLax = () => {
@@ -15,4 +15,4 @@ if(typeof lax === 'object') {
   window.addEventListener('resize', function() {
     lax.updateElements()
   });
-}
+}*/
