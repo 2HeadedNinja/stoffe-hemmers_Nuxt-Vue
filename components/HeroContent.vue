@@ -1,5 +1,5 @@
 <template>
-  <div v-if="contentData.hasHeroContent" class="layout__herocontent" data-lax-preset="lax__preset__AppHero">
+  <div v-if="contentData.hasHeroContent" class="layout__herocontent">
     <HeroContentTextContent v-if="contentData.promotext" :textContent="contentData.promotext"></HeroContentTextContent>
     <HeroContentBackground v-if="contentData.background" :backgroundData="contentData.background"></HeroContentBackground>
   </div>
