@@ -35,8 +35,7 @@
 
     methods : {
       parallax() {
-        const __scrollSpeed = -.5;
-        const __parallax    = rallax(this.$el,{speed : __scrollSpeed});
+        const __parallax = rallax(this.$el,{speed : -.55});
       }
     },
 

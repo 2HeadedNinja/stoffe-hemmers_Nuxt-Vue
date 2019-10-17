@@ -12,12 +12,9 @@
     background-color                    : tint(light,2);
 
     .layout__herocontent__text {
-      /*&:not(.parallax) {
-        @include animate(all,.5s);
+      @include animate(opacity,.5s);
 
-        transition-property             : opacity;
-        transition-delay                : 1s;
-      }*/
+      transition-delay                  : 1s;
 
       width                             : 750px;
       padding                           : 30px 30px 30px 50px;
@@ -27,11 +24,10 @@
       left                              : 50%;
       z-index                           : 1;
 
-      transform                         : translateX(-50%) translateY(-50%);
-
       background-color                  : $white;
+      opacity                           : 0;
 
-      //opacity                           : 0;
+      transform                         : translate3d(-50%,-50%,0);
 
       h3,
       h4,
@@ -107,44 +103,6 @@
         width                           : 40px;
         height                          : 40px;
       }
-
-      /*&:before {
-        display                         : block;
-        content                         : '';
-
-        width                           : 40px;
-        height                          : 55px;
-
-        border                          : 2px solid tint(dark,3);
-
-        position                        : absolute;
-        top                             : 5px;
-        left                            : 50%;
-
-        transform                       : translateX(-50%);
-
-        border-radius                   : 20px;
-      }
-
-      /*&:after {
-        display                         : block;
-        content                         : '';
-
-        width                           : 8px;
-        height                          : 8px;
-
-        border-radius                   : 100%;
-        background-color                : tint(dark,3);
-
-        position                        : absolute;
-        top                             : 10px;
-        left                            : 50%;
-
-        opacity                         : 0;
-        transform                       : translateX(-4px);
-
-        animation                       : layout__herocontent__text__button-animation 2s ease infinite;
-      }*/
     }
 
     &.mounted {

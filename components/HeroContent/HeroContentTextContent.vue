@@ -8,6 +8,7 @@
 </template>
 
 <script>
+  import rallax from 'rallax.js';
   import AppButton from '~/components/AppButton';
 
 	export default {
@@ -31,13 +32,23 @@
     methods : {
       quickView : function() {
         alert('click: quickView');
+      },
+
+      parallax() {
+        const __scrollSpeed = -.8;
+        const __parallax    = rallax(this.$el, {
+          speed   : -.25,
+          offset  : {
+            x : '-50%',
+            y : '-50%',
+            z : '0px'
+          }
+        });
       }
     }, 
 
     mounted() {
-    	if(typeof lax === 'object') {
-      	lax.updateElements();
-    	}
+    	this.parallax();
     }
 	}
 </script>

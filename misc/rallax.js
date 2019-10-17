@@ -3,12 +3,19 @@ let targets = []
 
 const defaultOptions = {
   speed: 0.3,
-  mobilePx: false
+  mobilePx: false,
+  offset : {
+    x : '0px',
+    y : '0px',
+    z : '0px'
+  },
 }
 
 class RallaxObj {
-  constructor(target, { speed, mobilePx }) {
+  constructor(target, { speed, mobilePx, offset }) {
+
     this.speed = speed || defaultOptions.speed
+    this.offset = offset || defaultOptions.offset
     this.mobilePx = mobilePx || defaultOptions.mobilePx
     this.mobileDisable = false
     this.conditions = []
@@ -82,7 +89,7 @@ class RallaxObj {
   move() {
     this.target
       .style
-      .transform = `translateY(${this.getTranslation()}px)`
+      .transform = `translate3d(calc(0px + ${this.offset.x}),calc(${this.getTranslation()}px + ${this.offset.y}),calc(0px + ${this.offset.z}))`
   }
 }
 
@@ -126,7 +133,7 @@ const resize = () => {
 export default (target, userOptions = {}) => {
   const rallax = new RallaxObj(target, userOptions)
   targets.push(rallax)
-	resize()
+  resize()
 
   if (!listening) {
     addListener()

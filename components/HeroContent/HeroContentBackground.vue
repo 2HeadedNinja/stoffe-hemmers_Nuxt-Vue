@@ -57,7 +57,7 @@
       },
 
       parallax() {
-        const __scrollSpeed = -.1;
+        const __scrollSpeed = -.4;
         const __parallax    = rallax(this.$el,{speed : __scrollSpeed});
       }
     },
@@ -74,7 +74,7 @@
               loaded : el => {
                 setTimeout(() => {
                   el.classList.add('loaded');
-                  this.parallax();
+                  //this.parallax();
                 },250);
               }
             });

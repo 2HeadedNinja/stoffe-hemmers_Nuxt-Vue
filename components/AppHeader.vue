@@ -104,8 +104,8 @@
           const __rect = __header.getBoundingClientRect();
 
           if(__rect && typeof __rect.height === 'number') {
-            const __scrollSpeed = .25;
-            const __threshold   = Math.ceil(__rect.height / __scrollSpeed);
+            const __scrollSpeed = .45;
+            const __threshold   = Math.ceil((__rect.height / __scrollSpeed) * 1.2);
 
             const __parallax    = rallax(__header,{speed : (__scrollSpeed * -1)});
                   __parallax.when(
