@@ -65,7 +65,7 @@
 </template>
 
 <script>
-  import rallax from 'rallax.js'
+  //import rallax from 'rallax.js';
   import HeroContent from '~/components/HeroContent'
   
   export default {
@@ -115,7 +115,7 @@
     },
 
     mounted() {
-      this.parallax();
+      //this.parallax();
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
           if(response.error === false) {

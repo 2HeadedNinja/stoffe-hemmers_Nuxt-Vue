@@ -19,7 +19,6 @@
   // -> https://images.shcdn.de/resized/original/wpi/nuxt__living-room-modern.jpg
   // -> https://images.shcdn.de/resized/original/wpi/nuxt__comfortable-room.jpg
   import lozad from 'lozad';
-  import rallax from 'rallax.js';
 
   export default {
     name  : 'HeroContentBackground',
@@ -54,11 +53,6 @@
             this.$el.setAttribute('autoplay','autoplay');
           },250);
         });
-      },
-
-      parallax() {
-        const __scrollSpeed = -.4;
-        const __parallax    = rallax(this.$el,{speed : __scrollSpeed});
       }
     },
 
@@ -74,7 +68,6 @@
               loaded : el => {
                 setTimeout(() => {
                   el.classList.add('loaded');
-                  //this.parallax();
                 },250);
               }
             });

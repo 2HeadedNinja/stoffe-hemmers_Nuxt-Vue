@@ -130,7 +130,7 @@ const resize = () => {
   })
 }
 
-export default (target, userOptions = {}) => {
+const rallax = function(target, userOptions = {}) {
   const rallax = new RallaxObj(target, userOptions)
   targets.push(rallax)
   resize()

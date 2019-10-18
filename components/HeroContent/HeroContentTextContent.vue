@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import rallax from 'rallax.js';
+  //import rallax from 'rallax.js';
   import AppButton from '~/components/AppButton';
 
 	export default {
@@ -48,7 +48,7 @@
     }, 
 
     mounted() {
-    	this.parallax();
+    	//this.parallax();
     }
 	}
 </script>

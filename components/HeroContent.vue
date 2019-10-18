@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import rallax from 'rallax.js';
+  //import rallax from 'rallax.js';
   import HeroContentBackground from '~/components/HeroContent/HeroContentBackground'
   import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent'
 
@@ -48,7 +48,7 @@
         },250);  
 
         this.$el.setAttribute('style','--height: calc(100vh - '+this.contentData.elementHeight+'px);');
-        this.parallax();
+        //this.parallax();
 
         this.$emit('HeroContentMounted');
       } else {
