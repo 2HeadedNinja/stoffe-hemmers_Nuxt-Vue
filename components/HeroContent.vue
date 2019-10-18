@@ -6,7 +6,6 @@
 </template>
 
 <script>
-  //import rallax from 'rallax.js';
   import HeroContentBackground from '~/components/HeroContent/HeroContentBackground'
   import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent'
 
@@ -34,7 +33,9 @@
 
     methods : {
       parallax() {
-        const __parallax = rallax(this.$el,{speed : -.55});
+        if(typeof rallax === 'object') {
+          const __parallax = rallax.add(this.$el,{speed : -.55});
+        }
       }
     },
 
@@ -48,7 +49,7 @@
         },250);  
 
         this.$el.setAttribute('style','--height: calc(100vh - '+this.contentData.elementHeight+'px);');
-        //this.parallax();
+        this.parallax();
 
         this.$emit('HeroContentMounted');
       } else {

@@ -13,7 +13,7 @@
       <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
-      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
+      <!--<ListCardFlagList :flags="productData.flags"></ListCardFlagList>//-->
       <span class="product__card-cardwrap__details__productname">{{ productData.name }}</span>
       <ListCardPrice :price="productData.price"></ListCardPrice>
     </a>

@@ -171,6 +171,12 @@
 
       [class*="app__button-slim"] {
         border-top                          : none;
+
+        svg {
+          #eye {
+            animation                       : squeeze 2.4s infinite;
+          }
+        }
       }
 
       [class="product__card-cardwrap__flags"] {
@@ -309,5 +315,18 @@
         }
       }
     }
+  }
+}
+
+@keyframes squeeze {
+  90% {
+    transform: none;
+    animation-timing-function: ease-in;
+  }
+  93% {
+    transform: scaleY(0.2)
+  }
+  100% {
+    animation-timing-function: ease-out;
   }
 }

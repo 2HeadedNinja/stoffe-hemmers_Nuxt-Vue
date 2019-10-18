@@ -30,9 +30,9 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    //{ src: '~/plugins/rallax.js', ssr: false},
     { src: '~/plugins/noframework.waypoints.js', ssr: false},
     { src: '~/plugins/DOMElement.plugin.js', ssr: false},
+    { src: '~/plugins/rallax.js', ssr: false},
 
     { src: '~/plugins/Startup.plugin.js', ssr: false}
   ],
@@ -78,6 +78,7 @@ export default {
    ** Build configuration
    */
   build: {
+
     /*
      ** You can extend webpack config here
      */

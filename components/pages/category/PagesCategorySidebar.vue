@@ -21,6 +21,9 @@
     <ul>
       <li v-if="navigation.back" class="category__sidebar__back">
         <a :href="navigation.back.link">
+          <svg role="presentation" alt="" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <use xlink:href="/svg/sprite.svg#arrow-left-thick"></use>
+          </svg>
         	{{ navigation.back.label }}
         </a>
       </li>
@@ -135,22 +138,17 @@
 
 		ul {
 			li {
+
 				list-style-type 				: none;
 				line-height 						: 135%;
 
 				margin 									: 0 0 1px 0;
 
-				svg {
-					width 								: 20px;
-					height 								: 20px;
-
-					background-color 			: #ff00ff;
-				}
-
 				a {
 					@include animate(color,.25s);
 
-					display 							: block;
+          display               : flex;
+          align-items           : center;
 
 					text-decoration 			: none;
 					color 								: tint(dark,3);
@@ -158,8 +156,22 @@
 
 					padding 							: 7px 0 7px 0;
 
+          svg {
+            @include animate(fill,.25s);
+            
+            width               : 12px;
+            height              : 12px;
+
+            margin              : 0 10px 0 0;
+            fill                : tint(dark,3);
+          }
+
 					&:hover {
 						color 							: tint(brand);
+
+            svg {
+              fill              : tint(brand);
+            }
 					}
 				}
 

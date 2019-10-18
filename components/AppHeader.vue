@@ -65,9 +65,8 @@
 </template>
 
 <script>
-  //import rallax from 'rallax.js';
   import HeroContent from '~/components/HeroContent'
-  
+
   export default {
     name        : 'AppHeader',
 
@@ -100,11 +99,11 @@
       parallax() {
         const __header = this.$el.querySelector('header');
 
-        if(typeof rallax === 'function' && DOMElement.is(__header)) {
+        if(typeof rallax === 'object' && DOMElement.is(__header)) {
           const __rect = __header.getBoundingClientRect();
 
           if(__rect && typeof __rect.height === 'number') {
-            const __parallax = rallax(__header,{speed : -.45});
+            const __parallax = rallax.add(__header,{speed : -.45});
           }
         }
       }
@@ -115,7 +114,8 @@
     },
 
     mounted() {
-      //this.parallax();
+      this.parallax();
+
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
           if(response.error === false) {

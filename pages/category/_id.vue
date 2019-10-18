@@ -28,8 +28,9 @@
   import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar';
 
   export default {
-    layout          : 'sidebar',
-    components      : {
+    layout : 'sidebar',
+
+    components : {
       AppButton,
       ListCard,
       ProductSkelleton,
@@ -38,6 +39,8 @@
 
     data() {
       return {
+        busy            : false,
+
         products        : null,
         productCount    : null,
         productsPerPage : 15,

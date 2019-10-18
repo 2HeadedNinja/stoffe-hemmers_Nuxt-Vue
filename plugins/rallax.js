@@ -13,7 +13,6 @@ const defaultOptions = {
 
 class RallaxObj {
   constructor(target, { speed, mobilePx, offset }) {
-
     this.speed = speed || defaultOptions.speed
     this.offset = offset || defaultOptions.offset
     this.mobilePx = mobilePx || defaultOptions.mobilePx
@@ -130,15 +129,24 @@ const resize = () => {
   })
 }
 
-const rallax = function(target, userOptions = {}) {
-  const rallax = new RallaxObj(target, userOptions)
-  targets.push(rallax)
-  resize()
+(function () {
+  const rallax = function () {
+    var rallax = {};
 
-  if (!listening) {
-    addListener()
-    listening = true
-  }
+    rallax.add = function(target, userOptions = {}) {
+      const __rallax = new RallaxObj(target,userOptions);
+      targets.push(__rallax);
+      resize();
+      if(!listening) {
+        addListener()
+        listening = true
+      }
 
-  return rallax
-}
+      return __rallax;
+    }
+
+    return rallax;
+  }();
+
+  if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') module.exports = rallax;else window.rallax = rallax;
+})();

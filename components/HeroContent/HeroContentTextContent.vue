@@ -35,20 +35,21 @@
       },
 
       parallax() {
-        const __scrollSpeed = -.8;
-        const __parallax    = rallax(this.$el, {
-          speed   : -.25,
-          offset  : {
-            x : '-50%',
-            y : '-50%',
-            z : '0px'
-          }
-        });
+        if(typeof rallax == 'object') {
+          const __parallax    = rallax.add(this.$el, {
+            speed   : -.25,
+            offset  : {
+              x : '-50%',
+              y : '-50%',
+              z : '0px'
+            }
+          });
+        }
       }
     }, 
 
     mounted() {
-    	//this.parallax();
+    	this.parallax();
     }
 	}
 </script>
