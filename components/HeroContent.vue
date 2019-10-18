@@ -7,7 +7,6 @@
 
 <script>
   import rallax from 'rallax.js';
-
   import HeroContentBackground from '~/components/HeroContent/HeroContentBackground'
   import HeroContentTextContent from '~/components/HeroContent/HeroContentTextContent'
 
