@@ -7,13 +7,14 @@
   // -> https://lib.shcdn.de/videos/nuxt__strawberry-falling.mp4
   // -> https://images.shcdn.de/resized/w1920/wpi/nuxt__living-room-modern.jpg
   // -> https://images.shcdn.de/resized/w1920/wpi/nuxt__comfortable-room.jpg
+  // -> https://images.shcdn.de/resized/w1920/wpi/deko_1 - 7.jpg
 
   $return                 = (object) array();
   $return->error          = false;
   $return->hasHeroContent = true;
 
   $return->background         = (object) array();
-  $return->background->image  = 'https://images.shcdn.de/resized/w1920/wpi/nuxt__living-room-modern.jpg';
+  $return->background->image  = 'https://images.shcdn.de/resized/w1920/wpi/nuxt__comfortable-room.jpg';
 
   //$return->background->mp4    = 'https://lib.shcdn.de/videos/videohive-8EYpYB17-interior-design.mp4';
   //$return->background->ogv    = false;
