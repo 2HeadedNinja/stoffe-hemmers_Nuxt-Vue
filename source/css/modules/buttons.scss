@@ -31,6 +31,63 @@
       transform                   : translateY(-1px);
     }
 
+    div.icon {
+      width                       : 30px;
+      height                      : 30px;
+
+      position                    : relative;
+      z-index                     : 0;
+
+      margin-right                : 7px;
+
+      svg {
+        position                  : absolute;
+        top                       : 0;
+        left                      : 0;
+
+        width                     : 100%;
+        height                    : 100%;
+
+        margin                    : 0;
+
+        &:first-of-type {
+          @include animate(all,.3s);
+          transition-property     : fill,transform;
+
+          fill                    : $white;
+
+          z-index                 : 1;
+          transform               : scale(0);
+        }
+
+        &:last-of-type {
+          @include animate(all,.3s);
+          transition-property     : fill,transform;
+
+          fill                    : tint(dark,1);
+
+          z-index                 : 0;
+          transform               : scale(1);
+        }
+      }
+    }
+
+    &:hover {
+      div.icon {
+        svg {
+          &:first-of-type {
+            transform             : scale(1);
+            fill                  : tint(dark,1);
+          }
+
+          &:last-of-type {
+            transform             : scale(0);
+            fill                  : $white;
+          }
+        }
+      }
+    }
+
     &[class*='-slim'] {
       color                       : tint(dark,2);
       border                      : 1px solid tint(light,3);
@@ -47,13 +104,13 @@
       text-shadow                 : 1px 1px 1px tint(brand,6);
       background-color            : tint(brand);
       
-      background                  : linear-gradient(-45deg,tint(brand),tint(brand,4));
+      background                  : linear-gradient(0deg,tint(brand,3),tint(brand));
       border-bottom               : 5px solid tint(brand,6);
 
       &[class*="-animate"] {
         background                : linear-gradient(-45deg,tint(brand),tint(accent));
         background-size           : 300% 300%;
-        animation                 : app__button-default__background-animation 15s ease infinite;
+        animation                 : app__button-default__background-animation 10s ease infinite;
       }
 
       &:active {

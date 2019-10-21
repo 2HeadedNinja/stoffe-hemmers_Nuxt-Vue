@@ -1,6 +1,14 @@
 <template>
   <button @click="$emit('AppButtonClick');" :class="getCss()">
-    <svg v-if="icon" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+    <div v-if="hovericon" class="icon">
+      <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+        <use :xlink:href="iconPath(hovericon)"></use>
+      </svg>
+      <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+        <use :xlink:href="iconPath(icon)"></use>
+      </svg>
+    </div>
+    <svg v-else-if="icon" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
       <use :xlink:href="iconPath(icon)"></use>
     </svg>
     <slot></slot>
@@ -11,7 +19,8 @@
   export default {
     name  : 'AppButton',
     props : {
-      icon    : null,
+      icon : null,
+      hovericon : null,
       animate : {
         type  : Boolean,
 
@@ -19,8 +28,8 @@
           return false;
         }
       },
-      label   : {
-        type  : String,
+      label : {
+        type : String,
 
         default() {
           return 'Stoffe Hemmers';
@@ -45,7 +54,7 @@
       },
 
       iconPath(name) {
-        return '/svg/sprite.svg#'+this.icon;
+        return '/svg/sprite.svg#'+name;
       }
     },
 

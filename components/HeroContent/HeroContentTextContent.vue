@@ -1,9 +1,7 @@
 <template>
 	<div class="layout__herocontent__text">
     <div v-html="textContent"></div>
-    <AppButton @AppButtonClick="quickView" :css="'layout__herocontent__text__button'" :icon="'arrow-down-thick'">
-    
-    </AppButton>
+    <AppButton @AppButtonClick="quickView" :css="'layout__herocontent__text__button'" :icon="'arrow-down-thick'"></AppButton>
   </div>
 </template>
 

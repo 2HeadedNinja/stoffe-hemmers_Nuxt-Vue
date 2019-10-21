@@ -116,6 +116,9 @@
     mounted() {
       this.parallax();
 
+      console.log(Breakpoint.get(this.$el));
+      console.log(typeof Breakpoint);
+
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
           if(response.error === false) {

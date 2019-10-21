@@ -32,6 +32,7 @@ export default {
   plugins: [
     { src: '~/plugins/noframework.waypoints.js', ssr: false},
     { src: '~/plugins/DOMElement.plugin.js', ssr: false},
+    { src: '~/plugins/Breakpoint.plugin.js', ssr: false},
     { src: '~/plugins/rallax.js', ssr: false},
 
     { src: '~/plugins/Startup.plugin.js', ssr: false}

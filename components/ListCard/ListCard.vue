@@ -10,7 +10,7 @@
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
-      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :label="'Schnellansicht'">Schnellansicht</AppButton>
+      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
       <!--<ListCardFlagList :flags="productData.flags"></ListCardFlagList>//-->

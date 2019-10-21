@@ -78,30 +78,30 @@
     }
 
     .layout__herocontent__text__button {
-      display                           : flex;
-      justify-content                   : center;
-
-      width                             : 120px;
-      height                            : 60px;
-
-      overflow                          : hidden;
-
-      border                            : none;
-      border-bottom-left-radius         : 60px;
-      border-bottom-right-radius        : 60px;
-
-      background-color                  : $white;
-
       position                          : absolute;
       bottom                            : 0;
       left                              : 50%;
       z-index                           : 3;
 
-      transform                         : translateX(-60px) translateY(55px);
-      
+      cursor                            : pointer;
+
+      border                            : none;
+      transform                         : translate3d(-50%,calc(100% - 20px),0px);
+
+      background-color                  : $white;
+
+      width                             : 120px;
+      height                            : 60px;
+
+      border                            : none;
+      border-bottom-left-radius         : 60px;
+      border-bottom-right-radius        : 60px;
+
       svg {
-        width                           : 40px;
-        height                          : 40px;
+        width                           : auto;
+        height                          : 35px;
+
+        fill                            : tint(dark,3);
       }
     }
 
