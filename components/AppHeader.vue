@@ -65,6 +65,9 @@
 </template>
 
 <script>
+  import DOMElement from '~/plugins/DOMElement.plugin.js'
+  import Breakpoint from '~/plugins/Breakpoint.plugin.js'
+  
   import HeroContent from '~/components/HeroContent'
 
   export default {
@@ -115,9 +118,6 @@
 
     mounted() {
       this.parallax();
-
-      //console.log(Breakpoint.get(this.$el));
-      //console.log(typeof Breakpoint);
 
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {

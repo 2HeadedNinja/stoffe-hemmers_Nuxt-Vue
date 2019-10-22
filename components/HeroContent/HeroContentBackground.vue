@@ -18,6 +18,8 @@
   // -> https://lib.shcdn.de/videos/nuxt__strawberry-falling.mp4
   // -> https://images.shcdn.de/resized/original/wpi/nuxt__living-room-modern.jpg
   // -> https://images.shcdn.de/resized/original/wpi/nuxt__comfortable-room.jpg
+  import DOMElement from '~/plugins/DOMElement.plugin.js'
+  import Breakpoint from '~/plugins/Breakpoint.plugin.js'
   import lozad from 'lozad';
 
   export default {

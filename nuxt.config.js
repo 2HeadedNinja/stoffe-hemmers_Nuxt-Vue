@@ -30,13 +30,15 @@ export default {
    ** Plugins to load before mounting the App
    */
   plugins: [
-    { src: '~/plugins/noframework.waypoints.js', ssr: false},
-    { src: '~/plugins/DOMElement.plugin.js', ssr: false},
-    { src: '~/plugins/Breakpoint.plugin.js', ssr: false},
-    { src: '~/plugins/rallax.js', ssr: false},
+    { src: '~/plugins/noframework.waypoints.js', mode: 'client'},
+    { src: '~/plugins/DOMElement.plugin.js', mode: 'client'},
+    { src: '~/plugins/Breakpoint.plugin.js', mode: 'client'},
+    { src: '~/plugins/Position.plugin.js', mode: 'client'},
+    { src: '~/plugins/rallax.js', mode: 'client'},
 
-    { src: '~/plugins/Startup.plugin.js', ssr: false}
+    { src: '~/plugins/Startup.plugin.js', mode: 'client'}
   ],
+
   /*
    ** Nuxt.js dev-modules
    */
@@ -79,7 +81,7 @@ export default {
    ** Build configuration
    */
   build: {
-
+    vendor: ['LoremIpsum'],
     /*
      ** You can extend webpack config here
      */

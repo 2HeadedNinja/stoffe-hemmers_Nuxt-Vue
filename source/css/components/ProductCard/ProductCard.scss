@@ -308,6 +308,20 @@
       [class="app__button-slim-small"] {
         border-top                          : none;
       }
+
+      [class="product__card-cardwrap__top"] {
+        @include animate(box-shadow,.5s);
+
+        transition-timing-function          : ease-out;
+        box-shadow                          : 0px 0px 0px 0px rgba(0,0,0,0.2);
+      }
+
+      &:hover {
+        [class="product__card-cardwrap__top"] {
+          transition-timing-function          : ease-in;
+          box-shadow                          : 0px 0px 30px 0px rgba(0,0,0,0.2);
+        }
+      }
     }
   }
 }

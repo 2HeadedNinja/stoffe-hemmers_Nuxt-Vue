@@ -1,14 +1,14 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
-      <AppButton :animate="true">
+      <!--<AppButton :animate="true">
         Testbutton
       </AppButton>
       <br /><br />
       <AppButton>
         Testbutton
       </AppButton>
-      <br /><br />
+      <br /><br />//-->
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
     <div class="grid__column__line"></div>
@@ -22,10 +22,13 @@
 </template>
 
 <script>
+  import Position from '~/plugins/Position.plugin.js'
+  import DOMElement from '~/plugins/DOMElement.plugin.js'
+
   import AppButton from '~/components/AppButton'
-  import ListCard from '~/components/ListCard/ListCard';
-  import ProductSkelleton  from '~/components/ProductSkelleton';
-  import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar';
+  import ListCard from '~/components/ListCard/ListCard'
+  import ProductSkelleton  from '~/components/ProductSkelleton'
+  import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar'
 
   export default {
     layout : 'sidebar',
@@ -119,6 +122,22 @@
     },
     
     mounted() {
+      this.$root.$on('scrollToProducts', () => {
+        const __listing = this.$el.querySelector('main.product__listing');
+
+        if(DOMElement.is(__listing)) {
+          const __y = Position.get(__listing,{
+            offset : -50
+          });
+
+          if(__y !== false) {
+            window.scrollTo({
+              top       : __y, 
+              behavior  : 'smooth'
+            });
+          }
+        }
+      });
     },
 
     updated() {

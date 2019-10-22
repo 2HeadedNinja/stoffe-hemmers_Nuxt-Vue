@@ -14,6 +14,10 @@
       grid-column                       : var(--grid-column);
     }
 
+    [style*="--grid-row"] {
+      grid-row                          : var(--grid-row);
+    }
+
     [style*="--grid-area"] {
       grid-area                         : var(--grid-area);
     }
