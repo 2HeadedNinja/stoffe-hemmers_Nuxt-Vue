@@ -5,8 +5,8 @@
   $body = trim(file_get_contents("php://input"));
   $post = json_decode($body);
 
-  $return               = (object) array();
-  $return->error        = false;
+  $return        = (object) array();
+  $return->error = false;
 
   $return->navigation           = (object) array();
   $return->navigation->back     = (object) array(
