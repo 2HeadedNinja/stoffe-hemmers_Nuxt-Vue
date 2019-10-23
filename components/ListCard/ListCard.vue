@@ -7,7 +7,7 @@
   </div>
 	<div v-else-if="productData.type == 'product'" class="product__card-cardwrap">
     <div class="product__card-cardwrap__top">
-      <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href">
+      <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href" @click.prevent="click" v-longclick="() => this.longClick()">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
       <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
@@ -67,6 +67,14 @@
     methods : {
       quickView : function() {
         alert('click: quickView');
+      },
+
+      click : function() {
+        console.log(this);
+      },
+
+      longClick : function() {
+        alert('longClick');
       }
     },
 

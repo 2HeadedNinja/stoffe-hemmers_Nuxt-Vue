@@ -36,29 +36,9 @@
             </li>
           </ul>
         </div>
-        <nav class="app__header__content-bottom main__navigation" role="navigation">
-          <ul>
-            <li>
-              <a href="/category">Stoffe</a>
-            </li>
-            <li>
-              <a href="/category">Nähzubehör</a>
-            </li>
-            <li>
-              <a href="/category">Schnittmuster</a>
-            </li>
-            <li>
-              <a href="/category">Inspiration</a>
-            </li>
-            <li >
-              <a href="/category">Neuheiten</a>
-            </li>
-            <li>
-              <a href="/category">Sale</a>
-            </li>
-          </ul>
-        </nav>
+        <AppMainNavigation></AppMainNavigation>
       </div>
+      <AppMegaMenue></AppMegaMenue>
     </header>
     <HeroContent v-if="heroContent" :contentData="heroContent" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
   </div>
@@ -69,12 +49,16 @@
   import Breakpoint from '~/plugins/Breakpoint.plugin.js'
   
   import HeroContent from '~/components/HeroContent'
+  import AppMainNavigation from '~/components/Layouts/AppMainNavigation'
+  import AppMegaMenue from '~/components/Layouts/AppMegaMenue'
 
   export default {
     name        : 'AppHeader',
 
     components  : {
-      HeroContent
+      HeroContent,
+      AppMegaMenue,
+      AppMainNavigation
     },
 
     data() {
