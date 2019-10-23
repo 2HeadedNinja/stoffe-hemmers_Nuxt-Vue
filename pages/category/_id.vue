@@ -1,14 +1,14 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
-      <!--<AppButton :animate="true">
+      <AppButton :animate="true">
         Testbutton
       </AppButton>
       <br /><br />
       <AppButton>
         Testbutton
       </AppButton>
-      <br /><br />//-->
+      <br /><br />
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
     <div class="grid__column__line"></div>
@@ -127,7 +127,7 @@
 
         if(DOMElement.is(__listing)) {
           const __y = Position.get(__listing,{
-            offset : -50
+            offset : -40
           });
 
           if(__y !== false) {

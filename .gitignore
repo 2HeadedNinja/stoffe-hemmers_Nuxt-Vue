@@ -92,3 +92,4 @@ sw.*
 nuxt.sublime-workspace
 *.sublime-workspace
 nuxt.sublime-project
+package-lock.json
