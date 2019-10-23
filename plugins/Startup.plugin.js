@@ -2,6 +2,12 @@
 import svg4everybody from 'svg4everybody';
 svg4everybody()
 
+import Vue from 'vue';
+import { longClickDirective } from 'vue-long-click'
+
+const longClickInstance = longClickDirective({delay: 400, interval: 0})
+Vue.directive('longclick', longClickInstance)
+
 var Tawk_API=Tawk_API || {}, Tawk_LoadStart = new Date();
 
 (function(){
