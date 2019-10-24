@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('AppButtonClick');" :class="getCss()">
+  <button @click="$emit('AppButtonClick')" :class="getCss()">
     <div v-if="hovericon" class="icon">
       <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
         <use :xlink:href="iconPath(hovericon)"></use>

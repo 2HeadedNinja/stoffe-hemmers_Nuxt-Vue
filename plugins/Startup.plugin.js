@@ -8,7 +8,7 @@ import { longClickDirective } from 'vue-long-click'
 const longClickInstance = longClickDirective({delay: 400, interval: 0})
 Vue.directive('longclick', longClickInstance)
 
-var Tawk_API=Tawk_API || {}, Tawk_LoadStart = new Date();
+/*var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
 
 (function(){
   var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -18,4 +18,4 @@ var Tawk_API=Tawk_API || {}, Tawk_LoadStart = new Date();
       s1.setAttribute('crossorigin','*');
   
   s0.parentNode.insertBefore(s1,s0);
-})();
+})();*/

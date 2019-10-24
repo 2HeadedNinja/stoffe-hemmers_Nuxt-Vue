@@ -1,10 +1,19 @@
 @media all {
   [class*="main__navigation"] {
+    @include animate(border-bottom,.25s);
+
+    transition-delay              : .15s;
+
     display                       : flex;
     align-items                   : center;
     justify-content               : center;
 
     border-top                    : 1px dotted $border-light;
+    border-bottom                 : 1px dotted $white;
+
+    &.open {
+      border-bottom               : 1px dotted $border-light;
+    }
 
     ul,
     ul li {
@@ -17,6 +26,7 @@
 
       li {
         list-style-type           : none;
+        cursor                    : pointer;
 
         > a {
           @include animate(color,.4s);
@@ -34,6 +44,8 @@
           color                   : tint(dark,4);
           font-size               : 18px;
           font-weight             : 500;
+
+          pointer-events          : none;
 
           &:before {
             content               : '';
@@ -102,15 +114,25 @@
   }
 
   .mega__menue__navigation {
+    @include animate(all,.35s);
+
+    transition-property                   : height,transform;
+
     position                              : absolute;
     z-index                               : 10000;
 
     width                                 : 100%;
+    min-height                            : 50px;
+
 
     border-bottom                         : 5px solid tint(dark,5);
     background-color                      : $white;
 
     transform                             : translateY(-200%);
+
+    &.open {
+      transform                           : translateY(0%);
+    }
 
     [class*="mega__menue__navigation__inner"] {
       display                             : grid;
@@ -124,7 +146,7 @@
       }
 
       > ul {
-        grid-column                       : span 15;
+        grid-column                       : span 16;
 
         display                           : grid;
         grid-template                     : auto / repeat(3,1fr);
@@ -159,11 +181,11 @@
               content                     : '';
 
               position                    : absolute;
-              bottom                      : -3px;
+              bottom                      : -2px;
               left                        : 50%;
               right                       : 50%;
 
-              height                      : 3px;
+              height                      : 2px;
               background-color            : tint(brand);
             }
 
