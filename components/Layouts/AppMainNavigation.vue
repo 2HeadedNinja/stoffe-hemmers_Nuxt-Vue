@@ -10,9 +10,11 @@
     </ul>
   </div>
   <nav v-else-if="navigation" class="app__header__content-bottom main__navigation" role="navigation">
-    <ul>
-      <li v-for="(link, index) in navigation" v-bind:key="index" :data-id="link.id" v-on="link.sub ? { mouseover : handleMouseover } : { mouseover : killSubmenue }">
-        <a :href="link.url">{{ link.label }}</a>
+    <ul @mouseleave="mouseleave">
+      <li :class="getCSS(link)" v-for="(link, index) in navigation" v-bind:key="index" :data-id="link.id" @click="click" v-on="link.sub ? { mouseover : mouseover } : { mouseover : killSubmenue }">
+        <a :href="link.url">
+          <span>{{ link.label }}</span>
+        </a>
       </li>
     </ul>
   </nav>
@@ -27,11 +29,38 @@
     name  : 'AppMainNavigation',
     data() {
       return {
-        navigation : null
+        navigation : null,
+        interval   : null
       }
     },
 
     methods         : {
+      getCSS(link = false) {
+        if(link === false) {
+          return null;
+        }
+
+        let __css = '';
+
+        if(link.sub) {
+          __css += 'has';
+        } 
+
+        if(link.css) {
+          if(__css !== '') {
+            __css += ' ';
+          }
+
+          __css += link.css;
+        }
+
+        if(__css === '') {
+          return null;
+        }
+
+        return __css;
+      },
+
       submenues() {
         if(!this.$data.navigation) {
           return this.$data.navigation;
@@ -52,38 +81,96 @@
         }
       },
 
-      handleMouseover() {
+      killSubmenue() {
+        const __nav = document.querySelectorAll('nav[role="navigation"].open');
+        if(__nav.length > 0) {
+          for(let __n of __nav) {
+            __n.classList.remove('open');
+          }
+        }
+
+        const __li = this.$el.querySelector('ul li.open');
+        if(DOMElement.is(__li)) {
+          __li.classList.remove('open');
+        }
+
+        const __active = document.querySelector('nav.mega__menue__navigation div.active');
+        if(DOMElement.is(__active)) {
+          __active.classList.remove('active');
+        }
+
+        const __particles = document.querySelector('particles-js-canvas-el');
+        if(DOMElement.is(__particles)) {
+          setTimeout(() => {
+            __particles.remove();
+          },500);
+        }
+      },
+
+      mouseover() {
+        if(this.$data.interval !== null) {
+          clearInterval(this.$data.interval);
+        }
+
         if(!DOMElement.is(event.target) || !event.target.hasAttribute('data-id')) {
           return false;
+        }
+        
+        const __active = this.$el.querySelector('li.open');
+        if(DOMElement.is(__active)) {
+          __active.classList.remove('open');
         }
 
         this.$el.classList.add('open');
         event.target.classList.add('open');
 
-        const __id    = event.target.getAttribute('data-id');
+        if(event.target.hasAttribute('data-id')) {
+          const __id        = event.target.getAttribute('data-id');
+          const __container = document.querySelector('nav.mega__menue__navigation div[data-id="'+__id+'"]');
 
-        this.$root.$emit('showSubmenue',__id);
-      },
+          if(DOMElement.is(__container)) {
+            if(!__container.cHeight) {
+              const __rect = __container.getBoundingClientRect();
+              __container.cHeight = Math.ceil(__rect.height) + 10;
+            }
 
-      killSubmenue() {
-        if(!DOMElement.is(event.target) || !event.target.hasAttribute('data-id')) {
-          return false;
-        }
-
-        this.$el.classList.remove('open');
-
-        const __li = event.target.closest('ul').querySelectorAll('li.open');
-        if(__li.length > 0) {
-          for(const __item of __li) {
-            __item.classList.remove('open');
+            this.$root.$emit('showSubmenue',{id : __id, height : __container.cHeight});
           }
         }
+      },
 
-        this.$root.$emit('killSubmenue');
+      mouseleave() {
+        this.$data.interval = setInterval(() => {
+          clearInterval(this.$data.interval);
+          this.$root.$emit('killSubmenue');
+        },50);
+      },
+
+      click() {
+        if(event && DOMElement.is(event.target)) {
+          const __a = event.target.querySelector('a:first-of-type');
+          if(DOMElement.is(__a) && __a.hasAttribute('href')) {
+            window.location = __a.getAttribute('href');
+          }
+        }
       }
     },
 
     created() {
+      this.$root.$on('MegaMenueMouseLeave',() => {
+        this.mouseleave();
+      });
+
+      this.$root.$on('MegaMenueMouseOver',() => {
+        if(this.$data.interval !== null) {
+          clearInterval(this.$data.interval);
+        }
+      });
+
+      this.$root.$on('killSubmenue',() => {
+        this.killSubmenue();
+      });
+
       this.$axios.$post('/api/navigation.main.ajax.php')
         .then(response => {
           if(response.error == false) {

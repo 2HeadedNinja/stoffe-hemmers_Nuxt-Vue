@@ -2,6 +2,8 @@
 import svg4everybody from 'svg4everybody';
 svg4everybody()
 
+import particlesJS from 'particles.js'
+
 import Vue from 'vue';
 import { longClickDirective } from 'vue-long-click'
 

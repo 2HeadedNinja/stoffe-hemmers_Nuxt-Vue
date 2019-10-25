@@ -13,6 +13,7 @@
   for($i = 0; $i < 10; $i++) {
     $tmp = (object) array();
     $tmp->hasData = true;
+    $tmp->id      = 84567;
     $tmp->type    = 'product';
     $tmp->name    = 'Baumwollstoff Cretonne Palmenblätter, beere';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
@@ -40,6 +41,7 @@
   for($i = 0; $i < 10; $i++) {
     $tmp = (object) array();
     $tmp->hasData = true;
+    $tmp->id      = 84556;
     $tmp->type    = 'product';
     $tmp->name    = 'Baumwolljersey Malomi Panel kleine Monsterbande 150 x 70 cm';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
@@ -61,11 +63,13 @@
 
   for($i = 0; $i < 10; $i++) {
     $tmp = (object) array();
-    $tmp->hasData = true;
-    $tmp->type    = 'product';
-    $tmp->name    = 'Baumwolljersey Bauplatz, hellgrau';
-    $tmp->href    = 'http://localhost:3010/category/stoffe.html';
-    $tmp->flags   = array(
+    $tmp->hasData   = true;
+    $tmp->id        = 700066;
+    $tmp->wishlist  = true;
+    $tmp->type      = 'product';
+    $tmp->name      = 'Baumwolljersey Bauplatz, hellgrau';
+    $tmp->href      = 'http://localhost:3010/category/stoffe.html';
+    $tmp->flags     = array(
       (object) array(
         'label' => '-25%',
         'type'  => 'sale'

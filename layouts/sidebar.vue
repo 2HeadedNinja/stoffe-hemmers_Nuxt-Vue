@@ -3,29 +3,6 @@
     <AppHeader></AppHeader>
     <transition name="fade">
       <div v-show="show" class="layout__sidebar-scrollcontent">
-        <!--<div class="sidekick__content" style="--padding-top: 50px;">
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 17; grid-row: span 6; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1360/wpi/deko_1.jpg" alt="" />
-          </div>
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 3; grid-row: span 16; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1920/wpi/deko_2.jpg" alt="" />
-          </div>
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 12; grid-row: span 5; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1920/wpi/deko_3.jpg" alt="" />
-          </div>
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 5; grid-row: span 14; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1920/wpi/deko_4.jpg" alt="" />
-          </div>
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 9; grid-row: span 9; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1920/wpi/deko_6.jpg" alt="" />
-          </div>
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 3; grid-row: span 9; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1920/wpi/deko_7.jpg" alt="" />
-          </div>
-          <div class="sidekick__content__sidekick__element" style="grid-column: span 3; grid-row: span 4; background-color:#ff00ff;">
-            <img src="https://images.shcdn.de/resized/w1920/wpi/deko_5.jpg" alt="" />
-          </div>
-        </div>//-->
         <nuxt />
         <AppFooter></AppFooter>
       </div>

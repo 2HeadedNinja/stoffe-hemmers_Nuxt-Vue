@@ -1,18 +1,26 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
-      <AppButton :animate="true">
+      <!--<AppButton :animate="true">
         Testbutton
       </AppButton>
       <br /><br />
       <AppButton>
         Testbutton
       </AppButton>
-      <br /><br />
+      <br /><br />//-->
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
     <div class="grid__column__line"></div>
     <main class="product__listing">
+      <nav role="navigation" class="product__listing-navigation__breadcrump">
+        Du bist hier:
+        <a href="/category/stoffe.html">Stoffe</a> 
+        <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+          <use xlink:href="/svg/sprite.svg#arrow-right-thick"></use>
+        </svg>
+        <a href="/category/stoffe.html">Dekostoffe</a>
+      </nav>
       <h1>{{ id }}</h1>
       <ListCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ListCard>
       <!-- Show Skelletons as long as no Products are loaded yet //-->
@@ -102,6 +110,8 @@
 
     computed : {
       id : function() {
+        return 'Über 7000 Stoffe als Meterware zur Auswahl';
+
         if(this.$data.route !== undefined) {
           return this.$data.route.split('.html').join('');
         } else {

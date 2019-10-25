@@ -1,92 +1,5 @@
 @media all {
   [class*="product__card"] {
-    &[class="product__card-skelleton"] {
-      grid-column                           : span 1;
-
-      [class*="skelleton__image"] {
-        position                            : relative;
-        z-index                             : 0;
-
-        width                               : 100%;
-        padding-top                         : 100%;
-
-        background-color                    : $skelleton;
-      }
-
-      [class*="skelleton__button"] {
-        background-color                    : $skelleton;
-
-        width                               : 100%;
-        height                              : 36px;
-
-        margin                              : 2px 0 0 0;
-      }
-
-      [class*='skelleton__flags'] {
-        margin-bottom                       : 10px;
-
-        &:after,
-        &:before {
-          content                           : '';
-
-          display                           : inline-block;
-          height                            : 25px;
-
-          background-color                  : $skelleton;
-          margin                            : 12px 12px 0 0;
-        }
-
-        &:before {
-          width                             : 40px;
-        }
-
-        &:after {
-          width                             : 70px;
-        }
-      }
-
-      [class*='skelleton__other'] {
-        &:after,
-        &:before {
-          content                           : '';
-
-          display                           : inline-block;
-          background-color                  : $skelleton;
-
-          height                            : 22px;
-          border-radius                     : 11px;
-        }
-
-        &:before {
-          width                             : 100%;
-          margin-bottom                     : 5px;
-        }
-
-        &:after {
-          width                             : 95px;
-        }
-      }
-
-      [class*="skelleton__name"] {
-        background-color                    : $skelleton;
-
-        width                               : 100%;
-        height                              : 26px;
-
-        margin                              : 20px 0 0 0;
-        border-radius                       : 13px;
-      }
-
-      [class*="skelleton__price"] {
-        background-color                    : $skelleton;
-
-        width                               : 30%;
-        height                              : 25px;
-
-        margin                              : 5px 0 0 0;
-      }
-    }
-
     &[class="product__card-cardwrap"] {
       grid-column                           : span 1;
 
@@ -98,6 +11,9 @@
 
       [class*="cardwrap__details"],
       [class="product__card-cardwrap__top"] {
+        position                            : relative;
+        z-index                             : 0;
+
         flex                                : 0 0 100%;
       }
 
@@ -199,6 +115,91 @@
         } 
       }
 
+      .product__card-button__wishlist {
+        position                            : absolute;
+        top                                 : 20px;
+        right                               : 20px;
+        z-index                             : 1;
+
+        cursor                              : pointer;
+
+        width                               : 50px;
+        height                              : 50px;
+
+        border                              : none;
+        border-radius                       : 25px;
+        overflow                            : hidden;
+
+        div.icon {
+          pointer-events                    : none;
+
+          svg {
+            position                        : absolute;
+            top                             : 50%;
+            left                            : 50%;
+            z-index                         : 0;
+
+            width                           : 60%;
+            height                          : 60%;
+
+            transform-origin                : 0 0;
+            pointer-events                  : none;
+
+            &:last-of-type {
+              @include animate(all,.35s);
+
+              transition-property           : transform,fill;
+
+              transform                     : scale(1) translate(-50%,-44%);
+              fill                          : tint(light,4);
+            }
+
+            &:first-of-type {
+              @include animate(all,.35s);
+
+              transition-property           : transform,fill;
+
+              transform                     : scale(0) translate(-50%,-43%);
+              fill                          : $white;
+            }
+          }
+        }
+
+        &:hover {
+          div.icon {
+            svg {
+              &:last-of-type {
+                transform                   : scale(0) translate(-50%,-43%);
+                fill                        : $white;
+              }
+
+              &:first-of-type {
+                transform                   : scale(1) translate(-50%,-43%);
+                fill                        : tint(light,4);
+              }
+            }
+          }
+        }
+
+        &.active,
+        &.active:hover,
+        &.active:focus {
+          div.icon {
+            svg {
+              &:first-of-type {
+                animation                   : product__card-button__wishlist-heart__burst .5s forwards;
+                fill                        : tint(brand);
+              }
+
+              &:last-of-type {
+                transform                   : scale(0) translate(-50%,-43%);
+                fill                        : $white;
+              }
+            }
+          }
+        }
+      }
+
       [class="product__card-cardwrap__productimage"] {
         position                            : relative;
         z-index                             : 0;
@@ -286,23 +287,6 @@
           opacity                         : 0;
           border                          : 2px solid tint(brand);
         }
-
-        &:hover {
-          &:after {
-            opacity                       : 1;
-          }
-
-          [class*="-picture"] {
-            &:before {
-              top                         : 1px;
-              left                        : 1px;
-              right                       : 1px;
-              bottom                      : 1px;
-
-              opacity                     : 1;
-            }
-          }
-        }
       }
 
       [class="app__button-slim-small"] {
@@ -314,6 +298,25 @@
 
         transition-timing-function          : ease-out;
         box-shadow                          : 0px 0px 0px 0px rgba(0,0,0,0.15);
+
+        &:hover {
+          [class="product__card-cardwrap__productimage"] {
+            &:after {
+              opacity                       : 1;
+            }
+
+            [class*="-picture"] {
+              &:before {
+                top                         : 1px;
+                left                        : 1px;
+                right                       : 1px;
+                bottom                      : 1px;
+
+                opacity                     : 1;
+              }
+            }
+          }
+        }
       }
 
       &:hover {
@@ -323,5 +326,20 @@
         }
       }
     }
+  }
+}
+
+@keyframes product__card-button__wishlist-heart__burst {
+  0% {
+    transform                           : scale(1) translate(-50%,-43%);
+  }
+  50% {
+    transform                           : scale(.8) translate(-50%,-43%);
+  }
+  80% {
+    transform                           : scale(1.2) translate(-50%,-43%);
+  }
+  100% {
+    transform                           : scale(1) translate(-50%,-43%);
   }
 }

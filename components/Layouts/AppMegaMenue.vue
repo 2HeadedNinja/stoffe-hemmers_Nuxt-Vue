@@ -1,13 +1,18 @@
 <template>
-  <nav v-if="navigation" role="navigation" class="app__header__content-bottom mega__menue__navigation">
-    <div class="mega__menue__navigation__inner content" v-for="(data, index) in navigation" v-if="data.sub" v-bind:key="index" :data-id="data.id">
-      <ul>
-        <li v-for="(link, index) in data.sub" v-bind:key="index">
-          <a :href="link.url">
-            {{ link.label }}
-          </a>
-        </li>
-      </ul>
+  <nav v-if="navigation" id="mega__menue__navigation" role="navigation" class="app__header__content-bottom mega__menue__navigation" @mouseover="mouseover" @mouseleave="mouseleave">
+    <div class="mega__menue__navigation__container content">
+      <div class="mega__menue__navigation__inner" v-for="(data, index) in navigation" v-if="data.sub" v-bind:key="index" :id="getID(index)" :data-id="data.id">
+        <ul>
+          <li v-for="(link, index) in data.sub" v-bind:key="index">
+            <a :href="link.url">
+              {{ link.label }}
+            </a>
+          </li>
+        </ul>
+        <div class="mega__menue__navigation__container mega__elements">
+          Mega
+        </div>
+      </div>
     </div>
   </nav>
 </template>
@@ -26,16 +31,45 @@
     },
 
     methods : {
-      showSubmenue(id = false) {
-        if(DOMElement.is(this.$el)) {
-          this.$el.classList.add('open')
+      getID(id = false) {
+        if(id === false) {
+          return null;
+        }
+
+        return 'mega__menue-'+id;
+      },
+
+      showSubmenue(e = false) {
+        const __active  = this.$el.querySelector('div.mega__menue__navigation__inner.active');
+        const __current = this.$el.querySelector('div[data-id="'+e.id+'"]');
+
+        if(DOMElement.is(this.$el) && DOMElement.is(__current)) {
+          if(DOMElement.is(__active)) {
+            __active.classList.remove('active');
+          }
+
+          __current.classList.add('active');
+
+          this.$el.setAttribute('style','height:'+e.height+'px');
+          this.$el.classList.add('open');
+
+          /*if(typeof particlesJS === 'function') {
+            const __id = __current.getAttribute('id');
+            setTimeout(() => {
+              particlesJS.load(__id,'/other/particlesjs-config.json',function(event) {
+                console.log(event);
+              });
+            },2000);
+          }*/
         }
       },
 
-      killSubmenue() {
-        if(DOMElement.is(this.$el)) {
-          this.$el.classList.remove('open');
-        }
+      mouseleave() {
+        this.$root.$emit('MegaMenueMouseLeave');
+      },
+
+      mouseover() {
+        this.$root.$emit('MegaMenueMouseOver');
       }
     },
 
@@ -48,10 +82,6 @@
     mounted() {
       this.$root.$on('showSubmenue', id => {
         this.showSubmenue(id);
-      });
-
-      this.$root.$on('killSubmenue', () => {
-        this.killSubmenue();
       });
     }
   }

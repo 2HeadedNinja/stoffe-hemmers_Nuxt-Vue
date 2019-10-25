@@ -8,6 +8,37 @@
 
     h1 {
       grid-column                       : span 3;
+      margin                            : 0;
+    }
+
+    .product__listing-navigation__breadcrump {
+      grid-column                       : span 3;
+
+      display                           : flex;
+      align-items                       : center;
+
+      margin                            : -2px 0 30px 0;
+
+      svg {
+        width                           : 14px;
+        height                          : 14px;
+
+        margin                          : -1px 0 0 10px;
+        fill                            : tint(light,3);
+      }
+
+      a {
+        @include animate(color,.25s);
+
+        margin                          : 0 0 0 10px;
+
+        text-decoration                 : none;
+        color                           : tint(dark,3);
+
+        &:hover {
+          color                         : tint(brand);
+        }
+      }
     }
   }
 
