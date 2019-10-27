@@ -8,6 +8,7 @@
 	<div v-else-if="productData.type == 'product'" class="product__card-cardwrap">
     <div class="product__card-cardwrap__top">
       <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'heart-line'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
+      <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'paper-pin'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href" @click.prevent="click" v-longclick="() => this.longClick()">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
