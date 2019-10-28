@@ -9,7 +9,7 @@
       <li></li>
     </ul>
   </div>
-  <nav v-else-if="navigation" class="app__header__content-bottom main__navigation" role="navigation">
+  <nav v-else-if="navigation" class="app__header__content-bottom main__navigation disable__hover" role="navigation">
     <ul @mouseleave="mouseleave">
       <li :class="getCSS(link)" v-for="(link, index) in navigation" v-bind:key="index" :data-id="link.id" @click="click" v-on="link.sub ? { mouseover : mouseover } : { mouseover : killSubmenue }">
         <a :href="link.url">
@@ -184,6 +184,11 @@
     },
 
     mounted() {
+      setTimeout(() => {
+        if(this.$el.classList.contains('disable__hover')) {
+          this.$el.classList.remove('disable__hover');
+        }
+      },2000);
     }
   }
 </script>

@@ -18,11 +18,19 @@ const DOMElement = {
     );
   },
 
-  type(obj = false) {
+  type(obj = false, tag = false) {
     if(!DOMElement.is(obj)) {
       return null;
     } else {
-      return obj.nodeName.toLowerCase();
+      if(tag === false) {
+        return obj.nodeName.toLowerCase();
+      } else {
+        if(obj.nodeName.toLowerCase() === tag) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     }
   }
 }

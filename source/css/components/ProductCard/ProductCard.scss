@@ -115,94 +115,11 @@
         } 
       }
 
-      .product__card-button__wishlist {
-        position                            : absolute;
-        top                                 : 20px;
-        right                               : 20px;
-        z-index                             : 1;
-
-        cursor                              : pointer;
-
-        width                               : 50px;
-        height                              : 50px;
-
-        border                              : none;
-        border-radius                       : 25px;
-        overflow                            : hidden;
-
-        div.icon {
-          pointer-events                    : none;
-
-          svg {
-            position                        : absolute;
-            top                             : 50%;
-            left                            : 50%;
-            z-index                         : 0;
-
-            width                           : 60%;
-            height                          : 60%;
-
-            transform-origin                : 0 0;
-            pointer-events                  : none;
-
-            &:last-of-type {
-              @include animate(all,.35s);
-
-              transition-property           : transform,fill;
-
-              transform                     : scale(1) translate(-50%,-44%);
-              fill                          : tint(light,4);
-            }
-
-            &:first-of-type {
-              @include animate(all,.35s);
-
-              transition-property           : transform,fill;
-
-              transform                     : scale(0) translate(-50%,-43%);
-              fill                          : $white;
-            }
-          }
-        }
-
-        &:hover {
-          div.icon {
-            svg {
-              &:last-of-type {
-                transform                   : scale(0) translate(-50%,-43%);
-                fill                        : $white;
-              }
-
-              &:first-of-type {
-                transform                   : scale(1) translate(-50%,-43%);
-                fill                        : tint(light,4);
-              }
-            }
-          }
-        }
-
-        &.active,
-        &.active:hover,
-        &.active:focus {
-          div.icon {
-            svg {
-              &:first-of-type {
-                animation                   : product__card-button__wishlist-heart__burst .5s forwards;
-                fill                        : tint(brand);
-              }
-
-              &:last-of-type {
-                transform                   : scale(0) translate(-50%,-43%);
-                fill                        : $white;
-              }
-            }
-          }
-        }
-      }
-
       [class="product__card-cardwrap__productimage"] {
         position                            : relative;
         z-index                             : 0;
+
+        cursor                              : pointer;
 
         display                             : block;
         padding-top                         : 100%;
@@ -290,7 +207,7 @@
       }
 
       [class="app__button-slim-small"] {
-        border-top                        : none;
+        border-top                          : none;
       }
 
       [class="product__card-cardwrap__top"] {
@@ -313,6 +230,113 @@
                 bottom                      : 1px;
 
                 opacity                     : 1;
+              }
+            }
+          }
+        }
+
+        .product__card-cardwrap__top-icons {
+          position                          : absolute;
+          top                               : 20px;
+          right                             : 20px;
+          z-index                           : 1;
+
+          .product__card-button__wishlist,
+          .product__card-cardwrap__top-icons__colors {
+            cursor                          : pointer;
+            overflow                        : hidden;
+            
+            width                           : 50px;
+            height                          : 50px;
+
+            border-radius                   : 25px;
+
+            position                        : relative;
+            z-index                         : 0;
+
+            svg {
+              position                      : absolute;
+              top                           : 50%;
+              left                          : 50%;
+              z-index                       : 0;
+
+              width                         : 60%;
+              height                        : 60%;
+
+              transform-origin              : 0 0;
+              pointer-events                : none;
+            }
+          }
+
+          .product__card-cardwrap__top-icons__colors {
+            display                         : block;
+            background-color                : $white;
+
+            margin                          : 10px 0 0 0;
+
+            svg {
+              transform                     : translate(-50%,-50%);
+            }
+          }
+
+          .product__card-button__wishlist {
+            border                          : none;
+
+            div.icon {
+              pointer-events                : none;
+
+              svg {
+                &:last-of-type {
+                  @include animate(all,.35s);
+
+                  transition-property       : transform,fill;
+
+                  transform                 : scale(1) translate(-50%,-44%);
+                  fill                      : tint(light,4);
+                }
+
+                &:first-of-type {
+                  @include animate(all,.35s);
+
+                  transition-property       : transform,fill;
+
+                  transform                 : scale(0) translate(-50%,-43%);
+                  fill                      : $white;
+                }
+              }
+            }
+
+            &:hover {
+              div.icon {
+                svg {
+                  &:last-of-type {
+                    transform               : scale(0) translate(-50%,-43%);
+                    fill                    : $white;
+                  }
+
+                  &:first-of-type {
+                    transform               : scale(1) translate(-50%,-43%);
+                    fill                    : tint(light,4);
+                  }
+                }
+              }
+            }
+
+            &.active,
+            &.active:hover,
+            &.active:focus {
+              div.icon {
+                svg {
+                  &:first-of-type {
+                    animation               : product__card-button__wishlist-heart__burst .5s forwards;
+                    fill                    : tint(brand);
+                  }
+
+                  &:last-of-type {
+                    transform               : scale(0) translate(-50%,-43%);
+                    fill                    : $white;
+                  }
+                }
               }
             }
           }

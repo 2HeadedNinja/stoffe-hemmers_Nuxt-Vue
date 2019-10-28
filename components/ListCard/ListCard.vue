@@ -7,9 +7,15 @@
   </div>
 	<div v-else-if="productData.type == 'product'" class="product__card-cardwrap">
     <div class="product__card-cardwrap__top">
-      <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'heart-line'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
-      <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'paper-pin'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
-      <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href" @click.prevent="click" v-longclick="() => this.longClick()">
+      <div class="product__card-cardwrap__top-icons">
+        <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'heart-line'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
+        <span v-if="productData.colors" class="product__card-cardwrap__top-icons__colors">
+          <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 500 500">
+            <use xlink:href="/svg/sprite.svg#colorcircle"></use>
+          </svg>
+        </span>
+      </div>
+      <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href" @click.prevent @mousedown="mousedown" @mouseup="mouseup">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
       <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
@@ -58,7 +64,8 @@
 
     data() {
       return {
-
+        clicktime : null,
+        interval  : null
       }
     },
 
@@ -95,16 +102,36 @@
         }
       },
 
-      click : function() {
-        console.log(this);
+      mousedown : function() {
+        this.$data.clicktime = new Date().getTime();
+
+        this.$data.interval = setInterval(() => {
+          const __time = new Date().getTime() - this.$data.clicktime;
+
+          if(__time > 400) {
+            clearInterval(this.$data.interval);
+            this.$emit('longClick');
+          }
+        },10);
       },
 
-      longClick : function() {
-        alert('longClick');
+      mouseup : function() {
+        clearInterval(this.$data.interval);
+        
+        const __time = new Date().getTime() - this.$data.clicktime;
+        if(__time < 400) {
+          const __target = event.target;
+          if(DOMElement.type(__target,'a') && __target.hasAttribute('href')) {
+            window.location = __target.getAttribute('href');
+          }
+        }
       }
     },
 
   	created() {
+      this.$on('longClick',() => {
+        console.log('longClick');
+      });
   	},
 
   	mounted() {

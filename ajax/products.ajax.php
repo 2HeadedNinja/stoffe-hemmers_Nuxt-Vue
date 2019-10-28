@@ -10,10 +10,11 @@
 
   $return->products = array();
 
-  for($i = 0; $i < 10; $i++) {
+  for($i = 0; $i < 5; $i++) {
     $tmp = (object) array();
     $tmp->hasData = true;
     $tmp->id      = 84567;
+    $tmp->colors  = 10;
     $tmp->type    = 'product';
     $tmp->name    = 'Baumwollstoff Cretonne Palmenblätter, beere';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
@@ -38,7 +39,7 @@
     $return->products[]   = $tmp;
   }
 
-  for($i = 0; $i < 10; $i++) {
+  for($i = 0; $i < 5; $i++) {
     $tmp = (object) array();
     $tmp->hasData = true;
     $tmp->id      = 84556;
@@ -61,7 +62,7 @@
     $return->products[]   = $tmp;
   }
 
-  for($i = 0; $i < 10; $i++) {
+  for($i = 0; $i < 5; $i++) {
     $tmp = (object) array();
     $tmp->hasData   = true;
     $tmp->id        = 700066;
@@ -95,6 +96,76 @@
     $tmp->image->medium   = 'https://images.shcdn.de/resized/w360/p/baumwolljersey-bauplatz-hellgrau_JYA205001_2.jpg';
     $tmp->image->small    = 'https://images.shcdn.de/resized/w360/p/baumwolljersey-bauplatz-hellgrau_JYA205001_2.jpg';
     
+    $return->products[]   = $tmp;
+  }
+
+  for($i = 0; $i < 5; $i++) {
+    $tmp = (object) array();
+    $tmp->hasData   = true;
+    $tmp->id        = 85535;
+    $tmp->wishlist  = true;
+    $tmp->type      = 'product';
+    $tmp->name      = 'Nickistoff Flowers, rosa';
+    $tmp->href      = 'http://localhost:3010/category/stoffe.html';
+    $tmp->flags     = null;
+
+    $tmp->price = (object) array();
+    $tmp->price->original     = 14.95;
+    $tmp->price->currency     = '€';
+    $tmp->price->unit         = 'm';
+
+    $tmp->image           = (object) array();
+    $tmp->image->default  = 'https://images.shcdn.de/resized/w360/p/nickistoff-flowers-rosa_131.828-3002_2.jpg';
+    $tmp->image->medium   = 'https://images.shcdn.de/resized/w360/p/nickistoff-flowers-rosa_131.828-3002_2.jpg';
+    $tmp->image->small    = 'https://images.shcdn.de/resized/w360/p/nickistoff-flowers-rosa_131.828-3002_2.jpg';
+    
+    $return->products[]   = $tmp;
+  }
+
+  for($i = 0; $i < 5; $i++) {
+    $tmp = (object) array();
+    $tmp->hasData = true;
+    $tmp->id      = 85417;
+    $tmp->type    = 'product';
+    $tmp->name    = 'Leichter Wollstoff Melange, grau';
+    $tmp->href    = 'http://localhost:3010/category/stoffe.html';
+    $tmp->flags   = null;
+    
+    $tmp->price = (object) array();
+    $tmp->price->original     = 18.95;
+    $tmp->price->promotional  = 9.95;
+    $tmp->price->currency     = '€';
+    $tmp->price->unit         = 'm';
+
+    $tmp->image           = (object) array();
+    $tmp->image->default  = 'https://images.shcdn.de/resized/w360/p/leichter-wollstoff-melange-grau_P-10709_2.jpg';
+    $tmp->image->medium   = 'https://images.shcdn.de/resized/w360/p/leichter-wollstoff-melange-grau_P-10709_2.jpg';
+    $tmp->image->small    = 'https://images.shcdn.de/resized/w360/p/leichter-wollstoff-melange-grau_P-10709_2.jpg';
+
+    $return->products[]   = $tmp;
+  }
+
+  for($i = 0; $i < 5; $i++) {
+    $tmp = (object) array();
+    $tmp->hasData = true;
+    $tmp->id      = 85468;
+    $tmp->colors  = 10;
+    $tmp->type    = 'product';
+    $tmp->name    = 'Baumwollstoff Cretonne Mini Steuerrad, hellblau';
+    $tmp->href    = 'http://localhost:3010/category/stoffe.html';
+    $tmp->flags   = null;
+
+    $tmp->price = (object) array();
+    $tmp->price->original     = 8.95;
+    $tmp->price->promotional  = null;
+    $tmp->price->currency     = '€';
+    $tmp->price->unit         = 'm';
+
+    $tmp->image           = (object) array();
+    $tmp->image->default  = 'https://images.shcdn.de/resized/w360/p/baumwollstoff-cretonne-mini-steuerrad-hellblau_86172-31702_2.jpg';
+    $tmp->image->medium   = 'https://images.shcdn.de/resized/w360/p/baumwollstoff-cretonne-mini-steuerrad-hellblau_86172-31702_2.jpg';
+    $tmp->image->small    = 'https://images.shcdn.de/resized/w360/p/baumwollstoff-cretonne-mini-steuerrad-hellblau_86172-31702_2.jpg';
+
     $return->products[]   = $tmp;
   }
 

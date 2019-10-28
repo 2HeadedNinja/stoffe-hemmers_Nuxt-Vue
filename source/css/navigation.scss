@@ -2,17 +2,17 @@
   [class*="main__navigation"] {
     @include animate(border-bottom,.25s);
 
-    transition-delay              : .15s;
+    transition-delay                      : .15s;
 
-    display                       : flex;
-    align-items                   : center;
-    justify-content               : center;
+    display                               : flex;
+    align-items                           : center;
+    justify-content                       : center;
 
-    border-top                    : 1px dotted $border-light;
-    border-bottom                 : 1px dotted $white;
+    border-top                            : 1px dotted $border-light;
+    border-bottom                         : 1px dotted $white;
 
     &.open {
-      border-bottom               : 1px dotted $border-light;
+      border-bottom                       : 1px dotted $border-light;
     }
 
     ul,

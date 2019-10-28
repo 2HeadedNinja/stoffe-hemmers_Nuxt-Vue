@@ -3,6 +3,7 @@
 
 @import '../../assets/css/vars/colors';
 @import '../../assets/css/imports/mixins';
+@import '../../assets/css/imports/magic';
 
 @import 'components/HeroContent';
 @import 'components/ProductCard/ProductCard';
@@ -15,6 +16,8 @@
 @import 'modules/padding';
 
 @import 'navigation';
+
+//https://www.minimamente.com/project/magic/
 
 @media all {
   *,
@@ -46,10 +49,10 @@
     line-height                         : 160%;
 
     color                               : tint(dark,2);
+  }
 
-    &.disable__hover {
-      pointer-events                    : none;
-    }
+  .disable__hover {
+    pointer-events                      : none;
   }
 
   h1 {
