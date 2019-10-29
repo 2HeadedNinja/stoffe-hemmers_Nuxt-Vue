@@ -1,5 +1,5 @@
 <template>
-	<nav v-if="!navigation" class="category__sidebar-skelleton">
+  <nav v-if="!navigation" class="category__sidebar-skelleton">
 		<span class="category__sidebar-skelleton__back"></span>
 		<span class="category__sidebar-skelleton__current"></span>
 		<span class="category__sidebar-skelleton__link"></span>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-  import PagesCategorySidebarItem from '~/components/pages/category/PagesCategorySidebarItem';
+  import PagesCategorySidebarItem from '~/components/pages/category/PagesCategorySidebarItem'
 
 	export default {
 		name 				: 'PagesCategorySidebar',

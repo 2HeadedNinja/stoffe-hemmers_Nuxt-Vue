@@ -1,14 +1,7 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
-      <!--<AppButton :animate="true">
-        Testbutton
-      </AppButton>
-      <br /><br />
-      <AppButton>
-        Testbutton
-      </AppButton>
-      <br /><br />//-->
+      <PagesCategoryFactsheet v-if="factsheet" :factsheetData="factsheet" :hasDesciption="hasDesciption" @FactsheetButtonClick="factsheetClick"></PagesCategoryFactsheet>
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
     <div class="grid__column__line"></div>
@@ -25,6 +18,8 @@
       <ListCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ListCard>
       <!-- Show Skelletons as long as no Products are loaded yet //-->
       <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)"></ProductSkelleton>
+      <AppButton v-if="!loadInfinite" @AppButtonClick="loadProductsClick">Mehr Produkte anzeigen</AppButton>
+      <PagesCategoryDescription v-id="description" :desciptionHtml="description"></PagesCategoryDescription>
     </main>
   </div>
 </template>
@@ -37,6 +32,8 @@
   import ListCard from '~/components/ListCard/ListCard'
   import ProductSkelleton  from '~/components/ProductSkelleton'
   import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar'
+  import PagesCategoryFactsheet from '~/components/pages/category/PagesCategoryFactsheet'
+  import PagesCategoryDescription from '~/components/pages/category/PagesCategoryDescription'
 
   export default {
     layout : 'sidebar',
@@ -45,20 +42,49 @@
       AppButton,
       ListCard,
       ProductSkelleton,
-      PagesCategorySidebar
+      PagesCategorySidebar,
+      PagesCategoryDescription,
+      PagesCategoryFactsheet
     },
 
     data() {
       return {
         busy            : false,
 
+        loadInfinite    : true,
+
         products        : null,
         productCount    : null,
         productsPerPage : 15,
 
+        factsheet       : null,
+        description     : null,
+
         skelletons      : true,
         route           : this.$route.params.id,
-        default         : 'stoffe.html'
+        default         : 'stoffe.html',
+
+        scrollThreshold : 80
+      }
+    },
+
+    computed : {
+      id : function() {
+        return 'Über 7000 Stoffe als Meterware zur Auswahl';
+
+        /*if(this.$data.route !== undefined) {
+          return this.$data.route.split('.html').join('');
+        } else {
+          return this.$data.default.split('.html').join('');
+        }*/
+      },
+
+      hasDesciption : function() {
+        if(this.$data.description) {
+          return true;
+        }
+
+        return false;
       }
     },
 
@@ -68,20 +94,21 @@
       },
 
       handleScrollEvent() {
-        if(this.$data.skelletons === false) {
+        if(this.$data.skelletons === false && this.$data.loadInfinite === true) {
           const __scrollPosition = Math.round(100 * window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
 
-          if(__scrollPosition >= 80) {
+          if(__scrollPosition >= this.$data.scrollThreshold) {
             this.$data.skelletons = true;
-            this.getProductData();
+            this.getProductData(true);
           }
         }
       },
 
-      getProductData() {
+      getProductData(infinite = false) {
         this.$axios.$post('/api/products.ajax.php',{
           route     : this.id,
-          quantity  : this.$data.productsPerPage
+          quantity  : this.$data.productsPerPage,
+          infinite  : infinite
         })
         .then(response => {
           if(response.error === false) {
@@ -92,9 +119,20 @@
             }
 
             this.$data.skelletons = false;
+            
+            if(infinite == false) {
+              if(this.$data.productCount === null && response.productcount) {
+                this.$data.productCount = response.productcount;
+              }
 
-            if(this.$data.productCount === null && response.productcount) {
-              this.$data.productCount = response.productcount;
+              if(this.$data.factsheet === null && response.factsheet) {
+                this.$data.factsheet = response.factsheet;
+              }
+
+              if(this.$data.description === null && response.description) {
+                this.$data.scrollThreshold  = 40;
+                this.$data.description      = response.description;
+              }
             } else {
               if(this.$data.products.length >= this.$data.productCount) {
                 window.removeEventListener('scroll',this.handleScrollEvent);
@@ -105,18 +143,29 @@
         .catch(error => {
           console.log(error);
         });
-      }
-    },
+      },
 
-    computed : {
-      id : function() {
-        return 'Über 7000 Stoffe als Meterware zur Auswahl';
+      factsheetClick() {
+        this.$data.loadInfinite = false;
 
-        if(this.$data.route !== undefined) {
-          return this.$data.route.split('.html').join('');
-        } else {
-          return this.$data.default.split('.html').join('');
+        const __description = this.$el.querySelector('.product__listing-category__description');
+        if(DOMElement.is(__description)) {
+          const __y = Position.get(__description,{
+            offset : -40
+          });
+
+          if(__y !== false) {
+            window.scrollTo({
+              top       : __y, 
+              behavior  : 'smooth'
+            });
+          }
         }
+      },
+
+      loadProductsClick() {
+        this.$data.loadInfinite = true;
+        this.getProductData(true);
       }
     },
     

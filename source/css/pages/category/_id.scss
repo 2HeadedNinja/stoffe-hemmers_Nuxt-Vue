@@ -42,6 +42,23 @@
         }
       }
     }
+
+    .product__listing-category__description {
+      grid-column                       : span 3;
+
+      display                           : grid;
+      grid-template                     : auto / repeat(25,1fr);
+      grid-gap                          : 40px; 
+
+      aside {
+        background-color                : #ffff00;
+        grid-column                     : span 8;
+      }
+
+      article {
+        grid-column                     : span 17;
+      }
+    }
   }
 
   .sidekick__content {
