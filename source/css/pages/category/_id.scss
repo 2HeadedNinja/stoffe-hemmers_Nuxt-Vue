@@ -43,21 +43,24 @@
       }
     }
 
-    .product__listing-category__description {
+    .product__listing__load-more__button {
+      display                           : block;
       grid-column                       : span 3;
+      cursor                            : pointer;
 
-      display                           : grid;
-      grid-template                     : auto / repeat(25,1fr);
-      grid-gap                          : 40px; 
+      background-color                  : transparent;
+      text-align                        : center;
 
-      aside {
-        background-color                : #ffff00;
-        grid-column                     : span 8;
-      }
+      margin                            : 20px 0 0 0;
+      padding                           : 40px 0 0 0;
 
-      article {
-        grid-column                     : span 17;
-      }
+      border                            : none;
+      border-top                        : 1px dotted $border-light;
+
+      font-size                         : 18px;
+      font-weight                       : 500;
+
+      text-transform                    : uppercase;
     }
   }
 

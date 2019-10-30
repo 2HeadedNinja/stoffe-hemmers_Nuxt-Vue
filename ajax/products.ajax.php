@@ -181,7 +181,7 @@
     }
 
     if($post->infinite === false) {
-      $return->productcount     = 17;
+      $return->productcount     = 210;
       $return->factsheet        = (object) array();
       $return->factsheet->title = 'Steckbrief Baumwolle';
       $return->factsheet->image = 'https://images.shcdn.de/resized/h320/wpi/factsheet_81f87_de_DE_13.jpg';

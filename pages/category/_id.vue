@@ -14,12 +14,12 @@
         </svg>
         <a href="/category/stoffe.html">Dekostoffe</a>
       </nav>
-      <h1>{{ id }}</h1>
+      <h1>{{ headline }}</h1>
       <ListCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ListCard>
       <!-- Show Skelletons as long as no Products are loaded yet //-->
       <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)"></ProductSkelleton>
-      <AppButton v-if="!loadInfinite" @AppButtonClick="loadProductsClick">Mehr Produkte anzeigen</AppButton>
-      <PagesCategoryDescription v-id="description" :desciptionHtml="description"></PagesCategoryDescription>
+      <AppButton v-if="!loadInfinite" @AppButtonClick="loadProductsClick" :css="'product__listing__load-more__button'">Mehr Produkte anzeigen</AppButton>
+      <PagesCategoryDescription v-if="description" :desciptionHtml="description"></PagesCategoryDescription>
     </main>
   </div>
 </template>
@@ -61,7 +61,6 @@
         description     : null,
 
         skelletons      : true,
-        route           : this.$route.params.id,
         default         : 'stoffe.html',
 
         scrollThreshold : 80
@@ -69,7 +68,7 @@
     },
 
     computed : {
-      id : function() {
+      headline : function() {
         return 'Über 7000 Stoffe als Meterware zur Auswahl';
 
         /*if(this.$data.route !== undefined) {
@@ -106,7 +105,6 @@
 
       getProductData(infinite = false) {
         this.$axios.$post('/api/products.ajax.php',{
-          route     : this.id,
           quantity  : this.$data.productsPerPage,
           infinite  : infinite
         })
@@ -164,16 +162,17 @@
       },
 
       loadProductsClick() {
+        this.$el.classList.add('disable__hover');
         this.$data.loadInfinite = true;
         this.getProductData(true);
+
+        setTimeout(() => {
+          this.$el.classList.remove('disable__hover');
+        },1000);
       }
     },
     
     created() {
-      if(this.$route.params.id !== undefined) {
-        this.$data.route = this.$route.params.id;
-      }
-
       this.$root.$on('LayoutReady',() => {
         this.getProductData();
         this.infiniteLoad();
@@ -197,6 +196,12 @@
           }
         }
       });
+
+      const __scrollPosition = Math.round(100 * window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
+
+      if(__scrollPosition >= this.$data.scrollThreshold) {
+        this.$data.loadInfinite = false;
+      }
     },
 
     updated() {
