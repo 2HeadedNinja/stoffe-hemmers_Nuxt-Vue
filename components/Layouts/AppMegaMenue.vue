@@ -52,15 +52,6 @@
 
           this.$el.setAttribute('style','height:'+e.height+'px');
           this.$el.classList.add('open');
-
-          /*if(typeof particlesJS === 'function') {
-            const __id = __current.getAttribute('id');
-            setTimeout(() => {
-              particlesJS.load(__id,'/other/particlesjs-config.json',function(event) {
-                console.log(event);
-              });
-            },2000);
-          }*/
         }
       },
 

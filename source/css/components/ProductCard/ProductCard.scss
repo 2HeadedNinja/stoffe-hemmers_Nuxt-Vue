@@ -346,8 +346,8 @@
 
       &:hover {
         [class="product__card-cardwrap__top"] {
-          transition-timing-function      : ease-in;
-          box-shadow                      : 0px 0px 30px 0px rgba(0,0,0,0.15);
+          transition-timing-function        : ease-in;
+          box-shadow                        : 0px 0px 30px 0px rgba(0,0,0,0.15);
         }
       }
     }
@@ -356,15 +356,15 @@
 
 @keyframes product__card-button__wishlist-heart__burst {
   0% {
-    transform                           : scale(1) translate(-50%,-43%);
+    transform                               : scale(1) translate(-50%,-43%);
   }
   50% {
-    transform                           : scale(.8) translate(-50%,-43%);
+    transform                               : scale(.8) translate(-50%,-43%);
   }
   80% {
-    transform                           : scale(1.2) translate(-50%,-43%);
+    transform                               : scale(1.2) translate(-50%,-43%);
   }
   100% {
-    transform                           : scale(1) translate(-50%,-43%);
+    transform                               : scale(1) translate(-50%,-43%);
   }
 }

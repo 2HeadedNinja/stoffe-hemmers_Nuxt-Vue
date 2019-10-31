@@ -1,6 +1,6 @@
 const DOMElement = {
   is(obj = false) {
-    if(obj === false) {
+    if(obj === false || obj === null) {
       return false;
     }
 

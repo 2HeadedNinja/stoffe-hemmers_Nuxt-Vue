@@ -91,7 +91,7 @@
             }
 
             ol {
-              margin                : 15px 0 0 8px;
+              margin                : 20px 0 0 8px;
 
               li {
                 counter-increment   : subsection;
@@ -135,8 +135,9 @@
             font-size                 : 16px;
             font-weight               : 400;
             line-height               : 160%;
+            text-align                : left;
 
-            color                     : tint(dark,6);
+            color                     : tint(dark,3);
 
             &:hover {
               color                   : tint(brand);
