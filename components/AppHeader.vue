@@ -1,42 +1,17 @@
 <template>
-  <div class="app__top">
+  <div :class="getCSS()">
     <header>
       <div class="app__header__content">
-        <div class="app__header__content-top content">
+        <div v-show="!sticky" class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
             <svg role="img" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
               <use xlink:href="/svg/sprite.svg#logo-wide-de_DE"></use>
             </svg>
           </a>
           { SUCHE }
-          <ul class="secondary__navigation">
-            <li>
-              <a href="/category" role="button" class="modal flex align-left-center">
-                <svg class="account" role="presentation" alt="Anmelden" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                  <use xlink:href="/svg/sprite.svg#avatar-line"></use>
-                </svg>
-                Anmelden
-              </a>
-            </li>
-            <li class="flex align-left-center">
-              <a href="#" class="flex align-left-center">
-                <svg class="wishlist" role="presentation" alt="Mein Wunschzettel" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                  <use xlink:href="/svg/sprite.svg#heart-line"></use>
-                </svg>
-                Mein Wunschzettel
-              </a>
-            </li>
-            <li>
-              <a href="/cart" class="flex align-left-center">
-                <svg class="cart" role="presentation" alt="Mein Warenkorb" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
-                  <use xlink:href="/svg/sprite.svg#shopping-bag-line"></use>
-                </svg>
-                Mein Warenkorb
-              </a>
-            </li>
-          </ul>
+          <AppSecondaryNavigation></AppSecondaryNavigation>
         </div>
-        <AppMainNavigation></AppMainNavigation>
+        <AppMainNavigation :hasHeroContent="!heroContent ? false : heroContent.hasHeroContent"></AppMainNavigation>
       </div>
       <AppMegaMenue></AppMegaMenue>
     </header>
@@ -49,8 +24,9 @@
   import Breakpoint from '~/plugins/Breakpoint.plugin.js'
   
   import HeroContent from '~/components/HeroContent'
-  import AppMainNavigation from '~/components/Layouts/AppMainNavigation'
   import AppMegaMenue from '~/components/Layouts/AppMegaMenue'
+  import AppMainNavigation from '~/components/Layouts/AppMainNavigation'
+  import AppSecondaryNavigation from '~/components/Layouts/AppSecondaryNavigation'
 
   export default {
     name        : 'AppHeader',
@@ -58,16 +34,34 @@
     components  : {
       HeroContent,
       AppMegaMenue,
-      AppMainNavigation
+      AppMainNavigation,
+      AppSecondaryNavigation
     },
 
     data() {
       return {
+        sticky        : false,
+        threshold     : null,
         heroContent   : null,
+        parallaxObj   : null,
       }
     },
 
     methods : {
+      getCSS() {
+        let __css = 'app__top';
+
+        if(this.$data.heroContent === null || this.$data.heroContent.hasHeroContent === false) {
+          __css += ' no__hero__content';
+        }
+
+        if(this.$data.sticky === true) {
+          __css += ' sticky';
+        }
+
+        return __css;
+      },
+
       getHeight() {
         const __rect  = this.$el.getBoundingClientRect();
 
@@ -78,19 +72,34 @@
         return null;
       },
 
-      emitEvent(evt = 'AppHeaderInitialMount') {
-        const __event = { height : this.getHeight() };
+      emitEvent(evt = 'AppHeaderInitialMount', obj = false) {
+        let __event = obj;
+        if(__event === false) {
+          __event = { height : this.getHeight() };
+        }
         this.$root.$emit(evt,__event);
       },
 
       parallax() {
         const __header = this.$el.querySelector('header');
-
         if(typeof rallax === 'object' && DOMElement.is(__header)) {
           const __rect = __header.getBoundingClientRect();
 
           if(__rect && typeof __rect.height === 'number') {
-            const __parallax = rallax.add(__header,{speed : -.45});
+            this.$data.parallaxObj = rallax.add(__header,{speed : -.45});
+          }
+        }
+      },
+
+      handleScrollEvent() {
+        if(this.$data.threshold !== null && typeof this.$data.threshold == 'number') {
+          const __scrollPosition = Math.round(window.scrollY);
+          if(__scrollPosition >= this.$data.threshold && this.$data.sticky === false) {
+            this.$data.sticky = true;
+            this.$data.parallaxObj.stop();
+          } else if(__scrollPosition < this.$data.threshold && this.$data.sticky === true) {
+            this.$data.sticky = false;
+            this.$data.parallaxObj.start();
           }
         }
       }
@@ -101,7 +110,19 @@
     },
 
     mounted() {
-      this.parallax();
+      this.$root.$on('LayoutReady',() => {   
+        if(DOMElement.is(this.$el)) {
+          let __rect = this.$el.getBoundingClientRect().height;
+
+          if(__rect && typeof __rect == 'number') {
+            this.$data.threshold = Math.ceil(__rect * 1.2);
+
+            this.$root.$on('LayoutScrollEvent',() => {
+              this.handleScrollEvent();
+            });
+          }
+        }
+      });
 
       this.$axios.$post('/api/herocontent.ajax.php')
         .then(response => {
@@ -109,16 +130,17 @@
             this.$data.heroContent = response;
 
             if(this.$data.heroContent.hasHeroContent === true) {
+              this.parallax();
               this.$data.heroContent.elementHeight = this.getHeight();
             } else {
-              this.emitEvent('AppHeaderMounted');
+              this.emitEvent('AppHeaderMounted',{ height : null});
             }
           } else {
-            this.emitEvent('AppHeaderMounted');
+            this.emitEvent('AppHeaderMounted',{ height : null});
           }
         })
         .catch(error => {
-          this.emitEvent('AppHeaderMounted');
+          this.emitEvent('AppHeaderMounted',{ height : null});
         });
     }
   }

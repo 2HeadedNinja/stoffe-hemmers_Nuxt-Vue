@@ -103,26 +103,30 @@
       },
 
       mousedown : function() {
-        this.$data.clicktime = new Date().getTime();
+        if(event.button === 0) {
+          this.$data.clicktime = new Date().getTime();
 
-        this.$data.interval = setInterval(() => {
-          const __time = new Date().getTime() - this.$data.clicktime;
+          this.$data.interval = setInterval(() => {
+            const __time = new Date().getTime() - this.$data.clicktime;
 
-          if(__time > 400) {
-            clearInterval(this.$data.interval);
-            this.$emit('longClick');
-          }
-        },10);
+            if(__time > 400) {
+              clearInterval(this.$data.interval);
+              this.$emit('longClick');
+            }
+          },10);
+        }
       },
 
       mouseup : function() {
-        clearInterval(this.$data.interval);
-        
-        const __time = new Date().getTime() - this.$data.clicktime;
-        if(__time < 400) {
-          const __target = event.target;
-          if(DOMElement.type(__target,'a') && __target.hasAttribute('href')) {
-            window.location = __target.getAttribute('href');
+        if(event.button === 0) {
+          clearInterval(this.$data.interval);
+          
+          const __time = new Date().getTime() - this.$data.clicktime;
+          if(__time < 400) {
+            const __target = event.target;
+            if(DOMElement.type(__target,'a') && __target.hasAttribute('href')) {
+              window.location = __target.getAttribute('href');
+            }
           }
         }
       }

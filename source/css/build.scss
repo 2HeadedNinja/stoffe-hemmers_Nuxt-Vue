@@ -5,17 +5,17 @@
 @import '../../assets/css/imports/mixins';
 @import '../../assets/css/imports/magic';
 
+@import 'navigation/navigation__main';
+@import 'navigation/navigation__secondary';
+
 @import 'components/HeroContent';
 @import 'components/ProductCard/ProductCard';
 
 @import 'pages/category/_id';
-
 @import 'modules/grid';
 @import 'modules/margin';
 @import 'modules/buttons';
 @import 'modules/padding';
-
-@import 'navigation';
 
 //https://www.minimamente.com/project/magic/
 
@@ -133,6 +133,10 @@
 
     width                               : 100%;
 
+    &.no__hero__content {
+      position                          : static;
+    }
+
     header {
       position                          : relative;
       z-index                           : 1;
@@ -162,63 +166,6 @@
             svg {
               width                     : auto;
               height                    : 42%;
-            }
-          }
-
-          ul.secondary__navigation,
-          ul.secondary__navigation li {
-            margin                      : 0;
-            padding                     : 0;
-          }
-
-          ul.secondary__navigation {
-            display                     : flex;
-
-            li {
-              list-style-type           : none;
-              margin                    : 0 30px 0 0;
-
-              &:last-of-type {
-                margin                  : 0;
-              }
-
-              a {
-                @include animate(color,.25s);
-
-                display                 : flex;
-                align-items             : center;
-
-                text-transform          : uppercase;
-                text-decoration         : none;
-
-                font-size               : 12px;
-                font-weight             : 500;
-
-                color                   : tint(dark,3);
-
-                svg {
-                  @include animate(fill,.25s);
-
-                  width                 : 25px;
-                  height                : 25px;
-
-                  margin                : -2px 10px 0 0;
-
-                  fill                  : tint(light,4);
-
-                  &.cart {
-                    margin-top          : -7px;
-                  }
-                }
-
-                &:hover {
-                  color                 : tint(brand);
-                  
-                  svg {
-                    fill                : tint(brand);
-                  }
-                }
-              }
             }
           }
         }

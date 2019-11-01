@@ -11,7 +11,8 @@
     border-top                            : 1px dotted $border-light;
     border-bottom                         : 1px dotted $white;
 
-    &.open {
+    &.open,
+    &.no__hero__content {
       border-bottom                       : 1px dotted $border-light;
     }
 

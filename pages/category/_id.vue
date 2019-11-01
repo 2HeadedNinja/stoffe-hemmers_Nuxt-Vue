@@ -18,7 +18,7 @@
       <ListCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ListCard>
       <!-- Show Skelletons as long as no Products are loaded yet //-->
       <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)"></ProductSkelleton>
-      <AppButton v-if="!loadInfinite" @AppButtonClick="loadProductsClick" :css="'product__listing__load-more__button'">Mehr Produkte anzeigen</AppButton>
+      <AppButton v-if="!loadInfinite" @AppButtonClick="loadProductsClick" :css="'product__listing__load-more__button'" :icon="'eye-show-line'">Mehr Produkte anzeigen</AppButton>
       <PagesCategoryDescription v-if="description" :desciptionHtml="description"></PagesCategoryDescription>
     </main>
   </div>

@@ -43,6 +43,10 @@
     },
 
     mounted() {
+      if(this.contentData.hasHeroContent === false) {
+        return false;
+      }
+
       if(this.contentData.elementHeight !== null) {    
         setTimeout(() => {
           this.$el.classList.add('mounted');
@@ -51,9 +55,9 @@
         this.$el.setAttribute('style','--height: calc(100vh - '+this.contentData.elementHeight+'px);');
         this.parallax();
 
-        this.$emit('HeroContentMounted');
+        this.$emit('HeroContentMounted',{ hasHeroContent : true});
       } else {
-        this.$emit('HeroContentMounted');
+        this.$emit('HeroContentMounted',{ hasHeroContent : false});
       }
     }
   }

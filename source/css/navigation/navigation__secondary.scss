@@ -1,0 +1,113 @@
+@media all {
+  ul.secondary__navigation,
+  ul.secondary__navigation li {
+    margin                      : 0;
+    padding                     : 0;
+  }
+
+  ul.secondary__navigation {
+    display                         : flex;
+
+    li {
+      list-style-type               : none;
+      margin                        : 0 30px 0 0;
+
+      &:last-of-type {
+        margin                      : 0;
+      }
+
+      .secondary__navigation__menue-button {
+        @include animate(color,.25s);
+
+        position                    : relative;
+        z-index                     : 0;
+
+        cursor                      : pointer;
+
+        display                     : flex;
+        align-items                 : center;
+
+        text-transform              : uppercase;
+        text-decoration             : none;
+
+        font-size                   : 12px;
+        font-weight                 : 500;
+
+        color                       : tint(dark,3);
+
+        background                  : transparent;
+        border                      : none;
+
+        &.cart {
+          svg {
+            transform               : translateY(-3px);
+          }
+        }
+
+        &.account {
+          svg {
+            transform               : translateY(-1px);
+          }
+        }
+
+        svg {
+          @include animate(fill,.25s);
+
+          width                     : 25px;
+          height                    : 25px;
+
+          margin-right              : 10px;
+
+          fill                      : tint(light,4);
+        }
+        
+        &:hover {
+          color                     : tint(brand);
+
+          svg {
+            fill                    : tint(brand);
+          }
+        }
+
+        .secondary__navigation__menue-button__counter {
+          position                : absolute;
+          display                 : flex;
+
+          top                     : -15px;
+          left                    : 30px;
+          z-index                 : 1;
+
+          background-color        : tint(brand,3);
+
+          font-size               : 10px;
+          font-weight             : 500;
+          padding                 : 2px 8px 0 8px;
+
+          color                   : $white;
+
+          height                  : 20px;
+          min-width               : 19px;
+          justify-content         : center;
+          align-items             : center;
+
+          border-radius           : 10px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes secondary__navigation__menue-button-icon__burst {
+  0% {
+    transform                               : scale(1) translate(-50%,-50%);
+  }
+  50% {
+    transform                               : scale(.8) translate(-50%,-50%);
+  }
+  80% {
+    transform                               : scale(1.2) translate(-50%,-50%);
+  }
+  100% {
+    transform                               : scale(1) translate(-50%,-50%);
+  }
+}

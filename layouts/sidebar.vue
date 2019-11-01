@@ -47,6 +47,9 @@
             setTimeout(() => {
               this.$root.$emit('LayoutReady');
             },50);
+          } else {
+            this.$data.show = true;
+            this.$root.$emit('LayoutReady');
           }
         });
       }
@@ -76,6 +79,8 @@
         __timer = setTimeout(() => {
           __body.classList.remove('disable__hover')
         },500);
+
+        this.$root.$emit('LayoutScrollEvent');
       });
     }
   }

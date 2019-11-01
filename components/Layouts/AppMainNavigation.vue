@@ -9,7 +9,7 @@
       <li></li>
     </ul>
   </div>
-  <nav v-else-if="navigation" class="app__header__content-bottom main__navigation disable__hover" role="navigation">
+  <nav v-else-if="navigation" :class="getMainCSS()" role="navigation">
     <ul @mouseleave="mouseleave">
       <li :class="getCSS(link)" v-for="(link, index) in navigation" v-bind:key="index" :data-id="link.id" @click="click" v-on="link.sub ? { mouseover : handleMouseover } : { mouseover : killSubmenue }">
         <a :href="link.url">
@@ -27,14 +27,36 @@
 
   export default {
     name  : 'AppMainNavigation',
+
+    props : {
+      hasHeroContent : {
+        type : Boolean,
+
+        default() {
+          return false;
+        }
+      }
+    },
+
     data() {
       return {
         navigation : null,
-        interval   : null
+        interval   : null,
+        css        : null
       }
     },
 
     methods         : {
+      getMainCSS() {
+        let __class = 'app__header__content-bottom main__navigation disable__hover';
+
+        if(!this.hasHeroContent) {
+          __class += ' no__hero__content';
+        }
+
+        return __class;
+      },
+
       getCSS(link = false) {
         if(link === false) {
           return null;
