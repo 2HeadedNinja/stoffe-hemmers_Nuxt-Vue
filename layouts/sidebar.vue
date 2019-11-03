@@ -1,5 +1,6 @@
 <template>
   <div class="layout__sidebar">
+    <MoodBoardDropZone></MoodBoardDropZone>
     <AppHeader></AppHeader>
     <transition name="fade">
       <div v-show="show" class="layout__sidebar-scrollcontent">
@@ -18,12 +19,15 @@
   import AppHeader from '~/components/AppHeader'
   import AppFooter from '~/components/AppFooter'
 
+  import MoodBoardDropZone from '~/components/MoodBoard/MoodBoardDropZone'
+
   export default {
     name        : 'LayoutSidebar',
     components  : {
       AppHeader,
       AppFooter,
       AppButton,
+      MoodBoardDropZone
     },
 
     methods     : {

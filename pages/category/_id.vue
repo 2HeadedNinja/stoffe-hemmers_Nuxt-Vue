@@ -93,12 +93,16 @@
       },
 
       handleScrollEvent() {
-        if(this.$data.skelletons === false && this.$data.loadInfinite === true) {
+        if(this.$data.skelletons === false) {
           const __scrollPosition = Math.round(100 * window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
 
-          if(__scrollPosition >= this.$data.scrollThreshold) {
+          if(__scrollPosition >= this.$data.scrollThreshold && this.$data.loadInfinite === true) {
             this.$data.skelletons = true;
             this.getProductData(true);
+          } else if(__scrollPosition < (this.$data.scrollThreshold * .75)) {
+            if(this.$data.loadInfinite === false) {
+              this.$data.loadInfinite = true;
+            }
           }
         }
       },

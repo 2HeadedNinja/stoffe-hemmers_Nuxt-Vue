@@ -241,12 +241,17 @@
           right                             : 20px;
           z-index                           : 1;
 
+          width                             : 50px;
+
+          display                           : flex;
+          flex-wrap                         : wrap;
+
           .product__card-button__wishlist,
           .product__card-cardwrap__top-icons__colors {
             cursor                          : pointer;
             overflow                        : hidden;
             
-            width                           : 50px;
+            flex                            : 0 0 50px;
             height                          : 50px;
 
             border-radius                   : 25px;
@@ -272,8 +277,6 @@
             display                         : block;
             background-color                : $white;
 
-            margin                          : 10px 0 0 0;
-
             svg {
               transform                     : translate(-50%,-50%);
             }
@@ -282,6 +285,8 @@
           .product__card-button__wishlist {
             border                          : none;
             background-color                : $white;
+
+            margin                          : 0 0 10px 0;
 
             div.icon {
               pointer-events                : none;

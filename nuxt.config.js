@@ -35,6 +35,7 @@ export default {
     { src: '~/plugins/Breakpoint.plugin.js', mode: 'client'},
     { src: '~/plugins/Position.plugin.js', mode: 'client'},
     { src: '~/plugins/rallax.js', mode: 'client'},
+    { src: '~/plugins/dragula.js', mode: 'client'},
 
     { src: '~/plugins/Startup.plugin.js', mode: 'client'}
   ],

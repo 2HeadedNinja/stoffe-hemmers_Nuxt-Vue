@@ -5,8 +5,8 @@
     <div class="product__card-skelleton__flags"></div>
     <div class="product__card-skelleton__other"></div>
   </div>
-	<div v-else-if="productData.type == 'product'" class="product__card-cardwrap">
-    <div class="product__card-cardwrap__top">
+  <div class="product__card-cardwrap" v-else-if="productData.type == 'product'">
+  	<div class="product__card-cardwrap__top">
       <div class="product__card-cardwrap__top-icons">
         <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'heart-line'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
         <span v-if="productData.colors" class="product__card-cardwrap__top-icons__colors">
@@ -102,6 +102,10 @@
         }
       },
 
+      moodBoard : function() {
+
+      },
+
       mousedown : function() {
         if(event.button === 0) {
           this.$data.clicktime = new Date().getTime();
@@ -134,7 +138,9 @@
 
   	created() {
       this.$on('longClick',() => {
-        console.log('longClick');
+        if(process.client) {
+          console.log(typeof dragula);
+        }
       });
   	},
 
