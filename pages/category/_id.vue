@@ -99,11 +99,11 @@
           if(__scrollPosition >= this.$data.scrollThreshold && this.$data.loadInfinite === true) {
             this.$data.skelletons = true;
             this.getProductData(true);
-          } else if(__scrollPosition < (this.$data.scrollThreshold * .75)) {
+          }/* else if(__scrollPosition < (this.$data.scrollThreshold * .75)) {
             if(this.$data.loadInfinite === false) {
               this.$data.loadInfinite = true;
             }
-          }
+          }*/
         }
       },
 

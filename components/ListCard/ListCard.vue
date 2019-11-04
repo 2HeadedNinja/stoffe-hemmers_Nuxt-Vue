@@ -137,11 +137,6 @@
     },
 
   	created() {
-      this.$on('longClick',() => {
-        if(process.client) {
-          console.log(typeof dragula);
-        }
-      });
   	},
 
   	mounted() {

@@ -9,6 +9,9 @@
       min-width                             : 0;
       opacity                               : 1;
 
+      touch-action                          : none;
+      user-select                           : none;
+
       [class*="cardwrap__details"],
       [class="product__card-cardwrap__top"] {
         position                            : relative;
@@ -356,6 +359,18 @@
         }
       }
     }
+  }
+
+  .drag__clone {
+    position                                : fixed;
+    top                                     : 0;
+    left                                    : 0;
+
+    width                                   : 200px;
+    height                                  : 200px;
+    border-radius                           : 100%;
+
+    overflow                                : hidden;
   }
 }
 
