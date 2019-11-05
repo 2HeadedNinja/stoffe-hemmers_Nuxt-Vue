@@ -106,7 +106,7 @@
 
       },
 
-      mousedown : function() {
+      mousedown : function(event) {
         if(event.button === 0) {
           this.$data.clicktime = new Date().getTime();
 
@@ -115,7 +115,7 @@
 
             if(__time > 400) {
               clearInterval(this.$data.interval);
-              this.$emit('longClick');
+              this.$emit('longClick',event);
             }
           },10);
         }
@@ -140,6 +140,21 @@
   	},
 
   	mounted() {
+      this.$on('longClick', event => {
+        const __body      = document.body;
+        if(!__body.classList.contains('disable__hover')) {
+          __body.classList.add('disable__hover')
+        }
+
+        const __draggable = document.createElement('div');
+              __draggable.classList.add('moodboard__drag');
+              
+        __body.appendChild(__draggable);
+
+        const __rect = __draggable.getBoundingClientRect();
+
+        __draggable.setAttribute('style','--top: '+Math.round(event.clientY - (__rect.height * .5))+'px; --left: '+Math.round(event.clientX - (__rect.width * .5))+'px;');
+      });
   	}
   }
 </script>

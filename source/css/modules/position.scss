@@ -1,0 +1,9 @@
+@media all {
+  &[style*="--top"] {
+    top                           : var(--top);
+  }
+
+  &[style*="--left"] {
+    left                          : var(--left);
+  }
+}

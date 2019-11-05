@@ -360,18 +360,6 @@
       }
     }
   }
-
-  .drag__clone {
-    position                                : fixed;
-    top                                     : 0;
-    left                                    : 0;
-
-    width                                   : 200px;
-    height                                  : 200px;
-    border-radius                           : 100%;
-
-    overflow                                : hidden;
-  }
 }
 
 @keyframes product__card-button__wishlist-heart__burst {
