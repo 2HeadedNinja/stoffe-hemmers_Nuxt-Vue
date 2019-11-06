@@ -1,6 +1,5 @@
 <template>
   <div class="layout__sidebar">
-    <MoodBoardDropZone></MoodBoardDropZone>
     <AppHeader></AppHeader>
     <transition name="fade">
       <div v-show="show" class="layout__sidebar-scrollcontent">
@@ -14,6 +13,7 @@
 <script>
   // https://simpleparallax.com/#examples
   // import simpleParallax from 'simple-parallax-js';
+  import DOMElement from '~/plugins/DOMElement.plugin.js'
 
   import AppButton from '~/components/AppButton'
   import AppHeader from '~/components/AppHeader'
@@ -30,14 +30,22 @@
       MoodBoardDropZone
     },
 
+    data() {
+      return {
+        height  : null
+      }
+    },
+
     methods     : {
       positionScrollContent() {
         this.$root.$on('AppHeaderMounted',event => {
           if(event.height !== null) {
+            this.$data.height = event.height;
+
             const __scrollcontent = this.$el.querySelector('.layout__sidebar-scrollcontent');
 
-            if(__scrollcontent !== null) {
-              let __style = '--margin-top: '+event.height+'px;';
+            if(DOMElement.is(__scrollcontent)) {
+              let __style = '--margin-top: '+this.$data.height+'px;';
 
               if(__scrollcontent.hasAttribute('style')) {
                 __style += ' '+__scrollcontent.getAttribute('style');
@@ -54,6 +62,18 @@
           } else {
             this.$data.show = true;
             this.$root.$emit('LayoutReady');
+          }
+        });
+
+        this.$root.$on('KillHeroContent',() => {
+          const __scrollcontent = this.$el.querySelector('.layout__sidebar-scrollcontent');
+
+          if(DOMElement.is(__scrollcontent) && __scrollcontent.hasAttribute('style') && this.$data.height) {
+            __scrollcontent.removeAttribute('style');
+
+            window.scrollTo({
+              top : Math.round(window.scrollY - (this.$data.height-150))
+            });
           }
         });
       }

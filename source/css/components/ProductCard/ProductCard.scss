@@ -9,9 +9,6 @@
       min-width                             : 0;
       opacity                               : 1;
 
-      touch-action                          : none;
-      user-select                           : none;
-
       [class*="cardwrap__details"],
       [class="product__card-cardwrap__top"] {
         position                            : relative;
@@ -131,6 +128,7 @@
 
         [class*="-picture"] {
           display                           : block;
+          user-select                       : none;
 
           position                          : absolute;
           top                               : 0;

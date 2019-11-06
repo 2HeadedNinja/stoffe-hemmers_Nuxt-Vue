@@ -1,5 +1,5 @@
 <template>
-  <div v-if="contentData.hasHeroContent" class="layout__herocontent">
+  <div v-if="contentData.hasHeroContent && !kill" class="layout__herocontent">
     <HeroContentTextContent v-if="contentData.promotext" :textContent="contentData.promotext"></HeroContentTextContent>
     <HeroContentBackground v-if="contentData.background" :backgroundData="contentData.background"></HeroContentBackground>
   </div>
@@ -31,6 +31,12 @@
       }
     },
 
+    data() {
+      return {
+        kill               : false
+      }
+    },
+
     methods : {
       parallax() {
         if(typeof rallax === 'object') {
@@ -40,6 +46,20 @@
     },
 
     created() {
+      this.$root.$on('AppHeaderMounted',event => {
+        if(!this.$data.kill) {
+          const __height = Math.ceil(event.height * 1.2);
+
+          this.$root.$on('LayoutScrollEvent',() => {
+            const __scrollPosition = Math.round(window.scrollY);
+
+            if(__scrollPosition > __height) {
+              this.$data.kill = true;
+              this.$root.$emit('KillHeroContent');
+            }
+          });
+        }
+      });
     },
 
     mounted() {

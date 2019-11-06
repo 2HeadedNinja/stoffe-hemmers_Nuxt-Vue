@@ -16,7 +16,6 @@
       </nav>
       <h1>{{ headline }}</h1>
       <ListCard v-for="(product, index) in products" v-bind:key="index" :productData="product"></ListCard>
-      <!-- Show Skelletons as long as no Products are loaded yet //-->
       <ProductSkelleton v-if="skelletons" v-for="n in productsPerPage" v-bind:key="Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5)"></ProductSkelleton>
       <AppButton v-if="!loadInfinite" @AppButtonClick="loadProductsClick" :css="'product__listing__load-more__button'" :icon="'eye-show-line'">Mehr Produkte anzeigen</AppButton>
       <PagesCategoryDescription v-if="description" :desciptionHtml="description"></PagesCategoryDescription>
@@ -82,7 +81,6 @@
         if(this.$data.description) {
           return true;
         }
-
         return false;
       }
     },
@@ -99,11 +97,11 @@
           if(__scrollPosition >= this.$data.scrollThreshold && this.$data.loadInfinite === true) {
             this.$data.skelletons = true;
             this.getProductData(true);
-          }/* else if(__scrollPosition < (this.$data.scrollThreshold * .75)) {
-            if(this.$data.loadInfinite === false) {
+          } else if(__scrollPosition < (this.$data.scrollThreshold * .75)) {
+            if(this.$data.loadInfinite === false && this.$data.busy === false) {
               this.$data.loadInfinite = true;
             }
-          }*/
+          }
         }
       },
 
@@ -148,6 +146,7 @@
       },
 
       factsheetClick() {
+        this.$data.busy         = true;
         this.$data.loadInfinite = false;
 
         const __description = this.$el.querySelector('.product__listing-category__description');
@@ -161,6 +160,10 @@
               top       : __y, 
               behavior  : 'smooth'
             });
+
+            setTimeout(() => {
+              this.$data.busy = false;
+            },2000);
           }
         }
       },

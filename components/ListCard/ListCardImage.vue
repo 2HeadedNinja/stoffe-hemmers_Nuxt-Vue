@@ -6,6 +6,7 @@
 </template>
 
 <script>
+  import DOMElement from '~/plugins/DOMElement.plugin.js'
   // -> https://markus.oberlehner.net/blog/lazy-loading-responsive-images-with-vue/
   import lozad from 'lozad';
 
@@ -32,6 +33,16 @@
         loaded : el => {
           setTimeout(() => {
             el.classList.add('loaded');
+
+            const __images = el.querySelectorAll('img');
+            if(DOMElement.is(__images)) {
+              for(const __image of __images) {
+                __image.addEventListener('mousedown',function() {
+                  console.log('drag');
+                });
+              }
+            }
+
             this.$emit('ProductImageLoaded');
           },250);
         }

@@ -140,21 +140,6 @@
   	},
 
   	mounted() {
-      this.$on('longClick', event => {
-        const __body      = document.body;
-        if(!__body.classList.contains('disable__hover')) {
-          __body.classList.add('disable__hover')
-        }
-
-        const __draggable = document.createElement('div');
-              __draggable.classList.add('moodboard__drag');
-              
-        __body.appendChild(__draggable);
-
-        const __rect = __draggable.getBoundingClientRect();
-
-        __draggable.setAttribute('style','--top: '+Math.round(event.clientY - (__rect.height * .5))+'px; --left: '+Math.round(event.clientX - (__rect.width * .5))+'px;');
-      });
   	}
   }
 </script>
