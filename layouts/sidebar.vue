@@ -64,18 +64,6 @@
             this.$root.$emit('LayoutReady');
           }
         });
-
-        this.$root.$on('KillHeroContent',() => {
-          const __scrollcontent = this.$el.querySelector('.layout__sidebar-scrollcontent');
-
-          if(DOMElement.is(__scrollcontent) && __scrollcontent.hasAttribute('style') && this.$data.height) {
-            __scrollcontent.removeAttribute('style');
-
-            window.scrollTo({
-              top : Math.round(window.scrollY - (this.$data.height-150))
-            });
-          }
-        });
       }
     },
 

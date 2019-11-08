@@ -107,9 +107,6 @@
     
     created() {
       this.$root.$emit('AppHeaderCreated');
-      this.$root.$on('KillHeroContent',() => {
-        this.heroContent = null;
-      });
     },
 
     mounted() {

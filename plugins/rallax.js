@@ -43,6 +43,14 @@ class RallaxObj {
     this.active = true
   }
 
+  destroy() {
+    this.active = false;
+
+    if(this.target.hasAttribute('style')) {
+      this.target.removeAttribute('style');
+    }
+  }
+
   getSpeed() {
     return this.speed
   }

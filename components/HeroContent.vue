@@ -50,14 +50,16 @@
         if(!this.$data.kill) {
           const __height = Math.ceil(event.height * 1.2);
 
-          this.$root.$on('LayoutScrollEvent',() => {
+          /*this.$root.$on('LayoutScrollEvent',() => {
             const __scrollPosition = Math.round(window.scrollY);
 
             if(__scrollPosition > __height) {
+              const __rect = this.$el.getBoundingClientRect();
+
               this.$data.kill = true;
-              this.$root.$emit('KillHeroContent');
+              this.$root.$emit('KillHeroContent',{height : (__rect.height - 1)});
             }
-          });
+          });*/
         }
       });
     },

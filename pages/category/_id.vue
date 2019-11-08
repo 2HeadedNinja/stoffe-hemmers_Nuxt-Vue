@@ -205,7 +205,7 @@
       });
 
       const __scrollPosition = Math.round(100 * window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
-
+      
       if(__scrollPosition >= this.$data.scrollThreshold) {
         this.$data.loadInfinite = false;
       }
