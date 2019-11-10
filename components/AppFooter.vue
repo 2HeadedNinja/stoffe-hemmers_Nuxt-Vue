@@ -61,13 +61,14 @@
     padding                             : 0 15px 0 15px;
 
     color                               : $white;
-    font-size                           : 14px;
+    font-size                           : 12px;
     text-shadow                         : 1px 1px 0 tint(dark,6);
+    min-height                          : 42px;
     flex-direction                      : row-reverse;
 
     svg {
       fill                              : $white;
-      height                            : 20px;
+      height                            : 15px;
       margin                            : 0 0 0 10px;
     }
 
