@@ -18,88 +18,88 @@
 
     ul,
     ul li {
-      margin                      : 0;
-      padding                     : 0;
+      margin                              : 0;
+      padding                             : 0;
     }
 
     > ul {
-      display                     : flex;
+      display                             : flex;
 
       li {
-        list-style-type           : none;
-        cursor                    : pointer;
+        list-style-type                   : none;
+        cursor                            : pointer;
         
-        position                  : relative;
-        z-index                   : 0;
+        position                          : relative;
+        z-index                           : 0;
 
         > a {
           @include animate(color,.4s);
 
-          position                : relative;
-          z-index                 : 0;
-          display                 : block;
+          position                        : relative;
+          z-index                         : 0;
+          display                         : block;
 
-          height                  : 80px;
-          line-height             : 80px;
-          text-decoration         : none;
+          height                          : 80px;
+          line-height                     : 80px;
+          text-decoration                 : none;
 
-          padding                 : 0 20px 0 20px;
+          padding                         : 0 20px 0 20px;
 
-          color                   : tint(dark,4);
-          font-size               : 18px;
-          font-weight             : 500;
+          color                           : tint(dark,4);
+          font-size                       : 18px;
+          font-weight                     : 500;
 
-          pointer-events          : none;
+          pointer-events                  : none;
 
           &:before {
-            content               : '';
+            content                       : '';
 
-            width                 : 0;
-            height                : 0;
+            width                         : 0;
+            height                        : 0;
 
-            border-style          : solid;
-            border-width          : 6px 6px 0 6px;
-            border-color          : tint(brand) transparent transparent transparent;
+            border-style                  : solid;
+            border-width                  : 6px 6px 0 6px;
+            border-color                  : tint(brand) transparent transparent transparent;
 
-            position              : absolute;
-            bottom                : 1px;
-            left                  : 50%;
+            position                      : absolute;
+            bottom                        : 1px;
+            left                          : 50%;
 
-            opacity               : 0;
+            opacity                       : 0;
 
-            transform             : translateX(-50%);
+            transform                     : translateX(-50%);
           }
             
           &:after {
-            content               : '';
+            content                       : '';
 
-            display               : block;
-            position              : absolute;
+            display                       : block;
+            position                      : absolute;
 
-            left                  : 50%;
-            right                 : 50%;
-            bottom                : -1px;
-            opacity               : 0;
+            left                          : 50%;
+            right                         : 50%;
+            bottom                        : -1px;
+            opacity                       : 0;
 
-            height                : 16px;
-            border-top            : 13px solid $white;
+            height                        : 16px;
+            border-top                    : 13px solid $white;
 
-            background-color      : tint(brand);
+            background-color              : tint(brand);
           }
         }
 
-        margin                    : 0 20px 0 0;
+        margin                            : 0 20px 0 0;
 
         &:last-of-type {
-          margin                  : 0;
+          margin                          : 0;
         }
 
         &:hover,
         &:active,
         &:focus {
           > a {
-            text-decoration       : none;
-            color                 : tint(brand);
+            text-decoration               : none;
+            color                         : tint(brand);
           }
         }
 
@@ -109,7 +109,7 @@
         &:focus {
           > a {
             &:after {
-              animation           : hemmers__main__navigation-in ease-in-out .4s normal forwards;
+              animation                   : hemmers__main__navigation-in ease-in-out .4s normal forwards;
             }
           }
         }
@@ -121,38 +121,38 @@
           &:focus {
             > a {
               &:before {
-                animation         : hemmers__main__navigation-arrow__in ease-out .4s .2s normal forwards;
+                animation                 : hemmers__main__navigation-arrow__in ease-out .4s .2s normal forwards;
               }
             }
           }
 
           &:after,
           &:before {
-            cursor                : pointer;
+            cursor                        : pointer;
 
-            content               : '';
-            display               : block;
+            content                       : '';
+            display                       : block;
 
-            position              : absolute;
-            z-index               : 5;
+            position                      : absolute;
+            z-index                       : 5;
 
-            width                 : 90%;
-            height                : 90%;
+            width                         : 90%;
+            height                        : 90%;
 
-            bottom                : 0;
+            bottom                        : 0;
 
-            background-color      : $error;
-            opacity               : 0;
+            background-color              : $error;
+            opacity                       : 0;
           }
 
           &:after {
-            right                 : 0;
-            transform             : skewX(16deg);
+            right                         : 0;
+            transform                     : skewX(16deg);
           }
 
           &:before {
-            left                  : 0;
-            transform             : skewX(-16deg);
+            left                          : 0;
+            transform                     : skewX(-16deg);
           }
 
         }
@@ -160,19 +160,19 @@
         &.sale {
           a {
             span {
-              color               : $white;
-              background-color    : $error;
+              color                       : $white;
+              background-color            : $error;
 
-              padding             : 8px 16px 8px 16px;
-              border-radius       : 10px;
+              padding                     : 8px 16px 8px 16px;
+              border-radius               : 10px;
             }
 
             &:after {
-              background-color    : $error;
+              background-color            : $error;
             }
 
             &:before {
-              border-color        : $error transparent transparent transparent;
+              border-color                : $error transparent transparent transparent;
             }
           }
         }
@@ -315,6 +315,21 @@
       > .mega__elements {
         grid-column                       : span 10;
         margin                            : 30px 0 30px 0;
+      }
+    }
+  }
+
+  div.app__top.sticky {
+    [class*="main__navigation"] {
+      > ul {
+        li {
+          a {
+            height                        : 60px;
+            line-height                   : 60px;
+            
+            font-size                     : 16px;
+          }
+        }
       }
     }
   }

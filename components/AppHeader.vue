@@ -2,7 +2,7 @@
   <div :class="getCSS()">
     <header>
       <div class="app__header__content">
-        <div v-show="!sticky" class="app__header__content-top content">
+        <div class="app__header__content-top content">
           <a class="app__header__content-top__logo" href="/">
             <svg role="img" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 946 156">
               <use xlink:href="/svg/sprite.svg#logo-wide-de_DE"></use>
@@ -15,7 +15,7 @@
       </div>
       <AppMegaMenue></AppMegaMenue>
     </header>
-    <HeroContent v-if="heroContent" :contentData="heroContent" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
+    <HeroContent v-if="heroContent && !sticky" :contentData="heroContent" @HeroContentMounted="emitEvent('AppHeaderMounted')"></HeroContent>
   </div>
 </template>
 
@@ -96,7 +96,7 @@
           const __scrollPosition = Math.round(window.scrollY);
           if(__scrollPosition >= this.$data.threshold && this.$data.sticky === false) {
             this.$data.sticky = true;
-            this.$data.parallaxObj.stop();
+            this.$data.parallaxObj.destroy();
           } else if(__scrollPosition < this.$data.threshold && this.$data.sticky === true) {
             this.$data.sticky = false;
             this.$data.parallaxObj.start();
