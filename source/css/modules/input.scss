@@ -1,0 +1,33 @@
+@media all {
+  fieldset {
+    border                              : none;
+
+    margin                              : 0;
+    padding                             : 0;
+  }
+
+  textarea,
+  input[type="email"],
+  input[type="text"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="password"] {
+    font-family                         : 'Montserrat', sans-serif;
+    font-weight                         : 400;
+    font-size                           : 16px;
+    line-height                         : 160%;
+
+    color                               : tint(dark,3);
+
+    -webkit-appearance                  : none;
+    border-radius                       : 0;
+    filter                              : none;
+
+    border                              : none;
+  }
+
+  ::placeholder {
+    color                               : $border-light;
+    opacity                             : 1;
+  }
+}

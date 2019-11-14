@@ -112,6 +112,11 @@
             border                          : 1px solid $sale;
             color                           : $white;
           }
+
+          &[class*="-sustainability"] {
+            color                           : $sustainability;
+            border                          : 1px solid $sustainability;
+          }
         } 
       }
 

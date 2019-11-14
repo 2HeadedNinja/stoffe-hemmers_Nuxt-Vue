@@ -7,6 +7,7 @@
   </div>
   <div class="product__card-cardwrap" v-else-if="productData.type == 'product'">
   	<div class="product__card-cardwrap__top">
+      <div class="product__card-cardwrap__top-new" v-if="productData.new">Neu</div>
       <div class="product__card-cardwrap__top-icons">
         <AppButton @AppButtonClick="wishList" :data-id="productData.id" :css="wishlistCss" :icon="'heart-line'" :hovericon="'heart'" :label="'Auf meinen Wunschzettel'"></AppButton>
         <span v-if="productData.colors" class="product__card-cardwrap__top-icons__colors">
@@ -21,7 +22,7 @@
       <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
-      <!--<ListCardFlagList :flags="productData.flags"></ListCardFlagList>//-->
+      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
       <span class="product__card-cardwrap__details__productname">{{ productData.name }}</span>
       <ListCardPrice :price="productData.price"></ListCardPrice>
     </a>

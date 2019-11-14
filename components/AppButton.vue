@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('AppButtonClick')" :class="getCss()">
+  <button :type="type" @click="$emit('AppButtonClick')" :class="getCss()">
     <div v-if="hovericon" class="icon">
       <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
         <use :xlink:href="iconPath(hovericon)"></use>
@@ -19,23 +19,30 @@
   export default {
     name  : 'AppButton',
     props : {
-      icon : null,
+      icon      : null,
       hovericon : null,
-      animate : {
-        type  : Boolean,
+      type      : {
+        type : String,
+
+        default() {
+          return 'button';
+        } 
+      },
+      animate   : {
+        type : Boolean,
 
         default() {
           return false;
         }
       },
-      label : {
+      label     : {
         type : String,
 
         default() {
           return 'Stoffe Hemmers';
         }
       },
-      css     : {
+      css       : {
         type  : String,
 
         default() {

@@ -32,6 +32,7 @@ export default {
   plugins: [
     { src: '~/plugins/noframework.waypoints.js', mode: 'client'},
     { src: '~/plugins/DOMElement.plugin.js', mode: 'client'},
+    { src: '~/plugins/Empty.plugin.js', mode: 'client'},
     { src: '~/plugins/Breakpoint.plugin.js', mode: 'client'},
     { src: '~/plugins/Position.plugin.js', mode: 'client'},
     { src: '~/plugins/rallax.js', mode: 'client'},

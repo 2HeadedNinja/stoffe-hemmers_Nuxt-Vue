@@ -8,7 +8,7 @@
               <use xlink:href="/svg/sprite.svg#logo-wide-de_DE"></use>
             </svg>
           </a>
-          { SUCHE }
+          <AppHeaderSearch></AppHeaderSearch>
           <AppSecondaryNavigation></AppSecondaryNavigation>
         </div>
         <AppMainNavigation :hasHeroContent="!heroContent ? false : heroContent.hasHeroContent"></AppMainNavigation>
@@ -25,6 +25,7 @@
   
   import HeroContent from '~/components/HeroContent'
   import AppMegaMenue from '~/components/Layouts/AppMegaMenue'
+  import AppHeaderSearch from '~/components/Search/AppHeaderSearch'
   import AppMainNavigation from '~/components/Layouts/AppMainNavigation'
   import AppSecondaryNavigation from '~/components/Layouts/AppSecondaryNavigation'
 
@@ -34,6 +35,7 @@
     components  : {
       HeroContent,
       AppMegaMenue,
+      AppHeaderSearch,
       AppMainNavigation,
       AppSecondaryNavigation
     },
@@ -41,6 +43,7 @@
     data() {
       return {
         sticky        : false,
+        animate       : false,
         threshold     : null,
         heroContent   : null,
         parallaxObj   : null,
@@ -57,6 +60,10 @@
 
         if(this.$data.sticky === true) {
           __css += ' sticky';
+        }
+
+        if(this.$data.animate === true) {
+          __css += ' animate';
         }
 
         return __css;
@@ -95,10 +102,15 @@
         if(this.$data.threshold !== null && typeof this.$data.threshold == 'number') {
           const __scrollPosition = Math.round(window.scrollY);
           if(__scrollPosition >= this.$data.threshold && this.$data.sticky === false) {
-            this.$data.sticky = true;
             this.$data.parallaxObj.destroy();
+
+            this.$data.sticky    = true;
+            setTimeout(() => {
+              this.$data.animate = true;
+            },250);
           } else if(__scrollPosition < this.$data.threshold && this.$data.sticky === true) {
-            this.$data.sticky = false;
+            this.$data.animate  = false;
+            this.$data.sticky   = false;
             this.$data.parallaxObj.start();
           }
         }

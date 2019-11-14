@@ -86,7 +86,7 @@
 	[class*="category__sidebar"] {
 		&.sticky {
 			position 									: sticky;
-			top 											: 20px;
+			top 											: 140px;
 		}
 	}
 

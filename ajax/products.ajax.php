@@ -18,12 +18,7 @@
     $tmp->type    = 'product';
     $tmp->name    = 'Baumwollstoff Cretonne Palmenblätter, beere';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
-    $tmp->flags   = array(
-      (object) array(
-        'label' => 'Neu',
-        'type'  => 'default'
-      )
-    );
+    $tmp->flags   = null;
 
     $tmp->price = (object) array();
     $tmp->price->original     = 7.95;
@@ -66,7 +61,6 @@
     $tmp = (object) array();
     $tmp->hasData   = true;
     $tmp->id        = 700066;
-    $tmp->wishlist  = true;
     $tmp->type      = 'product';
     $tmp->name      = 'Baumwolljersey Bauplatz, hellgrau';
     $tmp->href      = 'http://localhost:3010/category/stoffe.html';
@@ -74,10 +68,6 @@
       (object) array(
         'label' => '-25%',
         'type'  => 'sale'
-      ),
-      (object) array(
-        'label' => 'Neu',
-        'type'  => 'default'
       ),
       (object) array(
         'label' => 'Exklusiv',
@@ -103,11 +93,16 @@
     $tmp = (object) array();
     $tmp->hasData   = true;
     $tmp->id        = 85535;
-    $tmp->wishlist  = true;
+    $tmp->wishlist  = null;
     $tmp->type      = 'product';
     $tmp->name      = 'Nickistoff Flowers, rosa';
     $tmp->href      = 'http://localhost:3010/category/stoffe.html';
-    $tmp->flags     = null;
+    $tmp->flags   = array(
+      (object) array(
+        'label' => 'Nachhaltigkeit',
+        'type'  => 'sustainability'
+      )
+    );
 
     $tmp->price = (object) array();
     $tmp->price->original     = 14.95;
@@ -128,6 +123,7 @@
     $tmp->hasData = true;
     $tmp->id      = 85417;
     $tmp->type    = 'product';
+    $tmp->new       = true;
     $tmp->name    = 'Leichter Wollstoff Melange, grau';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
     $tmp->flags   = null;

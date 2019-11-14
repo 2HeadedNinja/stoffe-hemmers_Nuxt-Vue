@@ -33,7 +33,7 @@
     data() {
       return {
         cartCount     : null,
-        wishlistCount : null,
+        wishlistCount : 7,
       }
     },
 
