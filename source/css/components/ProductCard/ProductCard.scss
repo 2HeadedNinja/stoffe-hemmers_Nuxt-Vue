@@ -71,14 +71,14 @@
 
                 position                    : absolute;
                 top                         : calc(50% - 3px);
-                left                        : -3px;
-                right                       : -2px;
+                left                        : -5px;
+                right                       : -5px;
                 z-index                     : 0;
 
                 height                      : 2px;
 
                 background-color            : tint(dark,3);
-                transform                   : rotate(4deg);
+                transform                   : rotate(8deg);
               }
             }
           }
@@ -239,6 +239,22 @@
               }
             }
           }
+        }
+
+        .product__card-cardwrap__top-new {
+          position                          : absolute;
+          top                               : 20px;
+          left                              : 5px;
+          z-index                           : 1;
+
+          background-color                  : $white;
+
+          font-size                         : 13px;
+          font-weight                       : 500;
+          text-transform                    : uppercase;
+          letter-spacing                    : 1px;
+
+          padding                           : 0 10px 0 8px;
         }
 
         .product__card-cardwrap__top-icons {

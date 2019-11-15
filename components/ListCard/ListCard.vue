@@ -22,9 +22,9 @@
       <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
-      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
       <span class="product__card-cardwrap__details__productname">{{ productData.name }}</span>
       <ListCardPrice :price="productData.price"></ListCardPrice>
+      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
     </a>
   </div>
   <div v-else-if="productData.type == 'promotion'" class="promotion__card">

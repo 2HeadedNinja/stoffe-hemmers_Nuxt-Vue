@@ -97,7 +97,7 @@
     $tmp->type      = 'product';
     $tmp->name      = 'Nickistoff Flowers, rosa';
     $tmp->href      = 'http://localhost:3010/category/stoffe.html';
-    $tmp->flags   = array(
+    $tmp->flags     = array(
       (object) array(
         'label' => 'Nachhaltigkeit',
         'type'  => 'sustainability'
@@ -122,11 +122,10 @@
     $tmp = (object) array();
     $tmp->hasData = true;
     $tmp->id      = 85417;
+    $tmp->new     = true;
     $tmp->type    = 'product';
-    $tmp->new       = true;
     $tmp->name    = 'Leichter Wollstoff Melange, grau';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
-    $tmp->flags   = null;
     
     $tmp->price = (object) array();
     $tmp->price->original     = 18.95;
