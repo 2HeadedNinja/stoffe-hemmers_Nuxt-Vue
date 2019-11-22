@@ -1,7 +1,9 @@
 <template>
-  <span :class="css">
-    <slot></slot> 
-  </span>
+  <li>
+    <span :class="css">
+      <slot></slot> 
+    </span>
+  </li>
 </template>
 
 <script>

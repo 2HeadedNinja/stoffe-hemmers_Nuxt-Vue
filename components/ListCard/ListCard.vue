@@ -16,6 +16,7 @@
           </svg>
         </span>
       </div>
+      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
       <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href" @click.prevent @mousedown="mousedown" @mouseup="mouseup">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
@@ -24,7 +25,6 @@
     <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
       <span class="product__card-cardwrap__details__productname">{{ productData.name }}</span>
       <ListCardPrice :price="productData.price"></ListCardPrice>
-      <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
     </a>
   </div>
   <div v-else-if="productData.type == 'promotion'" class="promotion__card">

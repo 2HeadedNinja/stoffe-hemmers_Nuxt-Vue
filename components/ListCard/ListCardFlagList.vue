@@ -1,9 +1,9 @@
 <template>
-  <div v-if="flags" class="product__card-cardwrap__flags">
+  <ul v-if="flags" class="product__card-cardwrap__flags">
     <ListCardFlag v-for="(flag,index) in flags" v-bind:key="index" :flagType="flag.type">
       {{ flag.label }}
     </ListCardFlag>
-  </div>
+  </ul>
 </template>
 
 <script>
