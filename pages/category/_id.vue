@@ -1,6 +1,7 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
+      <PagesCategoryFilters></PagesCategoryFilters>
       <PagesCategoryFactsheet v-if="factsheet" :factsheetData="factsheet" :hasDesciption="hasDesciption" @FactsheetButtonClick="factsheetClick"></PagesCategoryFactsheet>
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
@@ -31,6 +32,7 @@
   import ListCard from '~/components/ListCard/ListCard'
   import ProductSkelleton  from '~/components/ProductSkelleton'
   import PagesCategorySidebar from '~/components/pages/category/PagesCategorySidebar'
+  import PagesCategoryFilters from '~/components/pages/category/PagesCategoryFilters'
   import PagesCategoryFactsheet from '~/components/pages/category/PagesCategoryFactsheet'
   import PagesCategoryDescription from '~/components/pages/category/PagesCategoryDescription'
 
@@ -42,6 +44,7 @@
       ListCard,
       ProductSkelleton,
       PagesCategorySidebar,
+      PagesCategoryFilters,
       PagesCategoryDescription,
       PagesCategoryFactsheet
     },
