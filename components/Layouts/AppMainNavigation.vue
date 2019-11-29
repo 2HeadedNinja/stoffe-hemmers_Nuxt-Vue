@@ -244,7 +244,7 @@
         }
 
         &:after {
-          width                 : 140px;
+          width                 : 180px;
           height                : 80px;
         }
       }

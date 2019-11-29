@@ -56,7 +56,7 @@
 
       nav {
         position                      : sticky;
-        top                           : 20px;
+        top                           : 140px;
 
         ol,
         ol li {

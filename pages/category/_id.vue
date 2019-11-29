@@ -1,8 +1,8 @@
 <template>
   <div class="grid content" style="--padding-top: 50px; --padding-bottom: 50px;">
     <aside>
-      <PagesCategoryFilters></PagesCategoryFilters>
       <PagesCategoryFactsheet v-if="factsheet" :factsheetData="factsheet" :hasDesciption="hasDesciption" @FactsheetButtonClick="factsheetClick"></PagesCategoryFactsheet>
+      <PagesCategoryFilters></PagesCategoryFilters>
       <PagesCategorySidebar></PagesCategorySidebar>
     </aside>
     <div class="grid__column__line"></div>

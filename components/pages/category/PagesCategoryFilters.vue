@@ -29,6 +29,24 @@
 
 <script>
   export default {
-    name : 'PagesCategoryFilters'
+    name    : 'PagesCategoryFilters',
+
+    methods : {
+      getFilterData() {
+        this.$axios.$post('/api/filters.ajax.php')
+        .then(response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      }
+    },
+
+    created() {
+      this.$root.$on('LayoutReady',() => {
+        this.getFilterData();
+      });
+    }
   }
 </script>

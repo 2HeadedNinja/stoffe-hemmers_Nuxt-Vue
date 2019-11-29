@@ -127,7 +127,7 @@
           let __rect = this.$el.getBoundingClientRect().height;
 
           if(__rect && typeof __rect == 'number') {
-            this.$data.threshold = Math.ceil(__rect * 1.2);
+            this.$data.threshold = Math.ceil(__rect * 1.1);
 
             this.$root.$on('LayoutScrollEvent',() => {
               this.handleScrollEvent();
