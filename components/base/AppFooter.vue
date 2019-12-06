@@ -1,5 +1,21 @@
 <template>
   <footer class="app__footer">
+    <div class="app__footer-sellingpoints">
+      <div class="content flex center-horizontal center-vertical">
+        <svg role="presentation" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+          <use xlink:href="/svg/sprite.svg#check-line"></use>
+        </svg>
+        <p>Über <strong>1.8</strong> Millionen Meter Stoff versandfertig</p>
+        <svg role="presentation" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+          <use xlink:href="/svg/sprite.svg#check-line"></use>
+        </svg>
+        <p>Über <strong>500.000</strong> zufriedene Kunden</p>
+        <svg role="presentation" alt="Stoffe Hemmers" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+          <use xlink:href="/svg/sprite.svg#check-line"></use>
+        </svg>
+        <p><strong>36</strong> Jahre Erfahrung</p>
+      </div>
+    </div>
     <AppFooterTrustedShops></AppFooterTrustedShops>
     <div class="app__footer-additional grid content">
       <div class="app__footer-additional__service">

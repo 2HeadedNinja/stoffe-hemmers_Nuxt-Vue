@@ -14,8 +14,9 @@
 
   $return                       = (object) array();
   $return->error                = false;
+  $return->tmp                  = strpos($post->route,'index');
   
-  if($post->route !== 'index') {
+  if(strpos($post->route,'index') === false) {
     $return->hasHeroContent     = true;
 
     $return->background         = (object) array();

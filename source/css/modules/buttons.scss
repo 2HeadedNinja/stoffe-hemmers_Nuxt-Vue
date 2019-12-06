@@ -55,7 +55,7 @@
       }
     }
 
-    &[role="link"] {
+    &[role="link"]:not([class*='app__button']) {
       @include animate(color,.25s);
 
       font-family                 : 'Montserrat', sans-serif;
@@ -64,22 +64,8 @@
 
       color                       : tint(dark,2);
 
-      svg {
-        @include animate(fill,.25s);
-
-        width                     : 22px;
-        height                    : 22px;
-
-        margin                    : 0 10px 0 0;
-        fill                      : tint(light,4);
-      }
-
       &:hover {
         color                     : tint(brand);
-
-        svg {
-          fill                    : tint(brand);
-        }
       }
     }
   }
@@ -166,6 +152,11 @@
         transform                 : translateY(5px);
         border-bottom             : 1px solid;
       }
+    }
+
+    &[class*='-auto'] {
+      width                       : auto;
+      padding                     : 0 20px 0 20px;
     }
   }
 }

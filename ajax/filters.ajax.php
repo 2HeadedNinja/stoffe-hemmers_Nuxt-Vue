@@ -123,12 +123,12 @@
   );
 
   foreach($return as $entry) {
-    foreach($return->filters as $key => $filter) {
+    foreach($entry->filters as $key => $filter) {
       $tmp        = (object) array();
       $tmp->slug  = strtolower(preg_replace('/[^a-zA-Z0-9\-]/', '',preg_replace('/\s+/', '-', $filter)));
       $tmp->label = $filter;
 
-      $return->filters[$key] = $tmp; 
+      $entry->filters[$key] = $tmp; 
     }
   }
 

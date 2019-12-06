@@ -14,6 +14,10 @@ export default {
       contact     : 'Kontakt',
       security    : 'Geprüfte Sicherheit',
       information : 'Informationen'
+    },
+    trusted       : {
+      button      : 'Alle {counter} Trusted Shops Kundenmeinungen',
+      headline    : 'Note {currentRating} / {maxRating} aus {ratingCount} Bewertungen der letzten 12 Monate'
     }
   },
   secondaryNavigation : {

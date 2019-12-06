@@ -4,6 +4,15 @@
     <p>
       Sutler scallywag Cat o'nine tails Blimey mutiny aye chase guns prow strike colors take a caulk furl hearties lateen sail wench plunder bilge pinnace loot me Shiver me timbers wherry scourge of the seven seas reef sails lad mizzen stern cackle fruit to go on account ahoy hempen halter skysail gaff Spanish Main lookout dead men tell no tales barkadeer marooned transom barque tender Nelsons folly fire ship yard driver crimp hail-shot sloop swing the lead yawl heave to. Aye salmagundi interloper walk the plank topmast run a shot across the bow gun ballast Jack Ketch scallywag spyglass wench handsomely warp hang the jib draft parrel smartly crow's nest grapple blow the man down run a rig measured fer yer chains squiffy ahoy Cat o'nine tails scuttle heave to rigging Barbary Coast swing the lead marooned six pounders bounty schooner mizzenmast starboard scuppers hardtack lad heave down quarterdeck yard long clothes pirate belay weigh anchor splice the main brace take a caulk doubloon. Run a shot across the bow lugger pirate loot gally lugsail boom bowsprit galleon Jolly Roger gangplank topgallant splice the main brace pillage sloop rum clipper fire ship tackle broadside matey main sheet crimp killick plunder me port ye spirits aft scuppers furl jack Admiral of the Black handsomely Gold Road swab gangway bring a spring upon her cable yo-ho-ho piracy log prow hands hang the jib Letter of Marque holystone parley hogshead pink.
     </p>
+      <AppButton :css="'app__button-default'">Stoffe Hemmers</AppButton>
+      <br />
+      <AppButton :css="'app__button-slim'">Stoffe Hemmers</AppButton>
+      <br />
+      <AppButton :css="'app__button-default-small'">Stoffe Hemmers</AppButton>
+      <br />
+      <AppButton :css="'app__button-slim-small'">Stoffe Hemmers</AppButton>
+      <br />
+      <AppButton :css="'app__button-default-animate'">Stoffe Hemmers</AppButton>
     <p>
       Barque long boat topmast topsail sloop holystone transom carouser hulk skysail aye hardtack Shiver me timbers run a shot across the bow wherry league ye six pounders jury mast Yellow Jack rope's end yawl boatswain trysail loaded to the gunwalls cackle fruit cog schooner capstan scuttle lad yardarm Jack Ketch lanyard provost hempen halter gangplank rum pirate chandler fore Sea Legs bounty hang the jib loot Admiral of the Black gibbet yo-ho-ho grog blossom hands. Black jack six pounders mizzenmast cable jolly boat grapple lad haul wind Letter of Marque squiffy gabion hands line red ensign chase scallywag dance the hempen jig cog salmagundi schooner aft case shot keel code of conduct mizzen swab yard rope's end loot splice the main brace Privateer fathom chantey bilge list Plate Fleet ahoy barque Arr Jack Tar Barbary Coast parley run a rig scourge of the seven seas hang the jib hearties nipper clap of thunder square-rigged to go on account. Blimey line provost hardtack belay barque pirate belaying pin clap of thunder fore grapple piracy boom run a shot across the bow sheet holystone Arr hang the jib pinnace draft bilge lookout rope's end hempen halter nipperkin landlubber or just lubber code of conduct Yellow Jack lanyard gun reef sails lateen sail careen hearties tack strike colors Davy Jones' Locker ahoy Jolly Roger draught Spanish Main avast bounty lugsail wherry topgallant heave to port tender clipper. 
     </p>
@@ -22,16 +31,19 @@
   </div>
 </template>
 <script>
-export default {
-  layout     : 'default',
+  import AppButton from '~/components/AppButton'
 
-  components : {
-  },
-    
-  created() {
-  },
+  export default {
+    layout     : 'default',
 
-  mounted() {
+    components : {
+      AppButton
+    },
+      
+    created() {
+    },
+
+    mounted() {
+    }
   }
-}
 </script>
