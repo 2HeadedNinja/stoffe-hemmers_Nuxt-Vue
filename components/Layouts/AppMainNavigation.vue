@@ -35,14 +35,15 @@
         default() {
           return false;
         }
-      }
+      },
     },
 
     data() {
       return {
         navigation : null,
         interval   : null,
-        css        : null
+        css        : null,
+        isSticky   : false
       }
     },
 
@@ -52,6 +53,10 @@
 
         if(!this.hasHeroContent) {
           __class += ' no__hero__content';
+        }
+
+        if(this.$data.isSticky == true) {
+          __class += ' sticky';
         }
 
         return __class;
@@ -191,6 +196,14 @@
 
       this.$root.$on('killSubmenue',() => {
         this.killSubmenue();
+      });
+
+      this.$root.$on('AppHeaderIsSticky', () => {
+        this.$data.isSticky = true;
+      });
+
+      this.$root.$on('AppHeaderNotSticky', () => {
+        this.$data.isSticky = false;
       });
 
       this.$axios.$post('/api/navigation.main.ajax.php')

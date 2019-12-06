@@ -1,0 +1,13 @@
+@media all {
+  .flex {
+    display                             : flex;
+
+    &.center-vertical {
+      align-items                       : center;
+    }
+
+    &.center-horizontal {
+      justify-content                   : center;
+    }
+  }
+}

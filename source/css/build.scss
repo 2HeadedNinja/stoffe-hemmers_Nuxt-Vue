@@ -9,11 +9,14 @@
 @import 'navigation/navigation__secondary';
 
 @import 'components/HeroContent';
-@import 'components/MoodBoard/MoodBoard';
-@import 'components/AppHeader/AppHeader';
 @import 'components/ProductCard/ProductCard';
 
+@import 'base/AppHeader';
+@import 'base/AppFooter';
+
 @import 'pages/category/_id';
+
+@import 'modules/flex';
 @import 'modules/grid';
 @import 'modules/margin';
 @import 'modules/buttons';

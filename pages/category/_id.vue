@@ -215,13 +215,6 @@
     },
 
     updated() {
-      /*if(this.$data.waypoint !== null) {
-        this.$data.waypoint.context.refresh();
-
-        setTimeout(() => {
-          this.$data.waypoint.enable();
-        },100);
-      }*/
     }
   }
 </script>

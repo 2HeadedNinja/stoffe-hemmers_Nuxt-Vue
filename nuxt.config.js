@@ -55,6 +55,43 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
+    ['nuxt-i18n',{
+      locales : [
+        {
+          name  : 'Deutsch',
+          code  : 'de',
+          iso   : 'de-DE',
+          file  : 'de-DE.js'
+        },
+        {
+          name  : 'Nederlands',
+          code  : 'nl',
+          iso   : 'nl-NL',
+          file  : 'nl-NL.js'
+        },
+        {
+          name  : 'Nederlands (België)',
+          code  : 'be',
+          iso   : 'nl-BE',
+          file  : 'nl-BE.js'
+        },
+        {
+          name  : 'Français (France)',
+          code  : 'fr',
+          iso   : 'fr-FR',
+          file  : 'fr-FR.js'
+        },
+        {
+          name  : 'English (US)',
+          code  : 'en',
+          iso   : 'en-US',
+          file  : 'en-US.js'
+        }
+      ],
+      lazy          : true,
+      langDir       : 'lang/',
+      defaultLocale : 'de'
+    }]
   ],
 
   proxy: {

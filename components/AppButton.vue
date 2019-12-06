@@ -1,5 +1,5 @@
 <template>
-  <button :type="type" @click="$emit('AppButtonClick')" :class="getCss()">
+  <button :type="type" :role="role" :href="href" @click="clickHandler()" :class="getCss()">
     <div v-if="hovericon" class="icon">
       <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
         <use :xlink:href="iconPath(hovericon)"></use>
@@ -18,15 +18,24 @@
 <script>
   export default {
     name  : 'AppButton',
+    
     props : {
       icon      : null,
       hovericon : null,
+      href      : null,
       type      : {
         type : String,
 
         default() {
           return 'button';
         } 
+      },
+      role      : {
+        type  : String,
+
+        default() {
+          return 'button';
+        }
       },
       animate   : {
         type : Boolean,
@@ -48,6 +57,13 @@
         default() {
           return 'app__button-default';
         }
+      },
+      target    : {
+        type  : String,
+      
+        default() {
+          return '_self';
+        }
       }
     },
 
@@ -62,6 +78,14 @@
 
       iconPath(name) {
         return '/svg/sprite.svg#'+name;
+      },
+
+      clickHandler() {
+        if(this.role === 'link' && this.href !== null) {
+          window.open(this.href,this.target);
+        } else {
+          this.$emit('AppButtonClick')
+        }
       }
     },
 

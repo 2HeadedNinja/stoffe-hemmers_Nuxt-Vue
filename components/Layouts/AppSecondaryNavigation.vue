@@ -2,19 +2,19 @@
   <ul class="secondary__navigation">
     <li>
       <AppButton @AppButtonClick="click" :css="'secondary__navigation__menue-button account'" :icon="'avatar-line'">
-        Anmelden
+        {{ $t('secondaryNavigation.login') }}
       </AppButton>
     </li>
     <li class="flex align-left-center">
       <AppButton @AppButtonClick="click" :css="'secondary__navigation__menue-button wishlist'" :icon="'heart-line'">
         <span v-if="this.$data.wishlistCount" class="secondary__navigation__menue-button__counter">{{ this.$data.wishlistCount }}</span>
-        Mein Wunschzettel
+        {{ $t('secondaryNavigation.wishlist') }}
       </AppButton>
     </li>
     <li>
       <AppButton @AppButtonClick="click" :css="'secondary__navigation__menue-button cart'" :icon="'shopping-bag-line'">
         <span v-if="this.$data.cartCount" class="secondary__navigation__menue-button__counter">{{ this.$data.cartCount }}</span>
-        Mein Warenkorb
+        {{ $t('secondaryNavigation.cart') }}
       </AppButton>
     </li>
   </ul>

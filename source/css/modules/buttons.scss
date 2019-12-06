@@ -1,5 +1,6 @@
 @media all {
-  [class*='app__button'] {
+  [class*='-button'],
+  [class*="__button"] {
     display                       : flex;
     align-items                   : center;
     justify-content               : center;
@@ -7,7 +8,83 @@
     border                        : none;
     border-radius                 : 0;
     background-color              : transparent;
-    
+
+    cursor                        : pointer;
+    padding                       : 0;
+
+    div.icon {
+      position                    : relative;
+      z-index                     : 0;
+
+      svg {
+        @include animate(all,.3s);
+        transition-property       : fill,transform;
+
+        position                  : absolute;
+        top                       : 0;
+        left                      : 0;
+
+        width                     : 100%;
+        height                    : 100%;
+
+        margin                    : 0;
+
+        &:first-of-type {
+          z-index                 : 1;
+          transform               : scale(0);
+        }
+
+        &:last-of-type {
+          z-index                 : 0;
+          transform               : scale(1);
+        }
+      }
+    }
+
+    &:hover {
+      div.icon {
+        svg {
+          &:first-of-type {
+            transform             : scale(1);
+          }
+
+          &:last-of-type {
+            transform             : scale(0);
+          }
+        }
+      }
+    }
+
+    &[role="link"] {
+      @include animate(color,.25s);
+
+      font-family                 : 'Montserrat', sans-serif;
+      font-weight                 : 400;
+      font-size                   : 16px;
+
+      color                       : tint(dark,2);
+
+      svg {
+        @include animate(fill,.25s);
+
+        width                     : 22px;
+        height                    : 22px;
+
+        margin                    : 0 10px 0 0;
+        fill                      : tint(light,4);
+      }
+
+      &:hover {
+        color                     : tint(brand);
+
+        svg {
+          fill                    : tint(brand);
+        }
+      }
+    }
+  }
+
+  [class*='app__button'] {  
     width                         : 100%;
     min-height                    : 50px;
 
@@ -19,8 +96,6 @@
 
     margin                        : 0;
     padding                       : 0;
-
-    cursor                        : pointer;
 
     svg {
       width                       : auto;
@@ -35,39 +110,15 @@
       width                       : 30px;
       height                      : 30px;
 
-      position                    : relative;
-      z-index                     : 0;
-
       margin-right                : 10px;
 
       svg {
-        position                  : absolute;
-        top                       : 0;
-        left                      : 0;
-
-        width                     : 100%;
-        height                    : 100%;
-
-        margin                    : 0;
-
         &:first-of-type {
-          @include animate(all,.3s);
-          transition-property     : fill,transform;
-
           fill                    : $white;
-
-          z-index                 : 1;
-          transform               : scale(0);
         }
 
         &:last-of-type {
-          @include animate(all,.3s);
-          transition-property     : fill,transform;
-
           fill                    : tint(dark,1);
-
-          z-index                 : 0;
-          transform               : scale(1);
         }
       }
     }
@@ -76,12 +127,10 @@
       div.icon {
         svg {
           &:first-of-type {
-            transform             : scale(1);
             fill                  : tint(dark,1);
           }
 
           &:last-of-type {
-            transform             : scale(0);
             fill                  : $white;
           }
         }

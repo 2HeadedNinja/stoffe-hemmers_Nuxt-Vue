@@ -274,9 +274,13 @@
             background-color                : $white;
 
             margin                          : 0 0 10px 0;
+            padding                         : 0;
 
             div.icon {
               pointer-events                : none;
+
+              width                         : 100%;
+              height                        : 100%;
 
               svg {
                 &:last-of-type {
