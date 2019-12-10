@@ -1,33 +1,40 @@
 <template>
-  <div class="content" style="--padding-top: 50px; --padding-bottom: 50px;">
-    <p>{{ $t('hello') }}</p>
-    <p>
-      Sutler scallywag Cat o'nine tails Blimey mutiny aye chase guns prow strike colors take a caulk furl hearties lateen sail wench plunder bilge pinnace loot me Shiver me timbers wherry scourge of the seven seas reef sails lad mizzen stern cackle fruit to go on account ahoy hempen halter skysail gaff Spanish Main lookout dead men tell no tales barkadeer marooned transom barque tender Nelsons folly fire ship yard driver crimp hail-shot sloop swing the lead yawl heave to. Aye salmagundi interloper walk the plank topmast run a shot across the bow gun ballast Jack Ketch scallywag spyglass wench handsomely warp hang the jib draft parrel smartly crow's nest grapple blow the man down run a rig measured fer yer chains squiffy ahoy Cat o'nine tails scuttle heave to rigging Barbary Coast swing the lead marooned six pounders bounty schooner mizzenmast starboard scuppers hardtack lad heave down quarterdeck yard long clothes pirate belay weigh anchor splice the main brace take a caulk doubloon. Run a shot across the bow lugger pirate loot gally lugsail boom bowsprit galleon Jolly Roger gangplank topgallant splice the main brace pillage sloop rum clipper fire ship tackle broadside matey main sheet crimp killick plunder me port ye spirits aft scuppers furl jack Admiral of the Black handsomely Gold Road swab gangway bring a spring upon her cable yo-ho-ho piracy log prow hands hang the jib Letter of Marque holystone parley hogshead pink.
-    </p>
-      <AppButton :css="'app__button-default'">Stoffe Hemmers</AppButton>
-      <br />
-      <AppButton :css="'app__button-slim'">Stoffe Hemmers</AppButton>
-      <br />
-      <AppButton :css="'app__button-default-small'">Stoffe Hemmers</AppButton>
-      <br />
-      <AppButton :css="'app__button-slim-small'">Stoffe Hemmers</AppButton>
-      <br />
-      <AppButton :css="'app__button-default-animate'">Stoffe Hemmers</AppButton>
-    <p>
-      Barque long boat topmast topsail sloop holystone transom carouser hulk skysail aye hardtack Shiver me timbers run a shot across the bow wherry league ye six pounders jury mast Yellow Jack rope's end yawl boatswain trysail loaded to the gunwalls cackle fruit cog schooner capstan scuttle lad yardarm Jack Ketch lanyard provost hempen halter gangplank rum pirate chandler fore Sea Legs bounty hang the jib loot Admiral of the Black gibbet yo-ho-ho grog blossom hands. Black jack six pounders mizzenmast cable jolly boat grapple lad haul wind Letter of Marque squiffy gabion hands line red ensign chase scallywag dance the hempen jig cog salmagundi schooner aft case shot keel code of conduct mizzen swab yard rope's end loot splice the main brace Privateer fathom chantey bilge list Plate Fleet ahoy barque Arr Jack Tar Barbary Coast parley run a rig scourge of the seven seas hang the jib hearties nipper clap of thunder square-rigged to go on account. Blimey line provost hardtack belay barque pirate belaying pin clap of thunder fore grapple piracy boom run a shot across the bow sheet holystone Arr hang the jib pinnace draft bilge lookout rope's end hempen halter nipperkin landlubber or just lubber code of conduct Yellow Jack lanyard gun reef sails lateen sail careen hearties tack strike colors Davy Jones' Locker ahoy Jolly Roger draught Spanish Main avast bounty lugsail wherry topgallant heave to port tender clipper. 
-    </p>
-    <p>
-      Sutler scallywag Cat o'nine tails Blimey mutiny aye chase guns prow strike colors take a caulk furl hearties lateen sail wench plunder bilge pinnace loot me Shiver me timbers wherry scourge of the seven seas reef sails lad mizzen stern cackle fruit to go on account ahoy hempen halter skysail gaff Spanish Main lookout dead men tell no tales barkadeer marooned transom barque tender Nelsons folly fire ship yard driver crimp hail-shot sloop swing the lead yawl heave to. Aye salmagundi interloper walk the plank topmast run a shot across the bow gun ballast Jack Ketch scallywag spyglass wench handsomely warp hang the jib draft parrel smartly crow's nest grapple blow the man down run a rig measured fer yer chains squiffy ahoy Cat o'nine tails scuttle heave to rigging Barbary Coast swing the lead marooned six pounders bounty schooner mizzenmast starboard scuppers hardtack lad heave down quarterdeck yard long clothes pirate belay weigh anchor splice the main brace take a caulk doubloon. Run a shot across the bow lugger pirate loot gally lugsail boom bowsprit galleon Jolly Roger gangplank topgallant splice the main brace pillage sloop rum clipper fire ship tackle broadside matey main sheet crimp killick plunder me port ye spirits aft scuppers furl jack Admiral of the Black handsomely Gold Road swab gangway bring a spring upon her cable yo-ho-ho piracy log prow hands hang the jib Letter of Marque holystone parley hogshead pink.
-    </p>
-    <p>
-      Barque long boat topmast topsail sloop holystone transom carouser hulk skysail aye hardtack Shiver me timbers run a shot across the bow wherry league ye six pounders jury mast Yellow Jack rope's end yawl boatswain trysail loaded to the gunwalls cackle fruit cog schooner capstan scuttle lad yardarm Jack Ketch lanyard provost hempen halter gangplank rum pirate chandler fore Sea Legs bounty hang the jib loot Admiral of the Black gibbet yo-ho-ho grog blossom hands. Black jack six pounders mizzenmast cable jolly boat grapple lad haul wind Letter of Marque squiffy gabion hands line red ensign chase scallywag dance the hempen jig cog salmagundi schooner aft case shot keel code of conduct mizzen swab yard rope's end loot splice the main brace Privateer fathom chantey bilge list Plate Fleet ahoy barque Arr Jack Tar Barbary Coast parley run a rig scourge of the seven seas hang the jib hearties nipper clap of thunder square-rigged to go on account. Blimey line provost hardtack belay barque pirate belaying pin clap of thunder fore grapple piracy boom run a shot across the bow sheet holystone Arr hang the jib pinnace draft bilge lookout rope's end hempen halter nipperkin landlubber or just lubber code of conduct Yellow Jack lanyard gun reef sails lateen sail careen hearties tack strike colors Davy Jones' Locker ahoy Jolly Roger draught Spanish Main avast bounty lugsail wherry topgallant heave to port tender clipper. 
-    </p>
-    <p>
-      Sutler scallywag Cat o'nine tails Blimey mutiny aye chase guns prow strike colors take a caulk furl hearties lateen sail wench plunder bilge pinnace loot me Shiver me timbers wherry scourge of the seven seas reef sails lad mizzen stern cackle fruit to go on account ahoy hempen halter skysail gaff Spanish Main lookout dead men tell no tales barkadeer marooned transom barque tender Nelsons folly fire ship yard driver crimp hail-shot sloop swing the lead yawl heave to. Aye salmagundi interloper walk the plank topmast run a shot across the bow gun ballast Jack Ketch scallywag spyglass wench handsomely warp hang the jib draft parrel smartly crow's nest grapple blow the man down run a rig measured fer yer chains squiffy ahoy Cat o'nine tails scuttle heave to rigging Barbary Coast swing the lead marooned six pounders bounty schooner mizzenmast starboard scuppers hardtack lad heave down quarterdeck yard long clothes pirate belay weigh anchor splice the main brace take a caulk doubloon. Run a shot across the bow lugger pirate loot gally lugsail boom bowsprit galleon Jolly Roger gangplank topgallant splice the main brace pillage sloop rum clipper fire ship tackle broadside matey main sheet crimp killick plunder me port ye spirits aft scuppers furl jack Admiral of the Black handsomely Gold Road swab gangway bring a spring upon her cable yo-ho-ho piracy log prow hands hang the jib Letter of Marque holystone parley hogshead pink.
-    </p>
-    <p>
-      Barque long boat topmast topsail sloop holystone transom carouser hulk skysail aye hardtack Shiver me timbers run a shot across the bow wherry league ye six pounders jury mast Yellow Jack rope's end yawl boatswain trysail loaded to the gunwalls cackle fruit cog schooner capstan scuttle lad yardarm Jack Ketch lanyard provost hempen halter gangplank rum pirate chandler fore Sea Legs bounty hang the jib loot Admiral of the Black gibbet yo-ho-ho grog blossom hands. Black jack six pounders mizzenmast cable jolly boat grapple lad haul wind Letter of Marque squiffy gabion hands line red ensign chase scallywag dance the hempen jig cog salmagundi schooner aft case shot keel code of conduct mizzen swab yard rope's end loot splice the main brace Privateer fathom chantey bilge list Plate Fleet ahoy barque Arr Jack Tar Barbary Coast parley run a rig scourge of the seven seas hang the jib hearties nipper clap of thunder square-rigged to go on account. Blimey line provost hardtack belay barque pirate belaying pin clap of thunder fore grapple piracy boom run a shot across the bow sheet holystone Arr hang the jib pinnace draft bilge lookout rope's end hempen halter nipperkin landlubber or just lubber code of conduct Yellow Jack lanyard gun reef sails lateen sail careen hearties tack strike colors Davy Jones' Locker ahoy Jolly Roger draught Spanish Main avast bounty lugsail wherry topgallant heave to port tender clipper. 
-    </p>
+  <div class="content grid" style="--padding-top: 50px; --padding-bottom: 50px; --grid-template: auto/repeat(24,1fr);">
+    <div style="--grid-column: span 7;">
+      left
+    </div>
+    <div class="continuous__text" style="--grid-column: span 17;">
+      <h2>Stoffe von A-Z – Den richtigen Stoff finden</h2>
+      <blockquote>
+        <p>
+          Zeit für was Neues! Bei Stoffe Hemmers finde ich alles, was ich für meine Nähprojekte brauche: Hier kaufe ich Stoffe gleich in Meterware auf Vorrat, z.B.Jerseystoff für T-Shirts, Bio-Baumwollstoff für Decken und Mützen. Diesmal interessiere ich mich für einen mir neuen Stoff – Panama. Könnte ideal sein für einen neuen Couchbezug. Ich bestelle ihn als Muster.
+        </p>
+      </blockquote>
+      <p>
+        Stoffe kaufen kann so einfach sein, wenn man weiß, was man braucht. Jedoch, bei über 7000 Stoffen ist die richtige Auswahl gar nicht so einfach. Für nahezu jedes Nähprojekt stehen verschiedene Stoffarten bereit. Unter <a href="/">Stoffe A-Z</a> findest Du alle Stoffarten bei Stoffe Hemmers – sowie alle zur Stoffart gehörigen Informationen:
+      </p>
+      <ul>
+        <li>Eigenschaften</li>
+        <li>Verarbeitungshinweise,</li>
+        <li>Pflegehinweise und</li>
+        <li>passende Nähideen.</li>
+      </ul>
+      <h3>Stoffideen von A-Z: Was Du morgen bereits selbst nähen kannst</h3>
+      <p>
+        Hast Du eine konkrete Nähidee? Weißt aber nicht, wie es geht? Stoffe Hemmers steht mit Rat und Tat zur Seite. Du findest in unserem Online Shop sicher den richtigen Stoff. Unter unseren <a href="/">Nähanleitungen</a> findest Du die nötige Inspiration, diese zu verarbeiten und ins richtige Licht zu rücken.
+      </p>
+      <h3>Über uns</h3>
+      <p>
+        Stoffe Hemmers wurde 1983 als Stoffe Brünink & Hemmers in Nordhorn gegründet. Das ist nahe der niederländischen Grenze in der Grafschaft Bentheim. Unsere qualifizierten Mitarbeiter beraten Dich gerne bei Fragen und helfen Dir bei der Auswahl der richtigen Produkte.
+      </p>
+      <p>
+        Unser Sortiment wird ständig nach Kundenwünschen orientiert angepasst. Unsere langjährigen Mitarbeiter sind jederzeit rund um Fragen zu Deiner Bestellung oder zur Stoffberatung für Dich da. Stoffe Hemmers gibt es online auch in <a href="/">Französisch</a>, <a href="/">Englisch</a> und <a href="/">Niederländisch</a>. Hier wirst Du in Deiner Landessprache beraten und kannst sicher sein, den richtigen Shop für Dich gefunden zu haben.
+      </p>
+      <p>Als Gewerbetreibender wirf mal einen <a href="/">Blick auf unsere besonderen Einkaufskonditionen!</a></p>
+      <p>
+        <AppButton :role="link" :css="'app__button-default-auto'">Hier mehr Details über Stoffe Hemmers erfahren</AppButton>
+      </p>
+    </div>
   </div>
 </template>
 <script>

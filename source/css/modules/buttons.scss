@@ -64,6 +64,11 @@
 
       color                       : tint(dark,2);
 
+      &[class*="-bold"] {
+        font-weight               : 500;
+        color                     : tint(dark,3);
+      }
+
       &:hover {
         color                     : tint(brand);
       }

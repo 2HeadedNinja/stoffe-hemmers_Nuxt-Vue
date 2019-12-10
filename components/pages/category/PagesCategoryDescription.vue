@@ -1,7 +1,7 @@
 <template>
   <div v-if="desciptionHtml" class="product__listing-category__description">
     <PagesCategoryTableOfContents :tableOfContent="this.$data.tableOfContent"></PagesCategoryTableOfContents>
-    <article :class="{'full':!tableOfContent}" v-html="desciptionHtml"></article>
+    <article :class=" !tableOfContent ? 'continuous__text full' : 'continuous__text'" v-html="desciptionHtml"></article>
   </div>
 </template>
 

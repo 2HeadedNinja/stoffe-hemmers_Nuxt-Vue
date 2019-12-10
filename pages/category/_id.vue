@@ -96,7 +96,7 @@
       handleScrollEvent() {
         if(this.$data.skelletons === false) {
           const __scrollPosition = Math.round(100 * window.scrollY / (document.documentElement.scrollHeight - window.innerHeight));
-
+          console.log(__scrollPosition+' >= '+this.$data.scrollThreshold);
           if(__scrollPosition >= this.$data.scrollThreshold && this.$data.loadInfinite === true) {
             this.$data.skelletons = true;
             this.getProductData(true);
@@ -133,7 +133,7 @@
               }
 
               if(this.$data.description === null && response.description) {
-                this.$data.scrollThreshold  = 40;
+                this.$data.scrollThreshold  = 30;
                 this.$data.description      = response.description;
               }
             } else {

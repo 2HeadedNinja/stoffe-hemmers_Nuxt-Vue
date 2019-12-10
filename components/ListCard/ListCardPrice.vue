@@ -1,7 +1,8 @@
 <template>
   <div :class="css">
-    <span v-if="price.promotional" class="product__card-cardwrap__details__productprice__promotional">{{ promotional }}</span>
+    <span v-if="price.promotional" class="product__card-cardwrap__details__productprice__savings">{{ savings }}</span>
     <span v-if="price.original" class="product__card-cardwrap__details__productprice__original">{{ original }}</span>
+    <span v-if="price.promotional" class="product__card-cardwrap__details__productprice__promotional">{{ promotional }}</span>
   </div>
 </template>
 
@@ -17,6 +18,7 @@
             original    : null,
             promotional : null,
             currency    : null,
+            savings     : null,
             unit        : null
           }
         }
@@ -37,7 +39,7 @@
           __CSS += '-promotional';
         }
 
-        return __CSS;
+        return __CSS+'  flex';
       },
 
       original : function() {
@@ -50,6 +52,10 @@
 
       promotional : function() {
         return (this.price.promotional+' '+this.price.currency+' / '+this.price.unit).split('.').join(',');
+      },
+
+      savings : function() {
+        return '-' + (100 - Math.ceil((100 / this.price.original) * this.price.promotional)) + '%';
       }
     }
   }

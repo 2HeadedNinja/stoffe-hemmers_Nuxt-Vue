@@ -5,7 +5,7 @@
         <use xlink:href="/svg/sprite.svg#avatar-circle"></use>
       </svg>
       {{ reviewData.date }}
-      <AppRating :max="parseInt(reviewData.max)" :percent="reviewData.percent"></AppRating>
+      <AppRating :max="parseInt(reviewData.max)" :percent="reviewData.percent" :method="'steps'"></AppRating>
     </div>
     <p>{{ reviewData.excerpt }}</p>
   </div>
@@ -13,6 +13,7 @@
 
 <script>
   import AppRating from '~/components/AppRating'
+  import { ellipsis } from 'ellipsed';
 
   export default {
     name : 'AppFooterTrustedShopsReview',
@@ -35,6 +36,7 @@
     },
 
     mounted() {
+      ellipsis('.app__footer-trustedshops__review p',3);
     }
   }
 </script>
