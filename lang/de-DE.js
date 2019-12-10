@@ -15,9 +15,9 @@ export default {
       security    : 'Geprüfte Sicherheit',
       information : 'Informationen'
     },
-    trusted       : {
-      button      : 'Alle {counter} Trusted Shops Kundenmeinungen',
-      headline    : 'Note {currentRating} / {maxRating} aus {ratingCount} Bewertungen der letzten 12 Monate'
+    trusted           : {
+      buttonReviews   : 'Bewertungen',
+      headline        : 'Note {currentRating} / {maxRating} aus {ratingCount} Bewertungen der letzten 12 Monate'
     }
   },
   secondaryNavigation : {

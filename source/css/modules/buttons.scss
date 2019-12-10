@@ -80,6 +80,10 @@
     letter-spacing                : 1px;
     text-transform                : uppercase;
 
+    strong {
+      font-weight                 : 500;
+    }
+
     margin                        : 0;
     padding                       : 0;
 
@@ -126,6 +130,11 @@
     &[class*='-slim'] {
       color                       : tint(dark,2);
       border                      : 1px solid tint(light,3);
+
+      strong {
+        color                     : tint(dark,5);
+        font-weight               : 600;
+      }
     }
 
     &[class*='-small'] {

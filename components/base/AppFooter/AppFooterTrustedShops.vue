@@ -1,10 +1,15 @@
 <template>
   <div v-if="reviews" class="app__footer-trustedshops content flex">
-    <p>{{ $t('appFooter.trusted.headline',{ currentRating : schema.result, maxRating : schema.max, ratingCount : schema.activeCount }) }}</p>
     <div class="grid">
+      <p><strong>{{ $t('appFooter.trusted.headline',{ currentRating : schema.result, maxRating : schema.max, ratingCount : schema.activeCount }) }}</strong></p>
+      <svg role="presentation" class="app__footer-trustedshops__trusted-logo" preserveAspectRatio="xMidYMid meet" viewBox="0 0 282 117">
+        <use xlink:href="/svg/sprite.svg#trusted-shops-black"></use>
+      </svg>
       <AppFooterTrustedShopsReview v-for="(review, index) in reviews" v-bind:key="index" :reviewData="review"></AppFooterTrustedShopsReview>
     </div>
-    <AppButton :role="'link'" :target="'_blank'" :href="'/'" :css="'app__button-slim-auto'" :label="'Alle X Kundenmeinungen'">{{ $t('appFooter.trusted.button',{ counter : schema.count }) }}</AppButton>
+    <AppButton :role="'link'" :target="'_blank'" :href="'https://www.google.de'" :css="'app__footer-trustedshops__footer flex'" :icon="'arrow-right-thick'">
+      {{ schema.count }} {{ $t('appFooter.trusted.buttonReviews') }}
+    </AppButton>
   </div>
 </template>
 

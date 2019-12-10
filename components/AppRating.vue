@@ -1,6 +1,6 @@
 <template>
   <div v-if="max" class="app__rating flex">
-    <span class="flex" :style="getStyle()">
+    <span :style="getStyle()">
       <svg v-for="n in getRating()" role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
         <use :xlink:href="getPath()"></use>
       </svg>
@@ -47,6 +47,7 @@
       },
 
       getStyle() {
+        return 'width:0%;';
         return 'width:'+ (this.percent) +'%;';
       },
 
@@ -62,27 +63,31 @@
     position                          : relative;
     z-index                           : 0;
 
+    overflow-y                        : hidden;
+    
     > svg {
       fill                            : tint(light,3);
     }
 
     > span {
       position                        : absolute;
-      top                             : 0;
+      top                             : -2px;
       left                            : 0;
       bottom                          : 0;
 
       width                           : 0%;
-      overflow                        : hidden;
 
-      flex-wrap                       : no-wrap;
       background-color                : $white;
 
       overflow                        : hidden;
+      white-space                     : nowrap;
     
       svg {
+        display                       : inline-block;
         fill                          : tint(brand);
-        float                         : left;
+
+        height                        : calc(100% - 2px);
+        width                         : auto;
       }
     }
   }
