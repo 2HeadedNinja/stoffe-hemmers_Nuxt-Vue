@@ -1,6 +1,6 @@
 <template>
   <div :class="css">
-    <span v-if="price.promotional" class="product__card-cardwrap__details__productprice__savings">{{ savings }}</span>
+    <!--<span v-if="price.promotional" class="product__card-cardwrap__details__productprice__savings">{{ savings }}</span>//-->
     <span v-if="price.original" class="product__card-cardwrap__details__productprice__original">{{ original }}</span>
     <span v-if="price.promotional" class="product__card-cardwrap__details__productprice__promotional">{{ promotional }}</span>
   </div>

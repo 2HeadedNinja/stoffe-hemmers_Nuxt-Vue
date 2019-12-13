@@ -25,6 +25,14 @@
             small   : null
           }
         }
+      },
+
+      format : {
+        type : String,
+
+        default() {
+          return 'square';
+        }
       }
     },
 

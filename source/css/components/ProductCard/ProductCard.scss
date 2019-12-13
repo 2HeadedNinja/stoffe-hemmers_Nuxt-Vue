@@ -93,18 +93,16 @@
             border                          : 1px solid $sale;
             color                           : $white;
 
-            font-size                       : 14px;
+            font-size                       : 13px;
             font-weight                     : 500;
 
             margin                          : 0 12px 0 0;
             padding                         : 0 8px 0 8px;
-
-            border-radius                   : 10px;
           }
         }
       }
 
-      [class="product__card-cardwrap__productimage"] {
+      .product__card-cardwrap__productimage {
         position                            : relative;
         z-index                             : 0;
 
@@ -182,22 +180,27 @@
         &:after {
           @include animate(opacity,.25s);
 
-          content                         : '';
+          content                           : '';
 
-          position                        : absolute;
-          top                             : 0;
-          left                            : 0;
-          right                           : 0;
-          bottom                          : 0;
-          z-index                         : 1;
+          position                          : absolute;
+          top                               : 0;
+          left                              : 0;
+          right                             : 0;
+          bottom                            : 0;
+          z-index                           : 1;
           
-          opacity                         : 0;
-          border                          : 2px solid tint(brand);
+          opacity                           : 0;
+          border                            : 2px solid tint(brand);
+        }
+
+        &.portrait {
+          padding-top                       : 150%;
         }
       }
 
       [class="app__button-slim-small"] {
         border-top                          : none;
+        background-color                    : $white;
       }
 
       [class="product__card-cardwrap__top"] {
@@ -360,20 +363,20 @@
 
         .product__card-cardwrap__flags {
           position                            : absolute;
-          bottom                              : 60px;
-          left                                : 5px;
+          bottom                              : 46px;
+          left                                : 11px;
           z-index                             : 1;
 
           margin                              : 0;
           padding                             : 0;
 
           li {
-            margin                            : 10px 0 0 0;
+            margin                            : 0 5px 0 0;
             padding                           : 0;
 
             list-style-type                   : none;
 
-            &:first-of-type {
+            &:last-of-type {
               margin                          : 0;
             }
           }
@@ -383,30 +386,24 @@
             align-items                       : center;
 
             margin                            : 0;
-            padding                           : 0 6px 0 6px;
+            padding                           : 0 7px 0 7px;
 
             font-size                         : 11px;
             font-weight                       : 500;
             line-height                       : 100%;
 
-            min-height                        : 25px;
-            max-height                        : 25px;
+            min-height                        : 30px;
+            max-height                        : 30px;
 
             text-transform                    : uppercase;
             letter-spacing                    : .5px;
 
             color                             : tint(dark,1);
             background-color                  : $white;
-
-            &[class*='-sale'] {
-              background-color                : $sale;
-              border                          : 1px solid $sale;
-              color                           : $white;
-            }
+            border                            : 1px solid $white;
 
             &[class*="-sustainability"] {
               color                           : $sustainability;
-              border                          : 1px solid $sustainability;
             }
           } 
         }

@@ -2,6 +2,7 @@
 @import 'fonts/lemonade';
 
 @import '../../assets/css/vars/colors';
+@import '../../assets/css/vars/sizes';
 @import '../../assets/css/imports/mixins';
 @import '../../assets/css/imports/magic';
 
@@ -10,6 +11,8 @@
 
 @import 'components/HeroContent';
 @import 'components/ProductCard/ProductCard';
+
+@import 'slider/ProductSlider';
 
 @import 'base/AppHeader';
 @import 'base/AppFooter';
@@ -108,7 +111,7 @@
     margin                              : 0 auto;
 
     width                               : 100%;
-    max-width                           : 1650px;
+    max-width                           : $contentWidth;
   }
 
   article {
@@ -225,7 +228,7 @@
     display                             : block;
 
     text-transform                      : uppercase;
-    color                               : tint(dark,4);
+    color                               : tint(dark,3);
 
     margin                              : 0 0 20px 0;
   }
@@ -262,6 +265,28 @@
 
     &:before {
       content                           : 'default';
+    }
+  }
+
+  hr {
+    &[class*="content__seperator"] {
+      display                           : block;
+
+      margin                            : 0 auto;
+      margin-top                        : 50px;
+      margin-bottom                     : 55px;
+
+      width                             : 100%;
+      max-width                         : $contentWidth;
+
+      height                            : 0;
+      border                            : none;
+      background-color                  : none;
+    }
+
+    &[class*="__dotted"] {
+      margin-bottom                     : 56px;
+      border-bottom                     : 1px dotted $border-light;
     }
   }
 }

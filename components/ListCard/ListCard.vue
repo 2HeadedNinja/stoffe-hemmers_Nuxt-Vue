@@ -17,7 +17,7 @@
         </span>
       </div>
       <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
-      <a class="product__card-cardwrap__productimage" :title="productData.name" :href="productData.href" @click.prevent @mousedown="mousedown" @mouseup="mouseup">
+      <a :class="'product__card-cardwrap__productimage ' + format" :title="productData.name" :href="productData.href" @click.prevent @mousedown="mousedown" @mouseup="mouseup">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
       <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
@@ -59,6 +59,14 @@
             hasData : false,
             url     : false
           }
+        }
+      },
+
+      format : {
+        type : String,
+
+        default() {
+          return 'square';
         }
       }
     },
