@@ -146,9 +146,11 @@
     },
 
   	created() {
+      this.$emit('ListCardCreated');
   	},
 
   	mounted() {
+      this.$emit('ListCardMounted');
   	}
   }
 </script>

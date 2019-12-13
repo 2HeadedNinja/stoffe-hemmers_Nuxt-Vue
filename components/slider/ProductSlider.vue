@@ -1,14 +1,14 @@
 <template>
-  <div v-if="products" class="product__slider-default">
+  <div v-show="products" class="product__slider-default">
     <h3 class="content"><slot /></h3>
     <div>
-      <ul class="flex" style="scroll-padding-left: 352px; scroll-behavior: smooth; scroll-snap-type: x mandatory;">
+      <ul class="flex" style="scroll-behavior: smooth; scroll-snap-type: x mandatory;">
         <li v-for="(product, index) in products" v-bind:key="index">
           <ListCard :productData="product" :format="format"></ListCard>
         </li>
       </ul>
-      <AppButton @AppButtonClick="scroll('left')" v-if="buttonTop" :css="'product__slider-default__button-prev'" :icon="'arrow-left-thick'" :style="'top:'+buttonTop+'px;'"></AppButton>
-      <AppButton @AppButtonClick="scroll('right')" v-if="buttonTop" :css="'product__slider-default__button-next'" :icon="'arrow-right-thick'" :style="'top:'+buttonTop+'px;'"></AppButton>
+      <AppButton @AppButtonClick="scroll('left')" v-if="buttonTop" v-show="scrollValues && showPrev" :css="'product__slider-default__button-prev'" :icon="'arrow-left-thick'" :style="'top:'+buttonTop+'px;'"></AppButton>
+      <AppButton @AppButtonClick="scroll('right')" v-if="buttonTop" v-show="scrollValues && showNext" :css="'product__slider-default__button-next'" :icon="'arrow-right-thick'" :style="'top:'+buttonTop+'px;'"></AppButton>
     </div>
   </div>
 </template>
@@ -29,9 +29,11 @@
 
     data() {
       return {
-        buttonTop       : null,
-        products        : null,
-        scrollValue     : null
+        buttonTop    : null,
+        products     : null,
+        scrollValues : null,
+        showPrev     : null,
+        showNext     : null
       }
     },
 
@@ -70,6 +72,10 @@
         .then(response => {
           if(response.error === false) {
             this.$data.products = response.products;
+
+            setTimeout(() => {
+              this.setButtonPosition();
+            },100);
           }
         })
         .catch(error => {
@@ -77,22 +83,50 @@
         });
       },
 
+      setScrollVariables(ul = false, li = false) {
+        if(ul === false || li === false) {
+          return false;
+        }
+
+        const __ulWidth      = ul.getBoundingClientRect();
+        const __ulStyle      = ul.currentStyle || window.getComputedStyle(ul);
+
+        const __paddingLeft  = parseFloat(__ulStyle.paddingLeft.split('px').join(''));
+        const __paddingRight = parseFloat(__ulStyle.paddingRight.split('px').join(''));
+
+        const __width        = __ulWidth.width - (__paddingLeft + __paddingRight);
+
+        this.$data.scrollValues             = {};
+        this.$data.scrollValues.width       = __width;
+        this.$data.scrollValues.cardWidth   = li.getBoundingClientRect().width;
+        this.$data.scrollValues.scrollMaxX  = Math.floor(this.$data.scrollValues.cardWidth * this.$data.products.length);
+        this.$data.scrollValues.visible     = Math.round(__width / this.$data.scrollValues.cardWidth); 
+      },
+
       setButtonPosition() {
         if(DOMElement.is(this.$el)) {
-          const __firstElement = this.$el.querySelector('ul li:first-of-type');
+          const __ul = this.$el.querySelector('ul');
+          if(DOMElement.is(__ul)) {
+            const __firstElement = __ul.querySelector('li:first-of-type');
+            if(DOMElement.is(__firstElement)) {
+              this.setScrollVariables(__ul,__firstElement);
+              this.disableHover(__ul);
 
-          if(DOMElement.is(__firstElement)) {
-            const __style = __firstElement.currentStyle || window.getComputedStyle(__firstElement);
-            if(__style.paddingLeft && typeof __style.paddingLeft == 'string') {
-              this.$data.buttonTransform = (parseInt(__style.paddingLeft.split('px').join('')) + 1) * -1;
-            }
+              const __style = __firstElement.currentStyle || window.getComputedStyle(__firstElement);
+              if(__style.paddingLeft && typeof __style.paddingLeft == 'string') {
+                this.$data.buttonTransform = (parseInt(__style.paddingLeft.split('px').join('')) + 1) * -1;
+              }
 
-            const __picture = __firstElement.querySelector('picture');
-            if(DOMElement.is(__picture)) {
-              const __rect = __picture.getBoundingClientRect();
-              
-              if(typeof __rect.height == 'number') {
-                this.$data.buttonTop = Math.ceil(__rect.height * .5);
+              const __picture = __firstElement.querySelector('picture');
+              if(DOMElement.is(__picture)) {
+                const __rect = __picture.getBoundingClientRect();
+                if(typeof __rect.height == 'number') {
+                  this.$data.buttonTop = Math.ceil(__rect.height * .5);
+                  
+                  if(this.$data.products.length > this.$data.scrollValues.visible) {
+                    this.$data.showNext = true;
+                  }
+                }
               }
             }
           }
@@ -102,48 +136,70 @@
       scroll(direction) {
         const __ul = this.$el.querySelector('ul');
         
-        if(DOMElement.is(__ul)) {
+        if(DOMElement.is(__ul) && this.$data.scrollValues !== null) {
+          let __targetValue = null;
+
           switch(direction) {
             case 'right':
-            __ul.scrollLeft = __ul.scrollLeft + 1640;
+            __targetValue = __ul.scrollLeft + this.$data.scrollValues.width;
             break;
 
             case 'left':
-            __ul.scrollLeft = __ul.scrollLeft - 1640;
+            __targetValue = __ul.scrollLeft - this.$data.scrollValues.width;
             break;
           }
+
+          if(__targetValue !== null) {
+            if(__targetValue > 0) {
+              this.$data.showPrev = true;
+            } else if(__targetValue < this.$data.scrollValues.cardWidth) {
+              this.$data.showPrev = false;
+            }
+
+            if((__targetValue + this.$data.scrollValues.width) >= this.$data.scrollValues.scrollMaxX) {
+              this.$data.showNext = false;
+            } else {
+              this.$data.showNext = true;
+            }
+
+            __ul.scrollLeft = __targetValue;
+          }
+        }
+      },
+
+      disableHover(ul = false) {
+        if(ul === false) {
+          return false;
+        }
+
+        if(DOMElement.is(ul)) {
+          let   __timer = null;
+          const __body  = document.body;
+
+          ul.addEventListener('scroll', () => {
+            clearTimeout(__timer);
+
+            if(!__body.classList.contains('disable__hover')) {
+              __body.classList.add('disable__hover')
+            }
+
+            __timer = setTimeout(() => {
+              __body.classList.remove('disable__hover');
+            },500);
+          });
         }
       }
     },
 
     created() {
+    },
+
+    mounted() {
       this.$root.$on('LayoutReady',() => {
         if(this.category !== null) {
           this.getProductData();
         }
       });
-    },
-
-    mounted() {
-    },
-
-    updated() {
-      this.setButtonPosition();
     }
   }
 </script>
-
-<!--
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_polyester-krepp-indian-leopard-dunkelgruen_12424-028_7.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_baumwollstoff-cretonne-wilde-pferde-altrosa_6467-004_7.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_viskosestoff-high-heels-koralle_132.331-3006_6.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_modal-jersey-cherry-blossom-marineblau_6773-004_10.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_frottee-jersey-trigon-helloliv_991.071-0801_6.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_jacquard-jersey-ajour-bluemchen-ros_991.072-3001_8.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_viskosestoff-retro-roller-hellblau_132.335-3008_6.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_organic-baumwolljersey-erntezeit-taupe_991.083-3002_7.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_cordjersey-schmal-curry_12501-034_5.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_viskose-twill-bluetenwerk-dunkelpetrol_703.472-3007_6.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_baumwoll-musselin-double-gauze-federtraum_11253-051_6.jpg
-  https://images.shcdn.de/resized/original/wpi/nuxt_fashion_teddy-krimmer-bordeaux_12307-019_7.jpg
-//-->
