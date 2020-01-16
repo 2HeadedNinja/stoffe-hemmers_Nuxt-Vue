@@ -41,8 +41,8 @@ $themes : (
 
   @if($theme == light) {
     $themeColors  : (
-      tint-01     : lighten($primary,32%),
-      tint-02     : lighten($primary,28%),
+      tint-01     : lighten($primary,30%),
+      tint-02     : lighten($primary,25%),
       tint-03     : lighten($primary,10%),
       tint-04     : darken($primary,10%),
       tint-05     : darken($primary,15%),
@@ -52,9 +52,9 @@ $themes : (
 
   @if($theme == dark) {
     $themeColors  : (
-      tint-01     : lighten($primary,24%),
-      tint-02     : lighten($primary,18%),
-      tint-03     : lighten($primary,8%),
+      tint-01     : lighten($primary,25%),
+      tint-02     : lighten($primary,20%),
+      tint-03     : lighten($primary,10%),
       tint-04     : darken($primary,0%),
       tint-05     : darken($primary,10%),
       tint-06     : darken($primary,20%)

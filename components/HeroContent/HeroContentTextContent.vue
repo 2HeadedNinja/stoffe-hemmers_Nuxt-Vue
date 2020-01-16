@@ -1,7 +1,7 @@
 <template>
 	<div class="layout__herocontent__text">
     <div v-html="textContent"></div>
-    <AppButton @AppButtonClick="scrollToProducts" :css="'layout__herocontent__text__button'" :icon="'arrow-down-thick'"></AppButton>
+    <AppButton v-if="scroll" @AppButtonClick="scrollToProducts" :css="'layout__herocontent__text__button'" :icon="'arrow-down-thick'"></AppButton>
   </div>
 </template>
 
@@ -23,6 +23,14 @@
 
         default() {
           return 'Kein Text vorhanden';
+        }
+      },
+
+      scroll : {
+        type : Boolean,
+
+        default() {
+          return true;
         }
       }
     },

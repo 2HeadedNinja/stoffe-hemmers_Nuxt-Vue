@@ -1,22 +1,37 @@
 <template>
-  <div style="--padding-top: 50px; --padding-bottom: 50px;">
-    <ProductSlider :category="1" :quantity="12" :format="'portrait'" :style="'--margin-top: 20px;'">
-      Portrait Slider
+  <div style="--padding-top: 50px; --padding-bottom: 50px;"> 
+    <ProductSlider :category="2" :quantity="15"></ProductSlider>
+    <hr class="content__seperator__dotted" />
+    <div class="grid content" style="--grid-template: auto/repeat(25,1fr); --grid-gap: 50px;">
+      <div class="continuous__text" style="--grid-column: span 10;">
+        <h1>All in one bei Stoffe Hemmers</h1>
+        <p>
+          Kaufe Stoffe als Meterware, Schnittmuster & Kurzwaren für Dein Nähprojekt. Stoffe Hemmers ist mit über 7000 Stoffen zur Auswahl Deutschlands bestausgestatteter Stoffhändler.
+        </p>
+      </div>
+      <div style="--grid-column: span 15;">
+        right
+      </div>
+    </div>
+    <hr class="content__seperator__dotted" />
+    <ProductSlider :category="1" :quantity="12" :visible="4" :format="'portrait'" :details="false">
+      Lass dich inspirieren!
     </ProductSlider>
     <hr class="content__seperator__dotted" />
-    <ProductSlider :category="2" :quantity="12" :style="'--margin-bottom: 20px;'">
-      Default Slider
-    </ProductSlider>
-
-    <div class="grid content" style="--padding-top: 50px; --grid-template: auto/repeat(24,1fr);">
+    <ProductSlider :category="2" :quantity="5">Entdecke unsere Bestseller</ProductSlider>
+    <hr class="content__seperator__dotted" />
+    <div class="grid content" style="--grid-template: auto/repeat(24,1fr);">
       <div style="--grid-column: span 7;">
         left
       </div>
       <div class="continuous__text" style="--grid-column: span 17;">
         <h2>Stoffe von A-Z – Den richtigen Stoff finden</h2>
         <blockquote>
+          <svg role="presentation" preserveAspectRatio="xMidYMid meet" viewBox="0 0 48 48">
+            <use xlink:href="/svg/sprite.svg#quotation-mark"></use>
+          </svg>
           <p>
-            Zeit für was Neues! Bei Stoffe Hemmers finde ich alles, was ich für meine Nähprojekte brauche: Hier kaufe ich Stoffe gleich in Meterware auf Vorrat, z.B.Jerseystoff für T-Shirts, Bio-Baumwollstoff für Decken und Mützen. Diesmal interessiere ich mich für einen mir neuen Stoff – Panama. Könnte ideal sein für einen neuen Couchbezug. Ich bestelle ihn als Muster.
+            Zeit für was Neues! Bei Stoffe Hemmers finde ich alles, was ich für meine Nähprojekte brauche: Hier kaufe ich Stoffe gleich in Meterware auf Vorrat, z.B. Jerseystoff für T-Shirts, Bio-Baumwollstoff für Decken und Mützen. Diesmal interessiere ich mich für einen mir neuen Stoff – Panama. Könnte ideal sein für einen neuen Couchbezug. Ich bestelle ihn als Muster.
           </p>
         </blockquote>
         <p>
@@ -45,10 +60,12 @@
         </p>
       </div>
     </div>
-    <ProductSlider :category="2" :quantity="12" :style="'--margin-top: 20px; --margin-bottom: 20px;'">Bla bla bla</ProductSlider>
   </div>
 </template>
 <script>
+  import Position from '~/plugins/Position.plugin.js'
+  import DOMElement from '~/plugins/DOMElement.plugin.js'
+
   import AppButton from '~/components/AppButton'
   import ProductSlider from '~/components/slider/ProductSlider'
 
@@ -64,6 +81,20 @@
     },
 
     mounted() {
+      this.$root.$on('scrollToProducts', () => {
+        if(DOMElement.is(this.$el)) {
+          const __y = Position.get(this.$el,{
+            offset : 0
+          });
+
+          if(__y !== false) {
+            window.scrollTo({
+              top       : __y, 
+              behavior  : 'smooth'
+            });
+          }
+        }
+      });
     }
   }
 </script>

@@ -387,7 +387,7 @@
         grid-gap                          : 50px;
 
         .app__footer-trustedshops__review {
-          grid-column                     : span 4;
+          grid-column                     : span 5;
 
           .app__footer-trustedshops__review-head {
             margin                        : 0 0 15px 0;
@@ -408,15 +408,21 @@
           }
 
           p {
-            //@include multiLineEllipsis(14px,3);
+            overflow                      : hidden;
+            hyphens                       : none;
 
             font-size                     : 14px;
-            line-height                   : 21px;
+            line-height                   : 23px;
+            text-align                    : left;
 
             position                      : relative;
             z-index                       : 0;
 
             margin                        : 0;
+
+            display                       : -webkit-box;
+            -webkit-box-orient            : vertical;
+            -webkit-line-clamp            : 3;
           }
         }
 

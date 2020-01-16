@@ -20,9 +20,9 @@
       <a :class="'product__card-cardwrap__productimage ' + format" :title="productData.name" :href="productData.href" @click.prevent @mousedown="mousedown" @mouseup="mouseup">
         <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
       </a>
-      <AppButton @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
+      <AppButton v-if="details" @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
-    <a class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
+    <a v-if="details" class="product__card-cardwrap__details" :title="productData.name" :href="productData.href">
       <span class="product__card-cardwrap__details__productname">{{ productData.name }}</span>
       <ListCardPrice :price="productData.price"></ListCardPrice>
     </a>
@@ -67,6 +67,14 @@
 
         default() {
           return 'square';
+        }
+      },
+
+      details : {
+        type : Boolean,
+
+        default() {
+          return true;
         }
       }
     },

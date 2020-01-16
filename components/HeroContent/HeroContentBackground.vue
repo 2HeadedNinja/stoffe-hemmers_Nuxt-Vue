@@ -1,11 +1,11 @@
 <template>
-  <div v-if="backgroundData.image" class="layout__herocontent__image-background">
+  <div v-if="backgroundData.image" :class="getClass()">
     <picture class="layout__herocontent__image-background-picture" :data-alt="alt" :data-iesec="backgroundData.image">
       <source v-if="backgroundData.image" :srcset="backgroundData.image" />
       <noscript><img :src="backgroundData.image" :alt="alt" /></noscript>
     </picture>
   </div>
-  <video v-else-if="(backgroundData.mp4 || backgroundData.ogv) && !backgroundData.image" class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" > 
+  <video v-else-if="(backgroundData.mp4 || backgroundData.ogv) && !backgroundData.image" class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" loop="loop"> 
     <source v-if="backgroundData.mp4" :src="backgroundData.mp4" type="video/mp4"> 
     <source v-if="backgroundData.ogv" :src="backgroundData.ogv" type="video/ogv"> 
   </video>
@@ -34,6 +34,14 @@
         }
       },
 
+      valign         : {
+        type : String,
+
+        default() {
+          return 'bottom';
+        }
+      },
+
       backgroundData : {
         type : Object,
 
@@ -48,6 +56,10 @@
     },
 
     methods : {
+      getClass() {
+        return 'layout__herocontent__image-background '+this.valign;
+      },
+
       video(obj = false) {
         this.$el.addEventListener('canplay',() => {
           setTimeout(() => {

@@ -1,7 +1,7 @@
 <template>
   <div v-if="contentData.hasHeroContent && !kill" class="layout__herocontent">
     <HeroContentTextContent v-if="contentData.promotext" :textContent="contentData.promotext"></HeroContentTextContent>
-    <HeroContentBackground v-if="contentData.background" :backgroundData="contentData.background"></HeroContentBackground>
+    <HeroContentBackground v-if="contentData.background" :backgroundData="contentData.background" :valign="contentData.valign"></HeroContentBackground>
   </div>
 </template>
 
@@ -49,17 +49,6 @@
       this.$root.$on('AppHeaderMounted',event => {
         if(!this.$data.kill) {
           const __height = Math.ceil(event.height * 1.2);
-
-          /*this.$root.$on('LayoutScrollEvent',() => {
-            const __scrollPosition = Math.round(window.scrollY);
-
-            if(__scrollPosition > __height) {
-              const __rect = this.$el.getBoundingClientRect();
-
-              this.$data.kill = true;
-              this.$root.$emit('KillHeroContent',{height : (__rect.height - 1)});
-            }
-          });*/
         }
       });
     },

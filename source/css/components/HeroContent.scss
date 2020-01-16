@@ -126,6 +126,11 @@
       left                              : 0;
       z-index                           : 0;
       max-width                         : 100%;
+
+      &.top {
+        bottom                          : auto;
+        top                             : 0;
+      }
     }
 
     div.layout__herocontent__image-background {

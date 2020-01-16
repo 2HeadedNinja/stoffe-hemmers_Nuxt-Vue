@@ -87,6 +87,7 @@
     created() {
       this.$root.$on('AppHeaderMounted',event => {
         this.positionScrollContent(event);
+        this.$root.$off('AppHeaderMounted');
       });
       this.$root.$emit('LayoutSidebarCreated');
     },

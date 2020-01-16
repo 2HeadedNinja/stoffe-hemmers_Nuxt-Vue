@@ -1,5 +1,7 @@
+
 @import 'fonts/montserrat';
 @import 'fonts/lemonade';
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text:400,600&display=swap');
 
 @import '../../assets/css/vars/colors';
 @import '../../assets/css/vars/sizes';
@@ -211,12 +213,34 @@
       }
     }
 
-    blockquote {
-      p {
-        &:last-of-type {
-          margin                        : 0;
-        }
+    p {
+      &:last-of-type {
+        margin                          : 0;
       }
+    }
+
+    blockquote {
+      font-family                       : 'Crimson Text', serif;
+      font-size                         : 26px;
+      font-style                        : italic;
+
+      line-height                       : 38px;
+
+      color                             : tint(dark,1);
+
+      > svg {
+        width                           : auto;
+        height                          : 76px;
+
+        float                           : left;
+        margin                          : 0px 10px 0 0;
+
+        fill                            : tint(light,2);
+      }
+    }
+
+    h1 {
+      margin                            : 0 0 30px 0;
     }
   }
 
@@ -230,7 +254,7 @@
     text-transform                      : uppercase;
     color                               : tint(dark,3);
 
-    margin                              : 0 0 20px 0;
+    margin                              : 0 0 30px 0;
   }
 
   h2,
@@ -273,7 +297,7 @@
       display                           : block;
 
       margin                            : 0 auto;
-      margin-top                        : 50px;
+      margin-top                        : 55px;
       margin-bottom                     : 55px;
 
       width                             : 100%;

@@ -1,6 +1,6 @@
 @media all {
   $padding     : 20px;
-  $offsetValue : calc((50vw - ((100vw - 100%) / 2)) - ((#{$contentWidth} / 2) + 20px));
+  $offsetValue : unquote('calc((50vw - ((100vw - 100%) / 2)) - ((#{$contentWidth} / 2) + #{$padding}))');
 
   [class*="product__slider"] {
     > h3 {
@@ -14,8 +14,8 @@
       [class*="product__slider-default__button"] {
         @include animate(width,.15s);
 
-        width                         : 50px;
-        height                        : 150px;
+        width                         : 60px;
+        height                        : 60px;
 
         svg {
           width                       : $padding;
@@ -43,7 +43,7 @@
 
         &:hover,
         &:active {
-          width                       : 65px;
+          width                       : 70px;
         }
       }
 
@@ -74,8 +74,8 @@
         > li {
           list-style-type             : none;
 
-          flex-basis                  : 25%;
-          max-width                   : 25%;
+          flex-basis                  : 20%;
+          max-width                   : 20%;
 
           padding                     : 0 $padding 0 $padding;
           flex-shrink                 : 0;
@@ -95,6 +95,13 @@
               width                   : 151px;
               height                  : 10px;
             }
+          }
+        }
+
+        &[style*="--width"] {
+          > li {
+            flex-basis                : var(--width);
+            max-width                 : var(--width);
           }
         }
       }

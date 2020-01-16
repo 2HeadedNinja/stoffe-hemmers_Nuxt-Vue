@@ -180,6 +180,14 @@
             window.location = __a.getAttribute('href');
           }
         }
+      },
+
+      enableHover() {
+        setTimeout(() => {
+          if(this.$el.classList.contains('disable__hover')) {
+            this.$el.classList.remove('disable__hover');
+          }
+        },1000);
       }
     },
 
@@ -200,10 +208,12 @@
 
       this.$root.$on('AppHeaderIsSticky', () => {
         this.$data.isSticky = true;
+        this.enableHover();
       });
 
       this.$root.$on('AppHeaderNotSticky', () => {
         this.$data.isSticky = false;
+        this.enableHover();
       });
 
       this.$axios.$post('/api/navigation.main.ajax.php')
@@ -219,11 +229,7 @@
     },
 
     mounted() {
-      setTimeout(() => {
-        if(this.$el.classList.contains('disable__hover')) {
-          this.$el.classList.remove('disable__hover');
-        }
-      },2000);
+      this.enableHover();
     }
   }
 </script>

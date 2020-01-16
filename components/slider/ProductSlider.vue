@@ -1,10 +1,10 @@
 <template>
   <div v-show="products" class="product__slider-default">
-    <h3 class="content"><slot /></h3>
+    <h3 class="content" v-if="!!$slots.default"><slot /></h3>
     <div>
-      <ul class="flex" style="scroll-behavior: smooth; scroll-snap-type: x mandatory;">
+      <ul class="flex" :style="getStyle()">
         <li v-for="(product, index) in products" v-bind:key="index">
-          <ListCard :productData="product" :format="format"></ListCard>
+          <ListCard :productData="product" :format="format" :details="details"></ListCard>
         </li>
       </ul>
       <AppButton @AppButtonClick="scroll('left')" v-if="buttonTop" v-show="scrollValues && showPrev" :css="'product__slider-default__button-prev'" :icon="'arrow-left-thick'" :style="'top:'+buttonTop+'px;'"></AppButton>
@@ -33,7 +33,7 @@
         products     : null,
         scrollValues : null,
         showPrev     : null,
-        showNext     : null
+        showNext     : null,
       }
     },
 
@@ -60,14 +60,34 @@
         default() {
           return 'square';
         }
+      },
+
+      visible : {
+        type : Number,
+
+        default() {
+          return 5;
+        }
+      },
+
+      details : {
+        type : Boolean,
+
+        default() {
+          return true;
+        }
       }
     },
 
     methods : {
+      getStyle() {
+        return 'scroll-behavior: smooth; scroll-snap-type: x mandatory; --width: '+(100 / this.visible)+'%;';
+      },
+
       getProductData(infinite = false) {
         this.$axios.$post('/api/slider.ajax.php',{
           category  : this.category,
-          quantity  : this.infinite
+          quantity  : this.quantity
         })
         .then(response => {
           if(response.error === false) {
@@ -100,7 +120,7 @@
         this.$data.scrollValues.width       = __width;
         this.$data.scrollValues.cardWidth   = li.getBoundingClientRect().width;
         this.$data.scrollValues.scrollMaxX  = Math.floor(this.$data.scrollValues.cardWidth * this.$data.products.length);
-        this.$data.scrollValues.visible     = Math.round(__width / this.$data.scrollValues.cardWidth); 
+        this.$data.scrollValues.visible     = Math.round(__width / this.$data.scrollValues.cardWidth);
       },
 
       setButtonPosition() {
@@ -195,11 +215,9 @@
     },
 
     mounted() {
-      this.$root.$on('LayoutReady',() => {
-        if(this.category !== null) {
-          this.getProductData();
-        }
-      });
+      if(this.category !== null) {
+        this.getProductData();
+      }
     }
   }
 </script>

@@ -36,7 +36,7 @@
     },
 
     mounted() {
-      ellipsis('.app__footer-trustedshops__review p',3);
+      //ellipsis('.app__footer-trustedshops__review p',3);
     }
   }
 </script>
