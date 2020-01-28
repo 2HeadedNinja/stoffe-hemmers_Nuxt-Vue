@@ -42,6 +42,7 @@
 
     data() {
       return {
+        path          : this.$route.fullPath,
         route         : this.$route.name,
         sticky        : false,
         animate       : false,
@@ -150,12 +151,15 @@
       //    Check if the current route has any herocontent. Emit the AppHeaderMounted
       //    event when finished
       getHeroContent() {
+        console.log(this.$route);
+
         if(this.$data.route === undefined) {
           this.$data.route = 'index'
         }
 
         this.$axios.$post('/api/herocontent.ajax.php',{
-          route     : this.$data.route
+          route     : this.$data.route,
+          path      : this.$data.path
         })
         .then(response => {
           if(response.error === false) {
