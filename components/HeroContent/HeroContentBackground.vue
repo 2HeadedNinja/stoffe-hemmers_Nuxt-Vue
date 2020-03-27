@@ -1,11 +1,11 @@
 <template>
-  <div v-if="backgroundData.image" :class="getClass()">
+  <div v-if="backgroundData.image" :class="getClass('image')">
     <picture class="layout__herocontent__image-background-picture" :data-alt="alt" :data-iesec="backgroundData.image">
       <source v-if="backgroundData.image" :srcset="backgroundData.image" />
       <noscript><img :src="backgroundData.image" :alt="alt" /></noscript>
     </picture>
   </div>
-  <video v-else-if="(backgroundData.mp4 || backgroundData.ogv) && !backgroundData.image" class="layout__herocontent__video-background" muted="muted" playinline="playinline" preload="auto" loop="loop"> 
+  <video v-else-if="(backgroundData.mp4 || backgroundData.ogv) && !backgroundData.image" :class="getClass('video')" muted="muted" playinline="playinline" preload="auto" loop="loop"> 
     <source v-if="backgroundData.mp4" :src="backgroundData.mp4" type="video/mp4"> 
     <source v-if="backgroundData.ogv" :src="backgroundData.ogv" type="video/ogv"> 
   </video>
@@ -56,8 +56,24 @@
     },
 
     methods : {
-      getClass() {
-        return 'layout__herocontent__image-background '+this.valign;
+      getClass(type = null) {
+        if(type === null) {
+          return 'layout__herocontent__image-background '+this.valign;
+        } else {
+          switch(type) {
+            case 'image':
+            return 'layout__herocontent__image-background '+this.valign;
+            break;
+
+            case 'video':
+            return 'layout__herocontent__video-background '+this.valign;
+            break;
+
+            default:
+            return 'layout__herocontent__image-background '+this.valign;
+            break;
+          }
+        }
       },
 
       video(obj = false) {
