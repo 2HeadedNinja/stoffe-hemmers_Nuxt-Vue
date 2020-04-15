@@ -66,18 +66,19 @@
     $tmp->href      = 'http://localhost:3010/category/stoffe.html';
     $tmp->flags     = array(
       (object) array(
-        'label' => '-25%',
-        'type'  => 'sale'
-      ),
-      (object) array(
         'label' => 'Exklusiv',
         'type'  => 'default'
+      ),
+      (object) array(
+        'label' => 'Nachhaltigkeit',
+        'type'  => 'sustainability'
       )
     );
 
     $tmp->price = (object) array();
     $tmp->price->original     = 11.95;
     $tmp->price->promotional  = 8.95;
+    $tmp->price->savings      = '25 %';
     $tmp->price->currency     = '€';
     $tmp->price->unit         = 'm';
 
@@ -127,9 +128,11 @@
     $tmp->name    = 'Leichter Wollstoff Melange, grau';
     $tmp->href    = 'http://localhost:3010/category/stoffe.html';
     
+
     $tmp->price = (object) array();
     $tmp->price->original     = 18.95;
     $tmp->price->promotional  = 9.95;
+    $tmp->price->savings      = '52%';
     $tmp->price->currency     = '€';
     $tmp->price->unit         = 'm';
 

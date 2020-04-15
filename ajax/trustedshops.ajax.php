@@ -1,4 +1,5 @@
 <?php
+  $trustedID      = 'XD79DE42EADA5EA5D1DE8FB75903B7B4F';
   $return         = (object) array();
   $return->error  = false;
   $return->data   = null;
@@ -9,7 +10,7 @@
           curl_setopt($ch, CURLOPT_HEADER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
           curl_setopt($ch, CURLOPT_POST, false);
-          curl_setopt($ch, CURLOPT_URL, 'https://api.trustedshops.com/rest/public/v2/shops/XD79DE42EADA5EA5D1DE8FB75903B7B4F/reviews');
+          curl_setopt($ch, CURLOPT_URL, 'https://api.trustedshops.com/rest/public/v2/shops/'.$trustedID.'/reviews');
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Accept: application/json',                                                                          
             'Content-Type: application/json'                                                                                
@@ -29,7 +30,7 @@
           $review->comment  = $tmp['comment'];
           $review->percent  = round((100 / '5.00') * $tmp['mark']);
           
-          $threshold        = 110;
+          $threshold        = 1000;
 
           if(strlen($review->comment) > $threshold) {
             $excerpt   = mb_substr($review->comment,0,($threshold - 4),'UTF-8');
@@ -47,8 +48,8 @@
         }
 
         if(count($reviews) > 0) {
-          if(count($reviews) > 5) {
-            $return->data = array_slice($reviews,0,5);
+          if(count($reviews) > 4) {
+            $return->data = array_slice($reviews,0,4);
           } else {
             $return->data = $reviews;
           }
@@ -66,7 +67,7 @@
           curl_setopt($ch, CURLOPT_HEADER, false);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
           curl_setopt($ch, CURLOPT_POST, false);
-          curl_setopt($ch, CURLOPT_URL, 'https://api.trustedshops.com/rest/public/v2/shops/XD79DE42EADA5EA5D1DE8FB75903B7B4F/quality/reviews.json');
+          curl_setopt($ch, CURLOPT_URL, 'https://api.trustedshops.com/rest/public/v2/shops/'.$trustedID.'/quality/reviews.json');
     
     $output = curl_exec($ch); curl_close($ch);
 
@@ -81,6 +82,7 @@
         $cache->overallMark = $jsonObject['response']['data'] ['shop']['qualityIndicators']['reviewIndicator']['overallMark'];
 
         $return->schema     = $cache;
+        $return->url        = 'https://www.trustedshops.de/bewertung/info_'.$trustedID.'.html';
       } else {
         throw new Exception('Keine Daten bekommen');
       }
