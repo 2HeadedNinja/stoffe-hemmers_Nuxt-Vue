@@ -1,6 +1,6 @@
 @media all {
   [class*="product__card"] {
-    &[class="product__card-cardwrap"] {
+    &.product__card-cardwrap {
       grid-column                           : span 1;
 
       display                               : flex;

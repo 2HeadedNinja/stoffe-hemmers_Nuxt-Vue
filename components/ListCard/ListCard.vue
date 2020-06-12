@@ -18,7 +18,7 @@
       </div>
       <ListCardFlagList :flags="productData.flags"></ListCardFlagList>
       <a :class="'product__card-cardwrap__productimage ' + format" :title="productData.name" :href="productData.href" @click.prevent @mousedown="mousedown" @mouseup="mouseup">
-        <ListCardImage :alt="productData.name" :images="productData.image"></ListCardImage>
+        <ListCardImage :alt="productData.name" :images="productData.image" @ProductImageLoaded="image"></ListCardImage>
       </a>
       <AppButton v-if="details" @AppButtonClick="quickView" :css="'app__button-slim-small'" :icon="'eye-show-line'" :hovericon="'eye-love-this'" :label="'Schnellansicht'">Schnellansicht</AppButton>
     </div>
@@ -81,8 +81,9 @@
 
     data() {
       return {
-        clicktime : null,
-        interval  : null
+        clicktime   : null,
+        interval    : null,
+        imageLoaded : null,
       }
     },
 
@@ -150,6 +151,10 @@
             }
           }
         }
+      },
+
+      image   : function() {
+        this.$data.imageLoaded = true;
       }
     },
 
